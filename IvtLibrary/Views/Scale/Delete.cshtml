@@ -1,0 +1,23 @@
+﻿@model LibraryModel.Scale
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Удалить масштаб конференций?</h3>
+<fieldset>
+    <legend>Масштаб</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Отмена", "Index")
+    </p>
+}

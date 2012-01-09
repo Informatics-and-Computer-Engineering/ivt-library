@@ -1,0 +1,35 @@
+﻿@model LibraryModel.Book
+
+@{
+    ViewBag.Title = "Книги";
+}
+
+<h2>Подробности</h2>
+
+<fieldset>
+    <legend>Книга</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Год издания</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Year)
+    </div>
+
+    <div class="display-label">Издательство</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Publisher)
+    </div>
+
+    <div class="display-label">Количество страниц</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Volume)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Назад к списку", "Index")
+</p>

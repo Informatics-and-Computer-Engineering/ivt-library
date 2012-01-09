@@ -1,0 +1,25 @@
+﻿@model LibraryModel.Type
+
+@{
+    ViewBag.Title = "Тип файлов";
+}
+
+<h2>Описание</h2>
+
+<fieldset>
+    <legend>Тип файлов</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Описание</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Назад к списку", "Index")
+</p>

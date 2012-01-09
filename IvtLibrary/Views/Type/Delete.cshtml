@@ -1,0 +1,28 @@
+﻿@model LibraryModel.Type
+
+@{
+    ViewBag.Title = "Тип файлов";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены, что хотите удалить данный тип?</h3>
+<fieldset>
+    <legend>Тип файлов</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Описание</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Отмена", "Index")
+    </p>
+}

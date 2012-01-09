@@ -1,0 +1,38 @@
+﻿@model LibraryModel.Conference
+
+@{
+    ViewBag.Title = "Конференции";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены, что хотите удалить данную конференцию?</h3>
+<fieldset>
+    <legend>Конференция</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Место проведения</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Place)
+    </div>
+
+    <div class="display-label">Полное название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FullName)
+    </div>
+
+    <div class="display-label">Масштаб</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Scale.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Отмена", "Index")
+    </p>
+}

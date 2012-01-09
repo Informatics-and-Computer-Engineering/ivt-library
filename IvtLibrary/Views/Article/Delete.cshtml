@@ -1,0 +1,38 @@
+﻿@model LibraryModel.Article
+
+@{
+    ViewBag.Title = "Статья";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы дествительно хотите удалить данную статью?</h3>
+<fieldset>
+    <legend>Статья</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Город публикации</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City.Name)
+    </div>
+
+    <div class="display-label">Конференция</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Conference.Name)
+    </div>
+
+    <div class="display-label">Год публикации</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Year)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Отмена", "Index")
+    </p>
+}

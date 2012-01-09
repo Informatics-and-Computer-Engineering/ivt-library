@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LibraryModel.Author>
+
+@{
+    ViewBag.Title = "Авторы";
+}
+
+<h2>Авторы</h2>
+
+<p>
+    @Html.ActionLink("Добавить нового автора", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Имя
+        </th>
+        <th>
+            Отчество
+        </th>
+        <th>
+            Фамилия
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiddleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Подробное описание", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

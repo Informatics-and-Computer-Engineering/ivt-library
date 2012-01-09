@@ -1,0 +1,25 @@
+﻿@model LibraryModel.Research
+
+@{
+    ViewBag.Title = "Исследования";
+}
+
+<h2>Подробное описание</h2>
+
+<fieldset>
+    <legend>Исследование</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Подробное описание</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактирование", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Назад к списку", "Index")
+</p>

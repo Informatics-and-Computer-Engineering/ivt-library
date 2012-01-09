@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LibraryModel.File>
+
+@{
+    ViewBag.Title = "Файлы";
+}
+
+<h2>Список файлов</h2>
+
+<p>
+    @Html.ActionLink("Создать новый", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Название
+        </th>
+        <th>
+            Расширение
+        </th>
+        <th>
+            Тип
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Подробное описание", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

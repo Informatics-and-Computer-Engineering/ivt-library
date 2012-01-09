@@ -1,0 +1,16 @@
+C:\Users\nick\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.Tests.dll.config
+C:\Users\nick\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.Tests.dll
+C:\Users\nick\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.Tests.pdb
+C:\Users\nick\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.dll
+C:\Users\nick\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.pdb
+C:\Users\nick\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\nick\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\obj\Debug\IvtLibrary.Tests.dll
+C:\Users\nick\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\obj\Debug\IvtLibrary.Tests.pdb
+C:\Users\Артемий\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.Tests.dll.config
+C:\Users\Артемий\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.Tests.dll
+C:\Users\Артемий\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.Tests.pdb
+C:\Users\Артемий\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.dll
+C:\Users\Артемий\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\bin\Debug\IvtLibrary.pdb
+C:\Users\Артемий\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Артемий\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\obj\Debug\IvtLibrary.Tests.dll
+C:\Users\Артемий\Documents\Visual Studio 2010\Projects\IvtLibrary\IvtLibrary.Tests\obj\Debug\IvtLibrary.Tests.pdb

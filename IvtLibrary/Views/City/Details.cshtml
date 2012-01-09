@@ -1,0 +1,20 @@
+﻿@model LibraryModel.City
+
+@{
+    ViewBag.Title = "Города";
+}
+
+<h2>Подробности</h2>
+
+<fieldset>
+    <legend>Город</legend>
+
+    <div class="display-label">Название города</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Назад к списку", "Index")
+</p>

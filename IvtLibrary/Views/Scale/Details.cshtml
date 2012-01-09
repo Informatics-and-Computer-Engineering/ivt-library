@@ -1,0 +1,20 @@
+﻿@model LibraryModel.Scale
+
+@{
+    ViewBag.Title = "Описание";
+}
+
+<h2>Описание</h2>
+
+<fieldset>
+    <legend>Масштаб</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактирование", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Назад к списку", "Index")
+</p>

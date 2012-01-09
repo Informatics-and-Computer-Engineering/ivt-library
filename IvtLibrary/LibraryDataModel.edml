@@ -1,0 +1,1799 @@
+﻿<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LibraryModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:devart="http://devart.com/schemas/edml/StorageSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="LibraryEntitiesStoreContainer">
+          <EntitySet Name="Author_Books" EntityType="LibraryModel.Store.Author_Book" store:Type="Tables" Schema="public" Table="Author_Book" />
+          <EntitySet Name="Research_Authors" EntityType="LibraryModel.Store.Research_Author" store:Type="Tables" Schema="public" Table="Research_Author" />
+          <EntitySet Name="Theme_Articles" EntityType="LibraryModel.Store.Theme_Article" store:Type="Tables" Schema="public" Table="Theme_Article" />
+          <EntitySet Name="Theme_Books" EntityType="LibraryModel.Store.Theme_Book" store:Type="Tables" Schema="public" Table="Theme_Book" />
+          <EntitySet Name="Cities" EntityType="LibraryModel.Store.City" store:Type="Tables" Schema="public" Table="City" />
+          <EntitySet Name="Research_Themes" EntityType="LibraryModel.Store.Research_Theme" store:Type="Tables" Schema="public" Table="Research_Theme" />
+          <EntitySet Name="Research_Books" EntityType="LibraryModel.Store.Research_Book" store:Type="Tables" Schema="public" Table="Research_Book" />
+          <EntitySet Name="Research_Files" EntityType="LibraryModel.Store.Research_File" store:Type="Tables" Schema="public" Table="Research_File" />
+          <EntitySet Name="Researches" EntityType="LibraryModel.Store.Research" store:Type="Tables" Schema="public" Table="Research" />
+          <EntitySet Name="Book_Files" EntityType="LibraryModel.Store.Book_File" store:Type="Tables" Schema="public" Table="Book_File" />
+          <EntitySet Name="Theme_Authors" EntityType="LibraryModel.Store.Theme_Author" store:Type="Tables" Schema="public" Table="Theme_Author" />
+          <EntitySet Name="Conferences" EntityType="LibraryModel.Store.Conference" store:Type="Tables" Schema="public" Table="Conference" />
+          <EntitySet Name="Themes" EntityType="LibraryModel.Store.Theme" store:Type="Tables" Schema="public" Table="Theme" />
+          <EntitySet Name="Scales" EntityType="LibraryModel.Store.Scale" store:Type="Tables" Schema="public" Table="Scale" />
+          <EntitySet Name="Files" EntityType="LibraryModel.Store.File" store:Type="Tables" Schema="public" Table="File" />
+          <EntitySet Name="Article_Articles" EntityType="LibraryModel.Store.Article_Article" store:Type="Tables" Schema="public" Table="Article_Article" />
+          <EntitySet Name="Articles" EntityType="LibraryModel.Store.Article" store:Type="Tables" Schema="public" Table="Article" />
+          <EntitySet Name="Research_Articles" EntityType="LibraryModel.Store.Research_Article" store:Type="Tables" Schema="public" Table="Research_Article" />
+          <EntitySet Name="Article_Books" EntityType="LibraryModel.Store.Article_Book" store:Type="Tables" Schema="public" Table="Article_Book" />
+          <EntitySet Name="Books" EntityType="LibraryModel.Store.Book" store:Type="Tables" Schema="public" Table="Book" />
+          <EntitySet Name="Author_Articles" EntityType="LibraryModel.Store.Author_Article" store:Type="Tables" Schema="public" Table="Author_Article" />
+          <EntitySet Name="Authors" EntityType="LibraryModel.Store.Author" store:Type="Tables" Schema="public" Table="Author" />
+          <EntitySet Name="File_Articles" EntityType="LibraryModel.Store.File_Article" store:Type="Tables" Schema="public" Table="File_Article" />
+          <EntitySet Name="Types" EntityType="LibraryModel.Store.Type" store:Type="Tables" Schema="public" Table="Type" />
+          <AssociationSet Name="fk_author" Association="LibraryModel.Store.fk_author">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Author_Book" EntitySet="Author_Books" />
+          </AssociationSet>
+          <AssociationSet Name="fk_book" Association="LibraryModel.Store.fk_book">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Author_Book" EntitySet="Author_Books" />
+          </AssociationSet>
+          <AssociationSet Name="fk_author1" Association="LibraryModel.Store.fk_author1">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Research_Author" EntitySet="Research_Authors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_research" Association="LibraryModel.Store.fk_research">
+            <End Role="Research" EntitySet="Researches" />
+            <End Role="Research_Author" EntitySet="Research_Authors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_article" Association="LibraryModel.Store.fk_article">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="Theme_Article" EntitySet="Theme_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_theme" Association="LibraryModel.Store.fk_theme">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Theme_Article" EntitySet="Theme_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_book1" Association="LibraryModel.Store.fk_book1">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Theme_Book" EntitySet="Theme_Books" />
+          </AssociationSet>
+          <AssociationSet Name="fk_theme1" Association="LibraryModel.Store.fk_theme1">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Theme_Book" EntitySet="Theme_Books" />
+          </AssociationSet>
+          <AssociationSet Name="fk_research1" Association="LibraryModel.Store.fk_research1">
+            <End Role="Research" EntitySet="Researches" />
+            <End Role="Research_Theme" EntitySet="Research_Themes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_theme2" Association="LibraryModel.Store.fk_theme2">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Research_Theme" EntitySet="Research_Themes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_book2" Association="LibraryModel.Store.fk_book2">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Research_Book" EntitySet="Research_Books" />
+          </AssociationSet>
+          <AssociationSet Name="fk_research2" Association="LibraryModel.Store.fk_research2">
+            <End Role="Research" EntitySet="Researches" />
+            <End Role="Research_Book" EntitySet="Research_Books" />
+          </AssociationSet>
+          <AssociationSet Name="fk_file" Association="LibraryModel.Store.fk_file">
+            <End Role="File" EntitySet="Files" />
+            <End Role="Research_File" EntitySet="Research_Files" />
+          </AssociationSet>
+          <AssociationSet Name="fk_research3" Association="LibraryModel.Store.fk_research3">
+            <End Role="Research" EntitySet="Researches" />
+            <End Role="Research_File" EntitySet="Research_Files" />
+          </AssociationSet>
+          <AssociationSet Name="fk_book3" Association="LibraryModel.Store.fk_book3">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Book_File" EntitySet="Book_Files" />
+          </AssociationSet>
+          <AssociationSet Name="fk_file1" Association="LibraryModel.Store.fk_file1">
+            <End Role="File" EntitySet="Files" />
+            <End Role="Book_File" EntitySet="Book_Files" />
+          </AssociationSet>
+          <AssociationSet Name="fk_author2" Association="LibraryModel.Store.fk_author2">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Theme_Author" EntitySet="Theme_Authors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_theme3" Association="LibraryModel.Store.fk_theme3">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Theme_Author" EntitySet="Theme_Authors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_scale" Association="LibraryModel.Store.fk_scale">
+            <End Role="Scale" EntitySet="Scales" />
+            <End Role="Conference" EntitySet="Conferences" />
+          </AssociationSet>
+          <AssociationSet Name="fk_host_article" Association="LibraryModel.Store.fk_host_article">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="Article_Article" EntitySet="Article_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_referenced_article" Association="LibraryModel.Store.fk_referenced_article">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="Article_Article" EntitySet="Article_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_city" Association="LibraryModel.Store.fk_city">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Article" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_conference" Association="LibraryModel.Store.fk_conference">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Article" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_article1" Association="LibraryModel.Store.fk_article1">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="Research_Article" EntitySet="Research_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_research4" Association="LibraryModel.Store.fk_research4">
+            <End Role="Research" EntitySet="Researches" />
+            <End Role="Research_Article" EntitySet="Research_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_article2" Association="LibraryModel.Store.fk_article2">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="Article_Book" EntitySet="Article_Books" />
+          </AssociationSet>
+          <AssociationSet Name="fk_book4" Association="LibraryModel.Store.fk_book4">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Article_Book" EntitySet="Article_Books" />
+          </AssociationSet>
+          <AssociationSet Name="fk_article3" Association="LibraryModel.Store.fk_article3">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="Author_Article" EntitySet="Author_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_author3" Association="LibraryModel.Store.fk_author3">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Author_Article" EntitySet="Author_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_article4" Association="LibraryModel.Store.fk_article4">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="File_Article" EntitySet="File_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_file2" Association="LibraryModel.Store.fk_file2">
+            <End Role="File" EntitySet="Files" />
+            <End Role="File_Article" EntitySet="File_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_type" Association="LibraryModel.Store.fk_type">
+            <End Role="Type" EntitySet="Types" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Author_Book">
+          <Documentation>
+            <LongDescription>Таблица, связывающая авторов и их книги.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="author_id" />
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="author_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>Ссылка на автора.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="book_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>Ссылка на книгу.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Research_Author">
+          <Documentation>
+            <LongDescription>Таблица, связывающая автора и их исследования.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="author_id" />
+            <PropertyRef Name="research_id" />
+          </Key>
+          <Property Name="author_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id автора.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="research_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id исследования.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Theme_Article">
+          <Documentation>
+            <LongDescription>Таблица тем той или иной статьи.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="theme_id" />
+            <PropertyRef Name="article_d" />
+          </Key>
+          <Property Name="theme_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id темы.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="article_d" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id статьи.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Theme_Book">
+          <Documentation>
+            <LongDescription>Таблица, связывающая книги и темы.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="theme_id" />
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="theme_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id темы.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="book_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id книги.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="City">
+          <Documentation>
+            <LongDescription>Города, в которых проводятся конференции.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="100">
+            <Documentation>
+              <LongDescription>Название города.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Research_Theme">
+          <Documentation>
+            <LongDescription>Таблица, связывающая исследования и их тематику.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="research_id" />
+            <PropertyRef Name="theme_id" />
+          </Key>
+          <Property Name="research_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id исследования.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="theme_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id темы.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Research_Book">
+          <Documentation>
+            <LongDescription>Таблица, связывающая исследования и книги.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="research_id" />
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="research_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id исследования.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="book_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id книги.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Research_File">
+          <Documentation>
+            <LongDescription>Таблица, связывающая эксперименты с их файлами.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="research_id" />
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="research_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id исследования.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="file_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id файла.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Research">
+          <Documentation>
+            <LongDescription>Исследования.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор таблицы.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255">
+            <Documentation>
+              <LongDescription>Название эксперимента.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="description" Type="varchar" MaxLength="255">
+            <Documentation>
+              <LongDescription>Описание эксперимента.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Book_File">
+          <Documentation>
+            <LongDescription>Таблица, связывающая книги с файлами.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="book_id" />
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="book_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id книги.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="file_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id файла.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Theme_Author">
+          <Documentation>
+            <LongDescription>Таблица, связывающая авторов и темы их публикаций и работ.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="theme_id" />
+            <PropertyRef Name="author_id" />
+          </Key>
+          <Property Name="theme_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id темы.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="author_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id автора.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Conference">
+          <Documentation>
+            <LongDescription>Конференции.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255">
+            <Documentation>
+              <LongDescription>Название конференции.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="place" Type="varchar" Nullable="false" MaxLength="255">
+            <Documentation>
+              <LongDescription>Место проведения. (университет, ВУЗ)</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="full_name" Type="varchar" MaxLength="255">
+            <Documentation>
+              <LongDescription>Полное название конференции, включая место её проведения.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="scale_id" Type="int">
+            <Documentation>
+              <LongDescription>id масштаба конференции.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Theme">
+          <Documentation>
+            <LongDescription>Тематики научных исследований, публикаций и т. д.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255">
+            <Documentation>
+              <LongDescription>Название темы.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="description" Type="varchar" MaxLength="255">
+            <Documentation>
+              <LongDescription>Описание темы.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Scale">
+          <Documentation>
+            <LongDescription>Таблица с перечнем масштабов конференций.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="100">
+            <Documentation>
+              <LongDescription>Масштаб (Городская, Международная, Региональная и т. д.).</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="File">
+          <Documentation>
+            <LongDescription>Таблица со всеми файлами.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный идентификатор файла.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255">
+            <Documentation>
+              <LongDescription>Название файла в ФС.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="content_type" Type="varchar" Nullable="false" MaxLength="30" devart:DefaultValue="'unknown'" DefaultValue="unknown">
+            <Documentation>
+              <LongDescription>Формат файла.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="type_id" Type="int" />
+          <Property Name="data" Type="bytea" Nullable="false">
+            <Documentation>
+              <LongDescription>Файл.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Article_Article">
+          <Documentation>
+            <LongDescription>Ссылки статей на другие статьи в списке литературы.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="host_article_id" />
+            <PropertyRef Name="referenced_article_id" />
+          </Key>
+          <Property Name="host_article_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>Статья, которая ссылается на другую.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="referenced_article_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>Статья, используемая в списке литературы.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Article">
+          <Documentation>
+            <LongDescription>Статьи и публикации.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255">
+            <Documentation>
+              <LongDescription>Название статьи.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="city_id" Type="int">
+            <Documentation>
+              <LongDescription>id города, где проходила конференция.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="conference_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id конференции.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="year" Type="int">
+            <Documentation>
+              <LongDescription>Год публикации.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Research_Article">
+          <Documentation>
+            <LongDescription>Таблица связывающая статьи и используемые в них исследования.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="research_id" />
+            <PropertyRef Name="article_id" />
+          </Key>
+          <Property Name="research_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id исследования.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="article_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id статьи</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Article_Book">
+          <Documentation>
+            <LongDescription>Таблица книг, используемых в списках литературы статей.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="article_id" />
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="article_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id статьи.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="book_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id книги.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Book">
+          <Documentation>
+            <LongDescription>Книги.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255">
+            <Documentation>
+              <LongDescription>Название книги.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="year" Type="int">
+            <Documentation>
+              <LongDescription>Год издания книги.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="publisher" Type="varchar" MaxLength="255">
+            <Documentation>
+              <LongDescription>Издатель.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="volume" Type="int">
+            <Documentation>
+              <LongDescription>Количество страниц.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Author_Article">
+          <Documentation>
+            <LongDescription>Таблица, связывающая статьи и их авторов.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="author_id" />
+            <PropertyRef Name="article_id" />
+          </Key>
+          <Property Name="author_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id автора.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="article_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id статьи.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Author">
+          <Documentation>
+            <LongDescription>Таблица авторов, статей, книг, экспериментов и пр.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="first_name" Type="varchar" MaxLength="60">
+            <Documentation>
+              <LongDescription>Имя автора.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="middle_name" Type="varchar" MaxLength="60">
+            <Documentation>
+              <LongDescription>Отчество автора.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="last_name" Type="varchar" Nullable="false" MaxLength="60">
+            <Documentation>
+              <LongDescription>Фамилимя автора.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="File_Article">
+          <Documentation>
+            <LongDescription>Таблица, связывающая статьи с их файлами (текстами, презентациями ,заявками ,и т.д.)</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="file_id" />
+            <PropertyRef Name="article_id" />
+          </Key>
+          <Property Name="file_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id файла</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="article_id" Type="int" Nullable="false">
+            <Documentation>
+              <LongDescription>id статьи</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Type">
+          <Documentation>
+            <LongDescription>Тип содержимого тех или иных элементов.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255">
+            <Documentation>
+              <LongDescription>Название типа.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="description" Type="varchar" MaxLength="512">
+            <Documentation>
+              <LongDescription>Описание типа.</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <Association Name="fk_author">
+          <End Role="Author" Type="LibraryModel.Store.Author" Multiplicity="1" />
+          <End Role="Author_Book" Type="LibraryModel.Store.Author_Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Author_Book">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_book">
+          <End Role="Book" Type="LibraryModel.Store.Book" Multiplicity="1" />
+          <End Role="Author_Book" Type="LibraryModel.Store.Author_Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Author_Book">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_author1">
+          <End Role="Author" Type="LibraryModel.Store.Author" Multiplicity="1" />
+          <End Role="Research_Author" Type="LibraryModel.Store.Research_Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_Author">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_research">
+          <End Role="Research" Type="LibraryModel.Store.Research" Multiplicity="1" />
+          <End Role="Research_Author" Type="LibraryModel.Store.Research_Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Research">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_Author">
+              <PropertyRef Name="research_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_article">
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="1" />
+          <End Role="Theme_Article" Type="LibraryModel.Store.Theme_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Theme_Article">
+              <PropertyRef Name="article_d" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_theme">
+          <End Role="Theme" Type="LibraryModel.Store.Theme" Multiplicity="1" />
+          <End Role="Theme_Article" Type="LibraryModel.Store.Theme_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Theme_Article">
+              <PropertyRef Name="theme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_book1">
+          <End Role="Book" Type="LibraryModel.Store.Book" Multiplicity="1" />
+          <End Role="Theme_Book" Type="LibraryModel.Store.Theme_Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Theme_Book">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_theme1">
+          <End Role="Theme" Type="LibraryModel.Store.Theme" Multiplicity="1" />
+          <End Role="Theme_Book" Type="LibraryModel.Store.Theme_Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Theme_Book">
+              <PropertyRef Name="theme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_research1">
+          <End Role="Research" Type="LibraryModel.Store.Research" Multiplicity="1" />
+          <End Role="Research_Theme" Type="LibraryModel.Store.Research_Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Research">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_Theme">
+              <PropertyRef Name="research_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_theme2">
+          <End Role="Theme" Type="LibraryModel.Store.Theme" Multiplicity="1" />
+          <End Role="Research_Theme" Type="LibraryModel.Store.Research_Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_Theme">
+              <PropertyRef Name="theme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_book2">
+          <End Role="Book" Type="LibraryModel.Store.Book" Multiplicity="1" />
+          <End Role="Research_Book" Type="LibraryModel.Store.Research_Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_Book">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_research2">
+          <End Role="Research" Type="LibraryModel.Store.Research" Multiplicity="1" />
+          <End Role="Research_Book" Type="LibraryModel.Store.Research_Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Research">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_Book">
+              <PropertyRef Name="research_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_file">
+          <End Role="File" Type="LibraryModel.Store.File" Multiplicity="1" />
+          <End Role="Research_File" Type="LibraryModel.Store.Research_File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_File">
+              <PropertyRef Name="file_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_research3">
+          <End Role="Research" Type="LibraryModel.Store.Research" Multiplicity="1" />
+          <End Role="Research_File" Type="LibraryModel.Store.Research_File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Research">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_File">
+              <PropertyRef Name="research_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_book3">
+          <End Role="Book" Type="LibraryModel.Store.Book" Multiplicity="1" />
+          <End Role="Book_File" Type="LibraryModel.Store.Book_File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Book_File">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_file1">
+          <End Role="File" Type="LibraryModel.Store.File" Multiplicity="1" />
+          <End Role="Book_File" Type="LibraryModel.Store.Book_File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Book_File">
+              <PropertyRef Name="file_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_author2">
+          <End Role="Author" Type="LibraryModel.Store.Author" Multiplicity="1" />
+          <End Role="Theme_Author" Type="LibraryModel.Store.Theme_Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Theme_Author">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_theme3">
+          <End Role="Theme" Type="LibraryModel.Store.Theme" Multiplicity="1" />
+          <End Role="Theme_Author" Type="LibraryModel.Store.Theme_Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Theme_Author">
+              <PropertyRef Name="theme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_scale">
+          <End Role="Scale" Type="LibraryModel.Store.Scale" Multiplicity="0..1" />
+          <End Role="Conference" Type="LibraryModel.Store.Conference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scale">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Conference">
+              <PropertyRef Name="scale_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_host_article">
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="1" />
+          <End Role="Article_Article" Type="LibraryModel.Store.Article_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Article_Article">
+              <PropertyRef Name="host_article_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_referenced_article">
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="1" />
+          <End Role="Article_Article" Type="LibraryModel.Store.Article_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Article_Article">
+              <PropertyRef Name="referenced_article_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_city">
+          <End Role="City" Type="LibraryModel.Store.City" Multiplicity="0..1" />
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Article">
+              <PropertyRef Name="city_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_conference">
+          <End Role="Conference" Type="LibraryModel.Store.Conference" Multiplicity="1" />
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Article">
+              <PropertyRef Name="conference_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_article1">
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="1" />
+          <End Role="Research_Article" Type="LibraryModel.Store.Research_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_Article">
+              <PropertyRef Name="article_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_research4">
+          <End Role="Research" Type="LibraryModel.Store.Research" Multiplicity="1" />
+          <End Role="Research_Article" Type="LibraryModel.Store.Research_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Research">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Research_Article">
+              <PropertyRef Name="research_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_article2">
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="1" />
+          <End Role="Article_Book" Type="LibraryModel.Store.Article_Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Article_Book">
+              <PropertyRef Name="article_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_book4">
+          <End Role="Book" Type="LibraryModel.Store.Book" Multiplicity="1" />
+          <End Role="Article_Book" Type="LibraryModel.Store.Article_Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Article_Book">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_article3">
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="1" />
+          <End Role="Author_Article" Type="LibraryModel.Store.Author_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Author_Article">
+              <PropertyRef Name="article_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_author3">
+          <End Role="Author" Type="LibraryModel.Store.Author" Multiplicity="1" />
+          <End Role="Author_Article" Type="LibraryModel.Store.Author_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Author_Article">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_article4">
+          <End Role="Article" Type="LibraryModel.Store.Article" Multiplicity="1" />
+          <End Role="File_Article" Type="LibraryModel.Store.File_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File_Article">
+              <PropertyRef Name="article_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_file2">
+          <End Role="File" Type="LibraryModel.Store.File" Multiplicity="1" />
+          <End Role="File_Article" Type="LibraryModel.Store.File_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File_Article">
+              <PropertyRef Name="file_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_type">
+          <End Role="Type" Type="LibraryModel.Store.Type" Multiplicity="0..1" />
+          <End Role="File" Type="LibraryModel.Store.File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibraryModel" Alias="Self" d4p1:ViewGeneration="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:devart="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" xmlns:d4p1="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true" ed:Guid="d4fc5529-8bcd-41c5-96dd-d7da4d142dc3">
+          <EntitySet Name="Cities" EntityType="LibraryModel.City" />
+          <EntitySet Name="Researches" EntityType="LibraryModel.Research" />
+          <EntitySet Name="Conferences" EntityType="LibraryModel.Conference" />
+          <EntitySet Name="Themes" EntityType="LibraryModel.Theme" />
+          <EntitySet Name="Scales" EntityType="LibraryModel.Scale" />
+          <EntitySet Name="Files" EntityType="LibraryModel.File" />
+          <EntitySet Name="Articles" EntityType="LibraryModel.Article" />
+          <EntitySet Name="Books" EntityType="LibraryModel.Book" />
+          <EntitySet Name="Authors" EntityType="LibraryModel.Author" />
+          <EntitySet Name="Types" EntityType="LibraryModel.Type" />
+          <AssociationSet Name="Scale_ConferenceSet" Association="LibraryModel.Scale_Conference">
+            <End Role="Scale" EntitySet="Scales" />
+            <End Role="Conferences" EntitySet="Conferences" />
+          </AssociationSet>
+          <AssociationSet Name="City_ArticleSet" Association="LibraryModel.City_Article">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="Conference_ArticleSet" Association="LibraryModel.Conference_Article">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="Author_BookSet" Association="LibraryModel.Author_Book">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="Author_ResearchSet" Association="LibraryModel.Author_Research">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Researches" EntitySet="Researches" />
+          </AssociationSet>
+          <AssociationSet Name="Article_ThemeSet" Association="LibraryModel.Article_Theme">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="Themes" EntitySet="Themes" />
+          </AssociationSet>
+          <AssociationSet Name="Book_ThemeSet" Association="LibraryModel.Book_Theme">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="Themes" EntitySet="Themes" />
+          </AssociationSet>
+          <AssociationSet Name="Research_ThemeSet" Association="LibraryModel.Research_Theme">
+            <End Role="Researches" EntitySet="Researches" />
+            <End Role="Themes" EntitySet="Themes" />
+          </AssociationSet>
+          <AssociationSet Name="Book_ResearchSet" Association="LibraryModel.Book_Research">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="Researches" EntitySet="Researches" />
+          </AssociationSet>
+          <AssociationSet Name="File_ResearchSet" Association="LibraryModel.File_Research">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="Researches" EntitySet="Researches" />
+          </AssociationSet>
+          <AssociationSet Name="Book_FileSet" Association="LibraryModel.Book_File">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="Author_ThemeSet" Association="LibraryModel.Author_Theme">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Themes" EntitySet="Themes" />
+          </AssociationSet>
+          <AssociationSet Name="Article_ArticleSet" Association="LibraryModel.Article_Article">
+            <End Role="Articles1" EntitySet="Articles" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="Article_ResearchSet" Association="LibraryModel.Article_Research">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="Researches" EntitySet="Researches" />
+          </AssociationSet>
+          <AssociationSet Name="Article_BookSet" Association="LibraryModel.Article_Book">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="Article_AuthorSet" Association="LibraryModel.Article_Author">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="Authors" EntitySet="Authors" />
+          </AssociationSet>
+          <AssociationSet Name="Article_FileSet" Association="LibraryModel.Article_File">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="Type_FileSet" Association="LibraryModel.Type_File">
+            <End Role="Type" EntitySet="Types" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="City" ed:Guid="b2a8e875-ed39-43db-93cb-edf4d0b26e83">
+          <Documentation>
+            <LongDescription>Города, в которых проводятся конференции.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="55bac66b-dde9-4f2b-9757-80767a1e5579">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="True" ed:Guid="76b6b02f-71fc-4cf6-9a1a-e40b49e3a255">
+            <Documentation>
+              <LongDescription>Название города.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Articles" Relationship="LibraryModel.City_Article" FromRole="City" ToRole="Articles" ed:Guid="4a63c1a3-bb86-4fe0-998b-15e9ce6539b7" />
+        </EntityType>
+        <EntityType Name="Research" ed:Guid="af000ed9-7fe7-4067-ab74-7f4903609dfc">
+          <Documentation>
+            <LongDescription>Исследования.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="6b6b93fe-030f-4ef2-b11f-96a59d19fabc">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор таблицы.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="True" ed:Guid="18102c65-16a7-438d-9001-0c73c52143de">
+            <Documentation>
+              <LongDescription>Название эксперимента.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:Guid="93e21cd8-8355-4ea2-abba-7e5db9dd5996">
+            <Documentation>
+              <LongDescription>Описание эксперимента.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Authors" Relationship="LibraryModel.Author_Research" FromRole="Researches" ToRole="Authors" ed:Guid="4a2cee1f-60e7-4131-b32d-c2cce5187bb1" />
+          <NavigationProperty Name="Themes" Relationship="LibraryModel.Research_Theme" FromRole="Researches" ToRole="Themes" ed:Guid="4385e90b-743f-418b-bf02-0faeb02bfa1e" />
+          <NavigationProperty Name="Books" Relationship="LibraryModel.Book_Research" FromRole="Researches" ToRole="Books" ed:Guid="3ba17d4a-2144-40d1-b44e-378b5a999e9d" />
+          <NavigationProperty Name="Files" Relationship="LibraryModel.File_Research" FromRole="Researches" ToRole="Files" ed:Guid="7f104367-5896-4570-ba43-32c48df26af9" />
+          <NavigationProperty Name="Articles" Relationship="LibraryModel.Article_Research" FromRole="Researches" ToRole="Articles" ed:Guid="0411b368-c7f7-4ead-b06d-b7b2245a0e6e" />
+        </EntityType>
+        <EntityType Name="Conference" ed:Guid="7fbfdf80-7923-4c83-9d39-747932ea8bce">
+          <Documentation>
+            <LongDescription>Конференции.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="660a8589-4365-4636-95e3-c5943e356e51">
+            <Documentation>
+              <LongDescription>Уникальный идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="True" ed:Guid="36cebb75-b5a1-481e-9b13-a305f8d6f327">
+            <Documentation>
+              <LongDescription>Название конференции.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Place" Type="String" Nullable="false" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="True" ed:Guid="0ecdb4db-f601-47c1-9abf-320118354b59">
+            <Documentation>
+              <LongDescription>Место проведения. (университет, ВУЗ)</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="FullName" Type="String" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:Guid="1e515376-b3eb-4f64-a536-eb5b2382050b">
+            <Documentation>
+              <LongDescription>Полное название конференции, включая место её проведения.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="ScaleId" Type="Int32" ed:Guid="89b8610d-224a-4243-a083-d457d67bb757">
+            <Documentation>
+              <LongDescription>id масштаба конференции.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Scale" Relationship="LibraryModel.Scale_Conference" FromRole="Conferences" ToRole="Scale" ed:Guid="5593322a-4307-4f4b-9f6a-3d2e934fa825" />
+          <NavigationProperty Name="Articles" Relationship="LibraryModel.Conference_Article" FromRole="Conference" ToRole="Articles" ed:Guid="8f674ff6-164d-42f6-801e-51b817e8dce9" />
+        </EntityType>
+        <EntityType Name="Theme" ed:Guid="8a6ed8da-66e9-4ec6-b3c7-61075e5c68fb">
+          <Documentation>
+            <LongDescription>Тематики научных исследований, публикаций и т. д.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="808143b6-44f6-4aea-ab06-d1b438ad553b">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="True" ed:Guid="1c6cad35-7c62-4f03-aa52-d6010b8fbdff">
+            <Documentation>
+              <LongDescription>Название темы.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:Guid="c159df84-df17-4110-b1cc-bc07f64fda66">
+            <Documentation>
+              <LongDescription>Описание темы.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Articles" Relationship="LibraryModel.Article_Theme" FromRole="Themes" ToRole="Articles" ed:Guid="f9278874-f1b4-431d-b44d-f139faa252d4" />
+          <NavigationProperty Name="Books" Relationship="LibraryModel.Book_Theme" FromRole="Themes" ToRole="Books" ed:Guid="c3e661f9-1250-40eb-bbbb-d281959fcc47" />
+          <NavigationProperty Name="Researches" Relationship="LibraryModel.Research_Theme" FromRole="Themes" ToRole="Researches" ed:Guid="bd3459e8-3a4f-4e96-9571-28f6ea9c89af" />
+          <NavigationProperty Name="Authors" Relationship="LibraryModel.Author_Theme" FromRole="Themes" ToRole="Authors" ed:Guid="ef376c56-a0f8-4b8b-a9bc-947c80ac8195" />
+        </EntityType>
+        <EntityType Name="Scale" ed:Guid="78958441-399a-4c4b-92f2-05a6e047370c">
+          <Documentation>
+            <LongDescription>Таблица с перечнем масштабов конференций.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="ea647e6a-c6a1-41c5-9aa8-baccb94fe255">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="True" ed:Guid="986aa165-2f5f-477f-9d12-b94c71b1beb4">
+            <Documentation>
+              <LongDescription>Масштаб (Городская, Международная, Региональная и т. д.).</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Conferences" Relationship="LibraryModel.Scale_Conference" FromRole="Scale" ToRole="Conferences" ed:Guid="e355ce1f-96ca-4328-9a52-49e88fe58876" />
+        </EntityType>
+        <EntityType Name="File" ed:Guid="14fe2037-3783-4fc4-9cdb-9cef331f7193">
+          <Documentation>
+            <LongDescription>Таблица со всеми файлами.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="c823a906-89c7-455a-9167-8562eeee86d5">
+            <Documentation>
+              <LongDescription>Уникальный идентификатор файла.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="True" ed:Guid="65883dc4-fbf6-4ff1-9ad6-9c7fbeae17a2">
+            <Documentation>
+              <LongDescription>Название файла в ФС.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="ContentType" Type="String" Nullable="false" DefaultValue="'unknown'" MaxLength="30" Unicode="true" ed:ValidateMaxLength="30" ed:ValidateRequired="True" ed:Guid="b37022c9-af35-4d9f-b453-15fcaaa033c2">
+            <Documentation>
+              <LongDescription>Формат файла.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="TypeId" Type="Int32" ed:Guid="b3e1c655-c10e-47ba-9b3a-7d8cd4d2ecb9" />
+          <Property Name="Data" Type="Binary" Nullable="false" ed:ValidateRequired="True" ed:Guid="e4fe0b26-3379-46e8-8723-4c9ac5439213">
+            <Documentation>
+              <LongDescription>Файл.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Researches" Relationship="LibraryModel.File_Research" FromRole="Files" ToRole="Researches" ed:Guid="3a125481-c4ed-4007-8e81-4454b95850c0" />
+          <NavigationProperty Name="Books" Relationship="LibraryModel.Book_File" FromRole="Files" ToRole="Books" ed:Guid="df03c09b-e3bd-497b-add0-b71548a72d54" />
+          <NavigationProperty Name="Articles" Relationship="LibraryModel.Article_File" FromRole="Files" ToRole="Articles" ed:Guid="40d4006c-d377-41b0-837d-af7d2c2dfadc" />
+          <NavigationProperty Name="Type" Relationship="LibraryModel.Type_File" FromRole="Files" ToRole="Type" ed:Guid="1ed7dbea-c46d-42c2-b991-2df4cf80c5fd" />
+        </EntityType>
+        <EntityType Name="Article" ed:Guid="5242b020-cffa-4167-ad7b-798c590de8e3">
+          <Documentation>
+            <LongDescription>Статьи и публикации.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="89fb2d64-91ff-447f-b900-632e9f99791b">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="True" ed:Guid="7579611b-a438-4ab5-892e-6135bb8b7afd">
+            <Documentation>
+              <LongDescription>Название статьи.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CityId" Type="Int32" ed:Guid="d14c7cb2-cf28-434e-9f3f-2e872bdad96a">
+            <Documentation>
+              <LongDescription>id города, где проходила конференция.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" ed:ValidateRequired="True" ed:Guid="ef039670-3d93-4fd7-b05b-789ff540376e">
+            <Documentation>
+              <LongDescription>id конференции.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Year" Type="Int32" ed:Guid="f468f5cf-694e-4f2b-94f0-9224c1347591">
+            <Documentation>
+              <LongDescription>Год публикации.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="City" Relationship="LibraryModel.City_Article" FromRole="Articles" ToRole="City" ed:Guid="5bd2c94d-f9f6-48b5-8488-6a31b0b52b27" />
+          <NavigationProperty Name="Conference" Relationship="LibraryModel.Conference_Article" FromRole="Articles" ToRole="Conference" ed:Guid="ccac9948-7843-4d53-b056-71bad6e2ab32" />
+          <NavigationProperty Name="Themes" Relationship="LibraryModel.Article_Theme" FromRole="Articles" ToRole="Themes" ed:Guid="ac3eccd0-ffb3-47bd-acef-64a3ed4c8369" />
+          <NavigationProperty Name="Articles" Relationship="LibraryModel.Article_Article" FromRole="Articles1" ToRole="Articles" ed:Guid="f1351c69-4fff-4ec6-a61d-c5dd4bd63b6c" />
+          <NavigationProperty Name="Articles1" Relationship="LibraryModel.Article_Article" FromRole="Articles" ToRole="Articles1" ed:Guid="51815557-1656-442c-9779-ba00f96c8578" />
+          <NavigationProperty Name="Researches" Relationship="LibraryModel.Article_Research" FromRole="Articles" ToRole="Researches" ed:Guid="b562ff41-8c44-46c2-a56b-db757291021f" />
+          <NavigationProperty Name="Books" Relationship="LibraryModel.Article_Book" FromRole="Articles" ToRole="Books" ed:Guid="3ca1da63-d89e-4e1a-b21a-fa56a374349f" />
+          <NavigationProperty Name="Authors" Relationship="LibraryModel.Article_Author" FromRole="Articles" ToRole="Authors" ed:Guid="3098e0f6-3780-4e9f-88dc-4af1d97eea0c" />
+          <NavigationProperty Name="Files" Relationship="LibraryModel.Article_File" FromRole="Articles" ToRole="Files" ed:Guid="1d0d7fcc-07f2-444d-b52c-97b4b4006ed6" />
+        </EntityType>
+        <EntityType Name="Book" ed:Guid="90f4b615-6299-4f87-9a2d-0ee9ac8502f5">
+          <Documentation>
+            <LongDescription>Книги.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="cd01e00f-a413-4211-a2ce-59c36c5abdce">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="True" ed:Guid="03ea958e-c10b-4020-aaed-1d2135db1c9f">
+            <Documentation>
+              <LongDescription>Название книги.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Year" Type="Int32" ed:Guid="d2814817-b137-48e4-98ac-c4e583e06a93">
+            <Documentation>
+              <LongDescription>Год издания книги.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Publisher" Type="String" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:Guid="287597ed-1ae0-420c-bb3e-36d1d9c2267a">
+            <Documentation>
+              <LongDescription>Издатель.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Volume" Type="Int32" ed:Guid="29c4a41a-e383-4689-b756-e01ee7a0b4c2">
+            <Documentation>
+              <LongDescription>Количество страниц.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Authors" Relationship="LibraryModel.Author_Book" FromRole="Books" ToRole="Authors" ed:Guid="1f05b39b-d354-4e14-80a0-f702ee7b1eca" />
+          <NavigationProperty Name="Themes" Relationship="LibraryModel.Book_Theme" FromRole="Books" ToRole="Themes" ed:Guid="2befa7a4-0bf9-4e7c-b615-4bd35b0f3137" />
+          <NavigationProperty Name="Researches" Relationship="LibraryModel.Book_Research" FromRole="Books" ToRole="Researches" ed:Guid="40dd6bbd-b2d7-45e9-b46d-7328cb39cb6b" />
+          <NavigationProperty Name="Files" Relationship="LibraryModel.Book_File" FromRole="Books" ToRole="Files" ed:Guid="7b675b6b-475d-4017-adc4-5a72f10d1855" />
+          <NavigationProperty Name="Articles" Relationship="LibraryModel.Article_Book" FromRole="Books" ToRole="Articles" ed:Guid="b2b6ce8f-77f8-4f3b-adc7-86e217c73b8a" />
+        </EntityType>
+        <EntityType Name="Author" ed:Guid="c372f598-d4a7-47ba-b7d8-ed7d4835bb26">
+          <Documentation>
+            <LongDescription>Таблица авторов, статей, книг, экспериментов и пр.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="e037cc1a-b37c-4406-a08a-8051ce05dfc9">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="FirstName" Type="String" MaxLength="60" Unicode="true" ed:ValidateMaxLength="60" ed:Guid="474ad621-6084-4bc7-8d21-ab66859507ed">
+            <Documentation>
+              <LongDescription>Имя автора.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="MiddleName" Type="String" MaxLength="60" Unicode="true" ed:ValidateMaxLength="60" ed:Guid="b59a2675-313f-4617-96f9-16b96593cbe4">
+            <Documentation>
+              <LongDescription>Отчество автора.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="60" Unicode="true" ed:ValidateMaxLength="60" ed:ValidateRequired="True" ed:Guid="f6c20efa-7519-428b-bea0-51a8e3befd44">
+            <Documentation>
+              <LongDescription>Фамилимя автора.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Books" Relationship="LibraryModel.Author_Book" FromRole="Authors" ToRole="Books" ed:Guid="3789b308-7e42-4eb3-8e0a-4d9a90e5f63c" />
+          <NavigationProperty Name="Researches" Relationship="LibraryModel.Author_Research" FromRole="Authors" ToRole="Researches" ed:Guid="faefa240-9dc2-4dc7-8e4d-3b045b61a0ab" />
+          <NavigationProperty Name="Themes" Relationship="LibraryModel.Author_Theme" FromRole="Authors" ToRole="Themes" ed:Guid="2d8a9719-ca2e-4a66-82db-6f8a38962fdb" />
+          <NavigationProperty Name="Articles" Relationship="LibraryModel.Article_Author" FromRole="Authors" ToRole="Articles" ed:Guid="e84b2721-80ed-4bf1-be2e-2c88e9bd0747" />
+        </EntityType>
+        <EntityType Name="Type" ed:Guid="00292049-eb1b-45d7-9f8e-48ee2ce1df96">
+          <Documentation>
+            <LongDescription>Тип содержимого тех или иных элементов.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ed:ValidateRequired="True" ed:Guid="2cf98695-c748-4105-9f36-360189e523ed">
+            <Documentation>
+              <LongDescription>Уникальный внутренний идентификатор.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="True" ed:Guid="c3f60929-8334-45ea-a3c2-8867e9ec3626">
+            <Documentation>
+              <LongDescription>Название типа.</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Description" Type="String" MaxLength="512" Unicode="true" ed:ValidateMaxLength="512" ed:Guid="7b7a48c5-eb86-48f7-9e89-c0d934c04f9b">
+            <Documentation>
+              <LongDescription>Описание типа.</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Files" Relationship="LibraryModel.Type_File" FromRole="Type" ToRole="Files" ed:Guid="fed34680-eb3a-4660-9ca9-340863061101" />
+        </EntityType>
+        <Association Name="Scale_Conference" ed:Guid="2afd0178-47e0-4174-abf0-3fc1a2ff64b2">
+          <End Role="Scale" Type="LibraryModel.Scale" Multiplicity="0..1" />
+          <End Role="Conferences" Type="LibraryModel.Conference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scale">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conferences">
+              <PropertyRef Name="ScaleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="City_Article" ed:Guid="526e8467-cfa0-4522-b17b-c93af97e87c0">
+          <End Role="City" Type="LibraryModel.City" Multiplicity="0..1" />
+          <End Role="Articles" Type="LibraryModel.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Conference_Article" ed:Guid="fcd21bf8-7ebe-4be2-bfdf-3d583287285d">
+          <End Role="Conference" Type="LibraryModel.Conference" Multiplicity="1" />
+          <End Role="Articles" Type="LibraryModel.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Author_Book" ed:Guid="2ea1c88a-852b-4dc2-a801-461eac92228a">
+          <End Role="Authors" Type="LibraryModel.Author" Multiplicity="*" />
+          <End Role="Books" Type="LibraryModel.Book" Multiplicity="*" />
+        </Association>
+        <Association Name="Author_Research" ed:Guid="ca36731c-d030-44c1-b65a-1afe42368c2b">
+          <End Role="Authors" Type="LibraryModel.Author" Multiplicity="*" />
+          <End Role="Researches" Type="LibraryModel.Research" Multiplicity="*" />
+        </Association>
+        <Association Name="Article_Theme" ed:Guid="d71965f3-50b0-487c-8d77-f5e993098ae7">
+          <End Role="Articles" Type="LibraryModel.Article" Multiplicity="*" />
+          <End Role="Themes" Type="LibraryModel.Theme" Multiplicity="*" />
+        </Association>
+        <Association Name="Book_Theme" ed:Guid="f502bdf8-525b-4485-a699-ae1cde85806e">
+          <End Role="Books" Type="LibraryModel.Book" Multiplicity="*" />
+          <End Role="Themes" Type="LibraryModel.Theme" Multiplicity="*" />
+        </Association>
+        <Association Name="Research_Theme" ed:Guid="0aff3b5d-b961-42ce-8de1-8306a173d297">
+          <End Role="Researches" Type="LibraryModel.Research" Multiplicity="*" />
+          <End Role="Themes" Type="LibraryModel.Theme" Multiplicity="*" />
+        </Association>
+        <Association Name="Book_Research" ed:Guid="c0c91d3b-ebe1-4a9f-9110-ff28cdb2a3ab">
+          <End Role="Books" Type="LibraryModel.Book" Multiplicity="*" />
+          <End Role="Researches" Type="LibraryModel.Research" Multiplicity="*" />
+        </Association>
+        <Association Name="File_Research" ed:Guid="e21ea6bc-2dc6-45b3-b266-f6d7eff2f4a7">
+          <End Role="Files" Type="LibraryModel.File" Multiplicity="*" />
+          <End Role="Researches" Type="LibraryModel.Research" Multiplicity="*" />
+        </Association>
+        <Association Name="Book_File" ed:Guid="792a6959-edc7-4a8a-928f-c1eadcd0e296">
+          <End Role="Books" Type="LibraryModel.Book" Multiplicity="*" />
+          <End Role="Files" Type="LibraryModel.File" Multiplicity="*" />
+        </Association>
+        <Association Name="Author_Theme" ed:Guid="c5eeae65-a1a6-4cfc-a6a7-d9ccfbb76904">
+          <End Role="Authors" Type="LibraryModel.Author" Multiplicity="*" />
+          <End Role="Themes" Type="LibraryModel.Theme" Multiplicity="*" />
+        </Association>
+        <Association Name="Article_Article" ed:Guid="ef568057-a3a3-4c0d-b918-fef41c775bde">
+          <End Role="Articles1" Type="LibraryModel.Article" Multiplicity="*" />
+          <End Role="Articles" Type="LibraryModel.Article" Multiplicity="*" />
+        </Association>
+        <Association Name="Article_Research" ed:Guid="29d442e2-0cf0-4133-a0a2-86eb48905a28">
+          <End Role="Articles" Type="LibraryModel.Article" Multiplicity="*" />
+          <End Role="Researches" Type="LibraryModel.Research" Multiplicity="*" />
+        </Association>
+        <Association Name="Article_Book" ed:Guid="3053521e-b081-44dd-8317-eb71a1019d00">
+          <End Role="Articles" Type="LibraryModel.Article" Multiplicity="*" />
+          <End Role="Books" Type="LibraryModel.Book" Multiplicity="*" />
+        </Association>
+        <Association Name="Article_Author" ed:Guid="6b5922a4-860f-4b2d-a12f-87676931523a">
+          <End Role="Articles" Type="LibraryModel.Article" Multiplicity="*" />
+          <End Role="Authors" Type="LibraryModel.Author" Multiplicity="*" />
+        </Association>
+        <Association Name="Article_File" ed:Guid="27e55e8a-baf3-436f-98ea-4d9e9ef5931b">
+          <End Role="Articles" Type="LibraryModel.Article" Multiplicity="*" />
+          <End Role="Files" Type="LibraryModel.File" Multiplicity="*" />
+        </Association>
+        <Association Name="Type_File" ed:Guid="f9c521d9-d639-45c3-80a9-0bb6020c48a0">
+          <End Role="Type" Type="LibraryModel.Type" Multiplicity="0..1" />
+          <End Role="Files" Type="LibraryModel.File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Files">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- MSL content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibraryEntitiesStoreContainer" CdmEntityContainer="LibraryEntities">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="LibraryModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Researches">
+            <EntityTypeMapping TypeName="LibraryModel.Research">
+              <MappingFragment StoreEntitySet="Researches">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conferences">
+            <EntityTypeMapping TypeName="LibraryModel.Conference">
+              <MappingFragment StoreEntitySet="Conferences">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Place" ColumnName="place" />
+                <ScalarProperty Name="FullName" ColumnName="full_name" />
+                <ScalarProperty Name="ScaleId" ColumnName="scale_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Themes">
+            <EntityTypeMapping TypeName="LibraryModel.Theme">
+              <MappingFragment StoreEntitySet="Themes">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scales">
+            <EntityTypeMapping TypeName="LibraryModel.Scale">
+              <MappingFragment StoreEntitySet="Scales">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="LibraryModel.File">
+              <MappingFragment StoreEntitySet="Files">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Data" ColumnName="data" />
+                <ScalarProperty Name="ContentType" ColumnName="content_type" />
+                <ScalarProperty Name="TypeId" ColumnName="type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="LibraryModel.Article">
+              <MappingFragment StoreEntitySet="Articles">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="CityId" ColumnName="city_id" />
+                <ScalarProperty Name="ConferenceId" ColumnName="conference_id" />
+                <ScalarProperty Name="Year" ColumnName="year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="LibraryModel.Book">
+              <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Year" ColumnName="year" />
+                <ScalarProperty Name="Publisher" ColumnName="publisher" />
+                <ScalarProperty Name="Volume" ColumnName="volume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="LibraryModel.Author">
+              <MappingFragment StoreEntitySet="Authors">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="FirstName" ColumnName="first_name" />
+                <ScalarProperty Name="MiddleName" ColumnName="middle_name" />
+                <ScalarProperty Name="LastName" ColumnName="last_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types">
+            <EntityTypeMapping TypeName="LibraryModel.Type">
+              <MappingFragment StoreEntitySet="Types">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Author_BookSet" TypeName="LibraryModel.Author_Book" StoreEntitySet="Author_Books">
+            <EndProperty Name="Authors">
+              <ScalarProperty Name="Id" ColumnName="author_id" />
+            </EndProperty>
+            <EndProperty Name="Books">
+              <ScalarProperty Name="Id" ColumnName="book_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Author_ResearchSet" TypeName="LibraryModel.Author_Research" StoreEntitySet="Research_Authors">
+            <EndProperty Name="Authors">
+              <ScalarProperty Name="Id" ColumnName="author_id" />
+            </EndProperty>
+            <EndProperty Name="Researches">
+              <ScalarProperty Name="Id" ColumnName="research_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Article_ThemeSet" TypeName="LibraryModel.Article_Theme" StoreEntitySet="Theme_Articles">
+            <EndProperty Name="Articles">
+              <ScalarProperty Name="Id" ColumnName="article_d" />
+            </EndProperty>
+            <EndProperty Name="Themes">
+              <ScalarProperty Name="Id" ColumnName="theme_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Book_ThemeSet" TypeName="LibraryModel.Book_Theme" StoreEntitySet="Theme_Books">
+            <EndProperty Name="Books">
+              <ScalarProperty Name="Id" ColumnName="book_id" />
+            </EndProperty>
+            <EndProperty Name="Themes">
+              <ScalarProperty Name="Id" ColumnName="theme_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Research_ThemeSet" TypeName="LibraryModel.Research_Theme" StoreEntitySet="Research_Themes">
+            <EndProperty Name="Researches">
+              <ScalarProperty Name="Id" ColumnName="research_id" />
+            </EndProperty>
+            <EndProperty Name="Themes">
+              <ScalarProperty Name="Id" ColumnName="theme_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Book_ResearchSet" TypeName="LibraryModel.Book_Research" StoreEntitySet="Research_Books">
+            <EndProperty Name="Books">
+              <ScalarProperty Name="Id" ColumnName="book_id" />
+            </EndProperty>
+            <EndProperty Name="Researches">
+              <ScalarProperty Name="Id" ColumnName="research_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="File_ResearchSet" TypeName="LibraryModel.File_Research" StoreEntitySet="Research_Files">
+            <EndProperty Name="Files">
+              <ScalarProperty Name="Id" ColumnName="file_id" />
+            </EndProperty>
+            <EndProperty Name="Researches">
+              <ScalarProperty Name="Id" ColumnName="research_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Book_FileSet" TypeName="LibraryModel.Book_File" StoreEntitySet="Book_Files">
+            <EndProperty Name="Books">
+              <ScalarProperty Name="Id" ColumnName="book_id" />
+            </EndProperty>
+            <EndProperty Name="Files">
+              <ScalarProperty Name="Id" ColumnName="file_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Author_ThemeSet" TypeName="LibraryModel.Author_Theme" StoreEntitySet="Theme_Authors">
+            <EndProperty Name="Authors">
+              <ScalarProperty Name="Id" ColumnName="author_id" />
+            </EndProperty>
+            <EndProperty Name="Themes">
+              <ScalarProperty Name="Id" ColumnName="theme_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Article_ArticleSet" TypeName="LibraryModel.Article_Article" StoreEntitySet="Article_Articles">
+            <EndProperty Name="Articles1">
+              <ScalarProperty Name="Id" ColumnName="host_article_id" />
+            </EndProperty>
+            <EndProperty Name="Articles">
+              <ScalarProperty Name="Id" ColumnName="referenced_article_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Article_ResearchSet" TypeName="LibraryModel.Article_Research" StoreEntitySet="Research_Articles">
+            <EndProperty Name="Articles">
+              <ScalarProperty Name="Id" ColumnName="article_id" />
+            </EndProperty>
+            <EndProperty Name="Researches">
+              <ScalarProperty Name="Id" ColumnName="research_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Article_BookSet" TypeName="LibraryModel.Article_Book" StoreEntitySet="Article_Books">
+            <EndProperty Name="Articles">
+              <ScalarProperty Name="Id" ColumnName="article_id" />
+            </EndProperty>
+            <EndProperty Name="Books">
+              <ScalarProperty Name="Id" ColumnName="book_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Article_AuthorSet" TypeName="LibraryModel.Article_Author" StoreEntitySet="Author_Articles">
+            <EndProperty Name="Articles">
+              <ScalarProperty Name="Id" ColumnName="article_id" />
+            </EndProperty>
+            <EndProperty Name="Authors">
+              <ScalarProperty Name="Id" ColumnName="author_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Article_FileSet" TypeName="LibraryModel.Article_File" StoreEntitySet="File_Articles">
+            <EndProperty Name="Articles">
+              <ScalarProperty Name="Id" ColumnName="article_id" />
+            </EndProperty>
+            <EndProperty Name="Files">
+              <ScalarProperty Name="Id" ColumnName="file_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <edmx:Diagrams>
+      <Diagram Name="Main" />
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

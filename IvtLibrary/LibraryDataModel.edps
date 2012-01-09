@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDeveloper Version="4.2.85.0">
+  <ModelSettings xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" AppConnectionStringName="LibraryEntitiesConnectionString" ConnectionStringInAppConfig="True" EntityFrameworkVersion="Version4" IncludeForeignKeysInModel="true">
+    <Connection ConnectionString="User Id=postgres;Password=4784;Host=localhost;Database=Library;Unicode=True;Character Set=UTF8;Persist Security Info=True;Schema=public" Provider="Devart.Data.PostgreSql" />
+    <Generation />
+    <DatabaseFirstNamingRules>
+      <EntitySet PluralizationName="Pluralize" />
+      <Class UseSchemaAsPrefix="False" RemoveUnderscores="True" CodeCase="FirstLetterUppercase" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Singularize" />
+      <Property RemoveUnderscores="True" CodeCase="FirstLetterUppercase" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Unchanged" />
+    </DatabaseFirstNamingRules>
+    <ModelFirst StorageSynchronizationEnabled="False" TargetSchema="public">
+      <TargetServer Server="PostgreSQL" ServerVersion="9.1" />
+      <ModelFirstNamingRules>
+        <Table RemoveUnderscores="False" CodeCase="Unchanged" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Pluralize" />
+        <Column RemoveUnderscores="False" CodeCase="Unchanged" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Unchanged" />
+      </ModelFirstNamingRules>
+    </ModelFirst>
+    <Diagrams>
+      <Diagram Name="Diagram1" DefaultDiagram="True" />
+    </Diagrams>
+    <Templates>
+      <Template Name="EntityObject" Description="Use this Entity Framework template to generate a strongly-typed ObjectContext class and persistence-aware classes." Enabled="True" PredefinedTemplateName="Entity C#">
+        <ed:Property Name="ValidationFramework" Type="EntityDeveloper.TemplateEngine.ValidationFramework, EntityDeveloper.Common, Version=4.2.85.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <ValidationFramework>None</ValidationFramework>
+        </ed:Property>
+        <ed:Property Name="ValidationErrorMessages" Type="EntityDeveloper.TemplateEngine.ValidationErrorMessages, EntityDeveloper.Common, Version=4.2.85.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <ValidationErrorMessages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+        </ed:Property>
+        <ed:Property Name="FilePerClass" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="EntitiesOutput" Type="EntityDeveloper.TemplateEngine.OutputInfo, EntityDeveloper.Common, Version=4.2.85.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <OutputInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <Project />
+            <ProjectFolder />
+            <DestinationFolder />
+          </OutputInfo>
+        </ed:Property>
+        <ed:Property Name="ContextOutput" Type="EntityDeveloper.TemplateEngine.OutputInfo, EntityDeveloper.Common, Version=4.2.85.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <OutputInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <Project />
+            <ProjectFolder />
+            <DestinationFolder />
+          </OutputInfo>
+        </ed:Property>
+      </Template>
+    </Templates>
+    <AttributeAssemblies />
+  </ModelSettings>
+</EntityDeveloper>

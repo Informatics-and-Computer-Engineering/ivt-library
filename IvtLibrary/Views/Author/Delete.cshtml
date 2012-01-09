@@ -1,0 +1,33 @@
+﻿@model LibraryModel.Author
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы действительно хотите удалить данного автора?</h3>
+<fieldset>
+    <legend>Автор</legend>
+
+    <div class="display-label">Имя</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">Отчество</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MiddleName)
+    </div>
+
+    <div class="display-label">Фамилия</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Отмена", "Index")
+    </p>
+}

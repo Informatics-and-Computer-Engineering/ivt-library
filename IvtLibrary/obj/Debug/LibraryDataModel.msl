@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryEntitiesStoreContainer" CdmEntityContainer="LibraryEntities">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="LibraryModel.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Researches">
+      <EntityTypeMapping TypeName="LibraryModel.Research">
+        <MappingFragment StoreEntitySet="Researches">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+          <ScalarProperty Name="Description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conferences">
+      <EntityTypeMapping TypeName="LibraryModel.Conference">
+        <MappingFragment StoreEntitySet="Conferences">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+          <ScalarProperty Name="Place" ColumnName="place" />
+          <ScalarProperty Name="FullName" ColumnName="full_name" />
+          <ScalarProperty Name="ScaleId" ColumnName="scale_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Themes">
+      <EntityTypeMapping TypeName="LibraryModel.Theme">
+        <MappingFragment StoreEntitySet="Themes">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+          <ScalarProperty Name="Description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scales">
+      <EntityTypeMapping TypeName="LibraryModel.Scale">
+        <MappingFragment StoreEntitySet="Scales">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="LibraryModel.File">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+          <ScalarProperty Name="Data" ColumnName="data" />
+          <ScalarProperty Name="ContentType" ColumnName="content_type" />
+          <ScalarProperty Name="TypeId" ColumnName="type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="LibraryModel.Article">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+          <ScalarProperty Name="CityId" ColumnName="city_id" />
+          <ScalarProperty Name="ConferenceId" ColumnName="conference_id" />
+          <ScalarProperty Name="Year" ColumnName="year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="LibraryModel.Book">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+          <ScalarProperty Name="Year" ColumnName="year" />
+          <ScalarProperty Name="Publisher" ColumnName="publisher" />
+          <ScalarProperty Name="Volume" ColumnName="volume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="LibraryModel.Author">
+        <MappingFragment StoreEntitySet="Authors">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="FirstName" ColumnName="first_name" />
+          <ScalarProperty Name="MiddleName" ColumnName="middle_name" />
+          <ScalarProperty Name="LastName" ColumnName="last_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="LibraryModel.Type">
+        <MappingFragment StoreEntitySet="Types">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="name" />
+          <ScalarProperty Name="Description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Author_BookSet" TypeName="LibraryModel.Author_Book" StoreEntitySet="Author_Books">
+      <EndProperty Name="Authors">
+        <ScalarProperty Name="Id" ColumnName="author_id" />
+      </EndProperty>
+      <EndProperty Name="Books">
+        <ScalarProperty Name="Id" ColumnName="book_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Author_ResearchSet" TypeName="LibraryModel.Author_Research" StoreEntitySet="Research_Authors">
+      <EndProperty Name="Authors">
+        <ScalarProperty Name="Id" ColumnName="author_id" />
+      </EndProperty>
+      <EndProperty Name="Researches">
+        <ScalarProperty Name="Id" ColumnName="research_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Article_ThemeSet" TypeName="LibraryModel.Article_Theme" StoreEntitySet="Theme_Articles">
+      <EndProperty Name="Articles">
+        <ScalarProperty Name="Id" ColumnName="article_d" />
+      </EndProperty>
+      <EndProperty Name="Themes">
+        <ScalarProperty Name="Id" ColumnName="theme_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Book_ThemeSet" TypeName="LibraryModel.Book_Theme" StoreEntitySet="Theme_Books">
+      <EndProperty Name="Books">
+        <ScalarProperty Name="Id" ColumnName="book_id" />
+      </EndProperty>
+      <EndProperty Name="Themes">
+        <ScalarProperty Name="Id" ColumnName="theme_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Research_ThemeSet" TypeName="LibraryModel.Research_Theme" StoreEntitySet="Research_Themes">
+      <EndProperty Name="Researches">
+        <ScalarProperty Name="Id" ColumnName="research_id" />
+      </EndProperty>
+      <EndProperty Name="Themes">
+        <ScalarProperty Name="Id" ColumnName="theme_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Book_ResearchSet" TypeName="LibraryModel.Book_Research" StoreEntitySet="Research_Books">
+      <EndProperty Name="Books">
+        <ScalarProperty Name="Id" ColumnName="book_id" />
+      </EndProperty>
+      <EndProperty Name="Researches">
+        <ScalarProperty Name="Id" ColumnName="research_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="File_ResearchSet" TypeName="LibraryModel.File_Research" StoreEntitySet="Research_Files">
+      <EndProperty Name="Files">
+        <ScalarProperty Name="Id" ColumnName="file_id" />
+      </EndProperty>
+      <EndProperty Name="Researches">
+        <ScalarProperty Name="Id" ColumnName="research_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Book_FileSet" TypeName="LibraryModel.Book_File" StoreEntitySet="Book_Files">
+      <EndProperty Name="Books">
+        <ScalarProperty Name="Id" ColumnName="book_id" />
+      </EndProperty>
+      <EndProperty Name="Files">
+        <ScalarProperty Name="Id" ColumnName="file_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Author_ThemeSet" TypeName="LibraryModel.Author_Theme" StoreEntitySet="Theme_Authors">
+      <EndProperty Name="Authors">
+        <ScalarProperty Name="Id" ColumnName="author_id" />
+      </EndProperty>
+      <EndProperty Name="Themes">
+        <ScalarProperty Name="Id" ColumnName="theme_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Article_ArticleSet" TypeName="LibraryModel.Article_Article" StoreEntitySet="Article_Articles">
+      <EndProperty Name="Articles1">
+        <ScalarProperty Name="Id" ColumnName="host_article_id" />
+      </EndProperty>
+      <EndProperty Name="Articles">
+        <ScalarProperty Name="Id" ColumnName="referenced_article_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Article_ResearchSet" TypeName="LibraryModel.Article_Research" StoreEntitySet="Research_Articles">
+      <EndProperty Name="Articles">
+        <ScalarProperty Name="Id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="Researches">
+        <ScalarProperty Name="Id" ColumnName="research_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Article_BookSet" TypeName="LibraryModel.Article_Book" StoreEntitySet="Article_Books">
+      <EndProperty Name="Articles">
+        <ScalarProperty Name="Id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="Books">
+        <ScalarProperty Name="Id" ColumnName="book_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Article_AuthorSet" TypeName="LibraryModel.Article_Author" StoreEntitySet="Author_Articles">
+      <EndProperty Name="Articles">
+        <ScalarProperty Name="Id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="Authors">
+        <ScalarProperty Name="Id" ColumnName="author_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Article_FileSet" TypeName="LibraryModel.Article_File" StoreEntitySet="File_Articles">
+      <EndProperty Name="Articles">
+        <ScalarProperty Name="Id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="Files">
+        <ScalarProperty Name="Id" ColumnName="file_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

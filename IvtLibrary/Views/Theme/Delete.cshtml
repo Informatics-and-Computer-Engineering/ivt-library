@@ -1,0 +1,28 @@
+﻿@model LibraryModel.Theme
+
+@{
+    ViewBag.Title = "Тема";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы действительно хотите удалить данную тему?</h3>
+<fieldset>
+    <legend>Тема</legend>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Подробное описание</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Отмена", "Index")
+    </p>
+}
