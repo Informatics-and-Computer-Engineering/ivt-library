@@ -5,20 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class ScaleController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Scale/
 
         public ViewResult Index()
         {
-            return View(db.Scales.ToList());
+            return View(db.Scale.ToList());
         }
 
         //
@@ -26,7 +26,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            Scale scale = db.Scales.Single(s => s.Id == id);
+            Scale scale = db.Scale.Single(s => s.id == id);
             return View(scale);
         }
 
@@ -46,7 +46,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Scales.AddObject(scale);
+                db.Scale.AddObject(scale);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -59,7 +59,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            Scale scale = db.Scales.Single(s => s.Id == id);
+            Scale scale = db.Scale.Single(s => s.id == id);
             return View(scale);
         }
 
@@ -71,7 +71,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Scales.Attach(scale);
+                db.Scale.Attach(scale);
                 db.ObjectStateManager.ChangeObjectState(scale, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,7 +84,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            Scale scale = db.Scales.Single(s => s.Id == id);
+            Scale scale = db.Scale.Single(s => s.id == id);
             return View(scale);
         }
 
@@ -94,8 +94,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Scale scale = db.Scales.Single(s => s.Id == id);
-            db.Scales.DeleteObject(scale);
+            Scale scale = db.Scale.Single(s => s.id == id);
+            db.Scale.DeleteObject(scale);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

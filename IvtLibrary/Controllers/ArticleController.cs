@@ -5,21 +5,21 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class ArticleController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Article/
 
         public ViewResult Index()
         {
-            var articles = db.Articles.Include("City").Include("Conference");
-            return View(articles.ToList());
+            var article = db.Article.Include("City").Include("Conference");
+            return View(article.ToList());
         }
 
         //
@@ -27,7 +27,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            Article article = db.Articles.Single(a => a.Id == id);
+            Article article = db.Article.Single(a => a.id == id);
             return View(article);
         }
 
@@ -36,8 +36,8 @@ namespace IvtLibrary.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.CityId = new SelectList(db.Cities, "Id", "Name");
-            ViewBag.ConferenceId = new SelectList(db.Conferences, "Id", "Name");
+            ViewBag.city_id = new SelectList(db.City, "id", "name");
+            ViewBag.conference_id = new SelectList(db.Conference, "id", "name");
             return View();
         } 
 
@@ -49,13 +49,13 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Articles.AddObject(article);
+                db.Article.AddObject(article);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
-            ViewBag.CityId = new SelectList(db.Cities, "Id", "Name", article.CityId);
-            ViewBag.ConferenceId = new SelectList(db.Conferences, "Id", "Name", article.ConferenceId);
+            ViewBag.city_id = new SelectList(db.City, "id", "name", article.city_id);
+            ViewBag.conference_id = new SelectList(db.Conference, "id", "name", article.conference_id);
             return View(article);
         }
         
@@ -64,9 +64,9 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            Article article = db.Articles.Single(a => a.Id == id);
-            ViewBag.CityId = new SelectList(db.Cities, "Id", "Name", article.CityId);
-            ViewBag.ConferenceId = new SelectList(db.Conferences, "Id", "Name", article.ConferenceId);
+            Article article = db.Article.Single(a => a.id == id);
+            ViewBag.city_id = new SelectList(db.City, "id", "name", article.city_id);
+            ViewBag.conference_id = new SelectList(db.Conference, "id", "name", article.conference_id);
             return View(article);
         }
 
@@ -78,13 +78,13 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Articles.Attach(article);
+                db.Article.Attach(article);
                 db.ObjectStateManager.ChangeObjectState(article, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CityId = new SelectList(db.Cities, "Id", "Name", article.CityId);
-            ViewBag.ConferenceId = new SelectList(db.Conferences, "Id", "Name", article.ConferenceId);
+            ViewBag.city_id = new SelectList(db.City, "id", "name", article.city_id);
+            ViewBag.conference_id = new SelectList(db.Conference, "id", "name", article.conference_id);
             return View(article);
         }
 
@@ -93,7 +93,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            Article article = db.Articles.Single(a => a.Id == id);
+            Article article = db.Article.Single(a => a.id == id);
             return View(article);
         }
 
@@ -103,8 +103,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Article article = db.Articles.Single(a => a.Id == id);
-            db.Articles.DeleteObject(article);
+            Article article = db.Article.Single(a => a.id == id);
+            db.Article.DeleteObject(article);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

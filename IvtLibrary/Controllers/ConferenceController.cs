@@ -5,21 +5,21 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class ConferenceController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Conference/
 
         public ViewResult Index()
         {
-            var conferences = db.Conferences.Include("Scale");
-            return View(conferences.ToList());
+            var conference = db.Conference.Include("Scale");
+            return View(conference.ToList());
         }
 
         //
@@ -27,7 +27,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            Conference conference = db.Conferences.Single(c => c.Id == id);
+            Conference conference = db.Conference.Single(c => c.id == id);
             return View(conference);
         }
 
@@ -36,7 +36,7 @@ namespace IvtLibrary.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.ScaleId = new SelectList(db.Scales, "Id", "Name");
+            ViewBag.scale_id = new SelectList(db.Scale, "id", "name");
             return View();
         } 
 
@@ -48,12 +48,12 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Conferences.AddObject(conference);
+                db.Conference.AddObject(conference);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
-            ViewBag.ScaleId = new SelectList(db.Scales, "Id", "Name", conference.ScaleId);
+            ViewBag.scale_id = new SelectList(db.Scale, "id", "name", conference.scale_id);
             return View(conference);
         }
         
@@ -62,8 +62,8 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            Conference conference = db.Conferences.Single(c => c.Id == id);
-            ViewBag.ScaleId = new SelectList(db.Scales, "Id", "Name", conference.ScaleId);
+            Conference conference = db.Conference.Single(c => c.id == id);
+            ViewBag.scale_id = new SelectList(db.Scale, "id", "name", conference.scale_id);
             return View(conference);
         }
 
@@ -75,12 +75,12 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Conferences.Attach(conference);
+                db.Conference.Attach(conference);
                 db.ObjectStateManager.ChangeObjectState(conference, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ScaleId = new SelectList(db.Scales, "Id", "Name", conference.ScaleId);
+            ViewBag.scale_id = new SelectList(db.Scale, "id", "name", conference.scale_id);
             return View(conference);
         }
 
@@ -89,7 +89,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            Conference conference = db.Conferences.Single(c => c.Id == id);
+            Conference conference = db.Conference.Single(c => c.id == id);
             return View(conference);
         }
 
@@ -99,8 +99,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Conference conference = db.Conferences.Single(c => c.Id == id);
-            db.Conferences.DeleteObject(conference);
+            Conference conference = db.Conference.Single(c => c.id == id);
+            db.Conference.DeleteObject(conference);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

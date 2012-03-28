@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Type
+﻿@model IvtLibrary.Type
 
 @{
     ViewBag.Title = "Тип файлов";
@@ -12,12 +12,12 @@
 
     <div class="display-label">Название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.name)
     </div>
 
     <div class="display-label">Описание</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
+        @Html.DisplayFor(model => model.description)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

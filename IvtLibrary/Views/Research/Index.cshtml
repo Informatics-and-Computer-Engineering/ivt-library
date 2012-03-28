@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LibraryModel.Research>
+﻿@model IEnumerable<IvtLibrary.Research>
 
 @{
     ViewBag.Title = "Исследования";
@@ -23,15 +23,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.ActionLink("Редактирование", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Подробности", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Удаление", "Delete", new { id=item.Id })
+            @Html.ActionLink("Редактирование", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Подробности", "Details", new { id=item.id }) |
+            @Html.ActionLink("Удаление", "Delete", new { id=item.id })
         </td>
     </tr>
 }

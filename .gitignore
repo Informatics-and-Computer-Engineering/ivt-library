@@ -1,1 +1,8 @@
-*ReSharper*
+# git ignore file
+*.pidb
+*.userprefs
+*.DotSettings.user
+*.suo
+obj
+bin
+_ReSharper*

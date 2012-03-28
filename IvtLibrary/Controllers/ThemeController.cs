@@ -5,20 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class ThemeController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Theme/
 
         public ViewResult Index()
         {
-            return View(db.Themes.ToList());
+            return View(db.Theme.ToList());
         }
 
         //
@@ -26,7 +26,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            Theme theme = db.Themes.Single(t => t.Id == id);
+            Theme theme = db.Theme.Single(t => t.id == id);
             return View(theme);
         }
 
@@ -46,7 +46,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Themes.AddObject(theme);
+                db.Theme.AddObject(theme);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -59,7 +59,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            Theme theme = db.Themes.Single(t => t.Id == id);
+            Theme theme = db.Theme.Single(t => t.id == id);
             return View(theme);
         }
 
@@ -71,7 +71,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Themes.Attach(theme);
+                db.Theme.Attach(theme);
                 db.ObjectStateManager.ChangeObjectState(theme, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,7 +84,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            Theme theme = db.Themes.Single(t => t.Id == id);
+            Theme theme = db.Theme.Single(t => t.id == id);
             return View(theme);
         }
 
@@ -94,8 +94,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Theme theme = db.Themes.Single(t => t.Id == id);
-            db.Themes.DeleteObject(theme);
+            Theme theme = db.Theme.Single(t => t.id == id);
+            db.Theme.DeleteObject(theme);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

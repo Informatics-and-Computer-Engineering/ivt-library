@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Article
+﻿@model IvtLibrary.Article
 
 @{
     ViewBag.Title = "Статья";
@@ -14,40 +14,40 @@
     <fieldset>
         <legend>Статья</legend>
 
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name, "Название статьи")
+            @Html.LabelFor(model => model.name, "Название статьи")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CityId, "Город публикации")
+            @Html.LabelFor(model => model.city_id, "Город публикации")
         </div>
         <div class="editor-field">
             @Html.DropDownList("CityId", String.Empty)
-            @Html.ValidationMessageFor(model => model.CityId)
+            @Html.ValidationMessageFor(model => model.city_id)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ConferenceId, "Конференция")
+            @Html.LabelFor(model => model.conference_id, "Конференция")
             @Html.ActionLink("Добавить город", "Create", "City")
         </div>
         <div class="editor-field">
             @Html.DropDownList("ConferenceId", String.Empty)
-            @Html.ValidationMessageFor(model => model.ConferenceId)
+            @Html.ValidationMessageFor(model => model.conference_id)
             @Html.ActionLink("Создать новую конференцию", "Create", "Conference")
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Year, "Год публикации")
+            @Html.LabelFor(model => model.year, "Год публикации")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Year)
-            @Html.ValidationMessageFor(model => model.Year)
+            @Html.EditorFor(model => model.year)
+            @Html.ValidationMessageFor(model => model.year)
         </div>
 
         <p>

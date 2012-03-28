@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Conference
+﻿@model IvtLibrary.Conference
 
 @{
     ViewBag.Title = "Конференции";
@@ -11,25 +11,25 @@
 
     <div class="display-label">Название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.name)
     </div>
 
     <div class="display-label">Место проведения</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Place)
+        @Html.DisplayFor(model => model.place)
     </div>
 
     <div class="display-label">Полное название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.FullName)
+        @Html.DisplayFor(model => model.full_name)
     </div>
 
     <div class="display-label">Масштаб</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Scale.Name)
+        @Html.DisplayFor(model => model.Scale.name)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Редактировать", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
     @Html.ActionLink("Назад к списку", "Index")
 </p>

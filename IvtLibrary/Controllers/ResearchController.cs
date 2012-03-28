@@ -5,20 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class ResearchController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Research/
 
         public ViewResult Index()
         {
-            return View(db.Researches.ToList());
+            return View(db.Research.ToList());
         }
 
         //
@@ -26,7 +26,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            Research research = db.Researches.Single(r => r.Id == id);
+            Research research = db.Research.Single(r => r.id == id);
             return View(research);
         }
 
@@ -46,7 +46,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Researches.AddObject(research);
+                db.Research.AddObject(research);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -59,7 +59,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            Research research = db.Researches.Single(r => r.Id == id);
+            Research research = db.Research.Single(r => r.id == id);
             return View(research);
         }
 
@@ -71,7 +71,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Researches.Attach(research);
+                db.Research.Attach(research);
                 db.ObjectStateManager.ChangeObjectState(research, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,7 +84,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            Research research = db.Researches.Single(r => r.Id == id);
+            Research research = db.Research.Single(r => r.id == id);
             return View(research);
         }
 
@@ -94,8 +94,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Research research = db.Researches.Single(r => r.Id == id);
-            db.Researches.DeleteObject(research);
+            Research research = db.Research.Single(r => r.id == id);
+            db.Research.DeleteObject(research);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -5,20 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class AuthorController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Author/
 
         public ViewResult Index()
         {
-            return View(db.Authors.ToList());
+            return View(db.Author.ToList());
         }
 
         //
@@ -26,7 +26,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            Author author = db.Authors.Single(a => a.Id == id);
+            Author author = db.Author.Single(a => a.id == id);
             return View(author);
         }
 
@@ -46,7 +46,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Authors.AddObject(author);
+                db.Author.AddObject(author);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -59,7 +59,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            Author author = db.Authors.Single(a => a.Id == id);
+            Author author = db.Author.Single(a => a.id == id);
             return View(author);
         }
 
@@ -71,7 +71,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Authors.Attach(author);
+                db.Author.Attach(author);
                 db.ObjectStateManager.ChangeObjectState(author, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,7 +84,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            Author author = db.Authors.Single(a => a.Id == id);
+            Author author = db.Author.Single(a => a.id == id);
             return View(author);
         }
 
@@ -94,8 +94,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Author author = db.Authors.Single(a => a.Id == id);
-            db.Authors.DeleteObject(author);
+            Author author = db.Author.Single(a => a.id == id);
+            db.Author.DeleteObject(author);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

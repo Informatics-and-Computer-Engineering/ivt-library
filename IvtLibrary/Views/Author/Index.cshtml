@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LibraryModel.Author>
+﻿@model IEnumerable<IvtLibrary.Author>
 
 @{
     ViewBag.Title = "Авторы";
@@ -26,20 +26,22 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.first_name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MiddleName)
+            @Html.DisplayFor(modelItem => item.middle_name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.last_name)
         </td>
         <td>
-            @Html.ActionLink("Изменить", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Подробное описание", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
         </td>
     </tr>
 }
 
 </table>
+
+

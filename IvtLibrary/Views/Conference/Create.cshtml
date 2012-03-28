@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Conference
+﻿@model IvtLibrary.Conference
 
 @{
     ViewBag.Title = "Конференция";
@@ -15,35 +15,35 @@
         <legend>Конференция</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name, "Название конференции")
+            @Html.LabelFor(model => model.name, "Название конференции")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Place, "Место проведения")
+            @Html.LabelFor(model => model.place, "Место проведения")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Place)
-            @Html.ValidationMessageFor(model => model.Place)
+            @Html.EditorFor(model => model.place)
+            @Html.ValidationMessageFor(model => model.place)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.FullName, "Полное название")
+            @Html.LabelFor(model => model.full_name, "Полное название")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.FullName)
-            @Html.ValidationMessageFor(model => model.FullName)
+            @Html.EditorFor(model => model.full_name)
+            @Html.ValidationMessageFor(model => model.full_name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ScaleId, "Масштаб")
+            @Html.LabelFor(model => model.scale_id, "Масштаб")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ScaleId", String.Empty)
-            @Html.ValidationMessageFor(model => model.ScaleId)
+            @Html.DropDownList("scale_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.scale_id)
             @Html.ActionLink("Добавить масштаб", "Create", "Scale")
         </div>
 

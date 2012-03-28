@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("IvtLibrary")]
-[assembly: AssemblyCopyright("© , 2011")]
+[assembly: AssemblyCopyright("© , 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для ID-идентификации библиотеки типов, если этот проект видим для COM
-[assembly: Guid("879f5f0a-1974-4796-b32e-7d46cd951ea9")]
+[assembly: Guid("7bcbe4b9-daa5-4ad1-8f48-3adcf6232a06")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

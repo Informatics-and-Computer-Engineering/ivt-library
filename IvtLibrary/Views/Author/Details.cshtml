@@ -1,7 +1,7 @@
-﻿@model LibraryModel.Author
+﻿@model IvtLibrary.Author
 
 @{
-    ViewBag.Title = "Подробное описание";
+    ViewBag.Title = "Автор";
 }
 
 <h2>Подробное описание</h2>
@@ -11,20 +11,20 @@
 
     <div class="display-label">Имя</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.FirstName)
+        @Html.DisplayFor(model => model.first_name)
     </div>
 
     <div class="display-label">Отчество</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.MiddleName)
+        @Html.DisplayFor(model => model.middle_name)
     </div>
 
     <div class="display-label">Фамилия</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.LastName)
+        @Html.DisplayFor(model => model.last_name)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Редактировать", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
     @Html.ActionLink("Назад к списку", "Index")
 </p>

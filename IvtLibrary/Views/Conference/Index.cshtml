@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LibraryModel.Conference>
+﻿@model IEnumerable<IvtLibrary.Conference>
 
 @{
     ViewBag.Title = "Конференции";
@@ -29,21 +29,21 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Place)
+            @Html.DisplayFor(modelItem => item.place)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FullName)
+            @Html.DisplayFor(modelItem => item.full_name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Scale.Name)
+            @Html.DisplayFor(modelItem => item.Scale.name)
         </td>
         <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Подробное описание", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
         </td>
     </tr>
 }

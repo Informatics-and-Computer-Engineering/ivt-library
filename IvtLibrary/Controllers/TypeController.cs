@@ -5,21 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
-using Type = LibraryModel.Type;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class TypeController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Type/
 
         public ViewResult Index()
         {
-            return View(db.Types.ToList());
+            return View(db.Type.ToList());
         }
 
         //
@@ -27,7 +26,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            Type type = db.Types.Single(t => t.Id == id);
+            Type type = db.Type.Single(t => t.id == id);
             return View(type);
         }
 
@@ -47,7 +46,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Types.AddObject(type);
+                db.Type.AddObject(type);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -60,7 +59,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            Type type = db.Types.Single(t => t.Id == id);
+            Type type = db.Type.Single(t => t.id == id);
             return View(type);
         }
 
@@ -72,7 +71,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Types.Attach(type);
+                db.Type.Attach(type);
                 db.ObjectStateManager.ChangeObjectState(type, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,7 +84,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            Type type = db.Types.Single(t => t.Id == id);
+            Type type = db.Type.Single(t => t.id == id);
             return View(type);
         }
 
@@ -95,8 +94,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Type type = db.Types.Single(t => t.Id == id);
-            db.Types.DeleteObject(type);
+            Type type = db.Type.Single(t => t.id == id);
+            db.Type.DeleteObject(type);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

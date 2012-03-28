@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Book
+﻿@model IvtLibrary.Book
 
 @{
     ViewBag.Title = "Книги";
@@ -14,38 +14,38 @@
     <fieldset>
         <legend>Книга</legend>
 
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name, "Название")
+            @Html.LabelFor(model => model.name, "Название")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Year, "Год издания")
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Year)
-            @Html.ValidationMessageFor(model => model.Year)
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Publisher, "Издательство")
+            @Html.LabelFor(model => model.year, "Год издания")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Publisher)
-            @Html.ValidationMessageFor(model => model.Publisher)
+            @Html.EditorFor(model => model.year)
+            @Html.ValidationMessageFor(model => model.year)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Volume, "Количество страниц")
+            @Html.LabelFor(model => model.publisher, "Издательство")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Volume)
-            @Html.ValidationMessageFor(model => model.Volume)
+            @Html.EditorFor(model => model.publisher)
+            @Html.ValidationMessageFor(model => model.publisher)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.volume, "Количество страниц")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.volume)
+            @Html.ValidationMessageFor(model => model.volume)
         </div>
 
         <p>

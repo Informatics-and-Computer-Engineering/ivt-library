@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Scale
+﻿@model IvtLibrary.Scale
 
 @{
     ViewBag.Title = "Удаление";
@@ -12,7 +12,7 @@
 
     <div class="display-label">Название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.name)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

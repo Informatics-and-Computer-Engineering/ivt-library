@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Article
+﻿@model IvtLibrary.Article
 
 @{
     ViewBag.Title = "Статья";
@@ -12,22 +12,22 @@
 
     <div class="display-label">Название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.name)
     </div>
 
     <div class="display-label">Город публикации</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.City.Name)
+        @Html.DisplayFor(model => model.City.name)
     </div>
 
     <div class="display-label">Конференция</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Conference.Name)
+        @Html.DisplayFor(model => model.Conference.name)
     </div>
 
     <div class="display-label">Год публикации</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Year)
+        @Html.DisplayFor(model => model.year)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

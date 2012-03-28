@@ -5,20 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class CityController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /City/
 
         public ViewResult Index()
         {
-            return View(db.Cities.ToList());
+            return View(db.City.ToList());
         }
 
         //
@@ -26,7 +26,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            City city = db.Cities.Single(c => c.Id == id);
+            City city = db.City.Single(c => c.id == id);
             return View(city);
         }
 
@@ -46,7 +46,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Cities.AddObject(city);
+                db.City.AddObject(city);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -59,7 +59,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            City city = db.Cities.Single(c => c.Id == id);
+            City city = db.City.Single(c => c.id == id);
             return View(city);
         }
 
@@ -71,7 +71,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Cities.Attach(city);
+                db.City.Attach(city);
                 db.ObjectStateManager.ChangeObjectState(city, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,7 +84,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            City city = db.Cities.Single(c => c.Id == id);
+            City city = db.City.Single(c => c.id == id);
             return View(city);
         }
 
@@ -94,8 +94,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            City city = db.Cities.Single(c => c.Id == id);
-            db.Cities.DeleteObject(city);
+            City city = db.City.Single(c => c.id == id);
+            db.City.DeleteObject(city);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

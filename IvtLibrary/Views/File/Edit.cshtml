@@ -1,4 +1,4 @@
-﻿@model LibraryModel.File
+﻿@model IvtLibrary.File
 
 @{
     ViewBag.Title = "Файл";
@@ -14,30 +14,30 @@
     <fieldset>
         <legend>Файл</legend>
 
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name, "Название")
+            @Html.LabelFor(model => model.name, "Название")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ContentType, "Расширение")
+            @Html.LabelFor(model => model.content_type, "Расширение")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ContentType)
-            @Html.ValidationMessageFor(model => model.ContentType)
+            @Html.EditorFor(model => model.content_type)
+            @Html.ValidationMessageFor(model => model.content_type)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.TypeId, "Тип")
+            @Html.LabelFor(model => model.type_id, "Тип")
         </div>
         <div class="editor-field">
             @Html.DropDownList("TypeId", String.Empty)
-            @Html.ValidationMessageFor(model => model.TypeId)
+            @Html.ValidationMessageFor(model => model.type_id)
             @Html.ActionLink("Создать новый тип", "Create", "Type")
         </div>
 

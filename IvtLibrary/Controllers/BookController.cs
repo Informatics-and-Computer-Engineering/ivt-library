@@ -5,20 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class BookController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Book/
 
         public ViewResult Index()
         {
-            return View(db.Books.ToList());
+            return View(db.Book.ToList());
         }
 
         //
@@ -26,7 +26,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            Book book = db.Books.Single(b => b.Id == id);
+            Book book = db.Book.Single(b => b.id == id);
             return View(book);
         }
 
@@ -46,7 +46,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Books.AddObject(book);
+                db.Book.AddObject(book);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -59,7 +59,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            Book book = db.Books.Single(b => b.Id == id);
+            Book book = db.Book.Single(b => b.id == id);
             return View(book);
         }
 
@@ -71,7 +71,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Books.Attach(book);
+                db.Book.Attach(book);
                 db.ObjectStateManager.ChangeObjectState(book, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,7 +84,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            Book book = db.Books.Single(b => b.Id == id);
+            Book book = db.Book.Single(b => b.id == id);
             return View(book);
         }
 
@@ -94,8 +94,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Book book = db.Books.Single(b => b.Id == id);
-            db.Books.DeleteObject(book);
+            Book book = db.Book.Single(b => b.id == id);
+            db.Book.DeleteObject(book);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

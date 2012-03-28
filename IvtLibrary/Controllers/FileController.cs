@@ -5,21 +5,21 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibraryModel;
+using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class FileController : Controller
     {
-        private LibraryEntities db = new LibraryEntities();
+        private IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /File/
 
         public ViewResult Index()
         {
-            var files = db.Files.Include("Type");
-            return View(files.ToList());
+            var file = db.File.Include("Type");
+            return View(file.ToList());
         }
 
         //
@@ -27,7 +27,7 @@ namespace IvtLibrary.Controllers
 
         public ViewResult Details(int id)
         {
-            File file = db.Files.Single(f => f.Id == id);
+            File file = db.File.Single(f => f.id == id);
             return View(file);
         }
 
@@ -36,7 +36,7 @@ namespace IvtLibrary.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.TypeId = new SelectList(db.Types, "Id", "Name");
+            ViewBag.type_id = new SelectList(db.Type, "id", "name");
             return View();
         } 
 
@@ -48,12 +48,12 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Files.AddObject(file);
+                db.File.AddObject(file);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
-            ViewBag.TypeId = new SelectList(db.Types, "Id", "Name", file.TypeId);
+            ViewBag.type_id = new SelectList(db.Type, "id", "name", file.type_id);
             return View(file);
         }
         
@@ -62,8 +62,8 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Edit(int id)
         {
-            File file = db.Files.Single(f => f.Id == id);
-            ViewBag.TypeId = new SelectList(db.Types, "Id", "Name", file.TypeId);
+            File file = db.File.Single(f => f.id == id);
+            ViewBag.type_id = new SelectList(db.Type, "id", "name", file.type_id);
             return View(file);
         }
 
@@ -75,12 +75,12 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Files.Attach(file);
+                db.File.Attach(file);
                 db.ObjectStateManager.ChangeObjectState(file, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TypeId = new SelectList(db.Types, "Id", "Name", file.TypeId);
+            ViewBag.type_id = new SelectList(db.Type, "id", "name", file.type_id);
             return View(file);
         }
 
@@ -89,7 +89,7 @@ namespace IvtLibrary.Controllers
  
         public ActionResult Delete(int id)
         {
-            File file = db.Files.Single(f => f.Id == id);
+            File file = db.File.Single(f => f.id == id);
             return View(file);
         }
 
@@ -99,8 +99,8 @@ namespace IvtLibrary.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            File file = db.Files.Single(f => f.Id == id);
-            db.Files.DeleteObject(file);
+            File file = db.File.Single(f => f.id == id);
+            db.File.DeleteObject(file);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

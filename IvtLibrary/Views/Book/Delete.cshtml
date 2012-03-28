@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Book
+﻿@model IvtLibrary.Book
 
 @{
     ViewBag.Title = "Книги";
@@ -12,22 +12,22 @@
 
     <div class="display-label">Название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.name)
     </div>
 
     <div class="display-label">Год издания</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Year)
+        @Html.DisplayFor(model => model.year)
     </div>
 
     <div class="display-label">Издательство</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Publisher)
+        @Html.DisplayFor(model => model.publisher)
     </div>
 
     <div class="display-label">Количество страниц</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Volume)
+        @Html.DisplayFor(model => model.volume)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

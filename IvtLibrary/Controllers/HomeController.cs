@@ -11,7 +11,6 @@ namespace IvtLibrary.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Добро пожаловать в библиотеку IVTLibrary";
-
             return View();
         }
 

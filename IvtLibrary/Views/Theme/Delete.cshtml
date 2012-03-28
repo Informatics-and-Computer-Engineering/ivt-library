@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Theme
+﻿@model IvtLibrary.Theme
 
 @{
     ViewBag.Title = "Тема";
@@ -12,12 +12,12 @@
 
     <div class="display-label">Название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.name)
     </div>
 
     <div class="display-label">Подробное описание</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
+        @Html.DisplayFor(model => model.description)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

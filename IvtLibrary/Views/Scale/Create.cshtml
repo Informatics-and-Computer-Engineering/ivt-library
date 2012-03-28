@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Scale
+﻿@model IvtLibrary.Scale
 
 @{
     ViewBag.Title = "Создание";
@@ -15,11 +15,11 @@
         <legend>Масштаб</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name, "Название")
+            @Html.LabelFor(model => model.name, "Название")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
         </div>
 
         <p>

@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Article
+﻿@model IvtLibrary.Article
 
 @{
     ViewBag.Title = "Статья";
@@ -11,25 +11,41 @@
 
     <div class="display-label">Название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.name)
     </div>
 
     <div class="display-label">Город публикации</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.City.Name)
+        @Html.DisplayFor(model => model.City.name)
     </div>
 
     <div class="display-label">Конференция</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Conference.Name)
+        @Html.DisplayFor(model => model.Conference.name)
     </div>
 
     <div class="display-label">Год публикации</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Year)
+        @Html.DisplayFor(model => model.year)
     </div>
+
+    <table>
+        <tr>
+            <th>
+                Название
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Author) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_name + " " + item.middle_name + " " + item.last_name)
+                </td>
+            </tr>
+        }
+</table>
 </fieldset>
 <p>
-    @Html.ActionLink("Редактировать", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
     @Html.ActionLink("Назад к списку", "Index")
 </p>

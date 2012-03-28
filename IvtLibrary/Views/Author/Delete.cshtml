@@ -1,7 +1,7 @@
-﻿@model LibraryModel.Author
+﻿@model IvtLibrary.Author
 
 @{
-    ViewBag.Title = "Удаление";
+    ViewBag.Title = "Автор";
 }
 
 <h2>Удаление</h2>
@@ -12,17 +12,17 @@
 
     <div class="display-label">Имя</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.FirstName)
+        @Html.DisplayFor(model => model.first_name)
     </div>
 
     <div class="display-label">Отчество</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.MiddleName)
+        @Html.DisplayFor(model => model.middle_name)
     </div>
 
     <div class="display-label">Фамилия</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.LastName)
+        @Html.DisplayFor(model => model.last_name)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

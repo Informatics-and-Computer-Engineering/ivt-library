@@ -1,4 +1,4 @@
-﻿@model LibraryModel.Scale
+﻿@model IvtLibrary.Scale
 
 @{
     ViewBag.Title = "Описание";
@@ -11,10 +11,10 @@
 
     <div class="display-label">Название</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.name)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Редактирование", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Редактирование", "Edit", new { id=Model.id }) |
     @Html.ActionLink("Назад к списку", "Index")
 </p>
