@@ -15,9 +15,6 @@
             Название
         </th>
         <th>
-            Расширение
-        </th>
-        <th>
             Тип
         </th>
         <th></th>
@@ -29,15 +26,13 @@
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.content_type)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Type.name)
         </td>
         <td>
             @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
             @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id }) |
+            @Html.ActionLink("Скачать файл", "Download", new { id = item.id })
         </td>
     </tr>
 }

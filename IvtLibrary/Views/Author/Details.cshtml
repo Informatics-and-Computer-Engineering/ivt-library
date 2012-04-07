@@ -23,6 +23,22 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.last_name)
     </div>
+    <br/>
+    <table>
+        <tr>
+            <th>
+                Направления исследований
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Theme) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+            </tr>
+        }
+    </table>
 </fieldset>
 <p>
     @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |

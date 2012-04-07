@@ -1724,7 +1724,7 @@ namespace IvtLibrary
     public partial class File : EntityObject
     {
         #region Фабричный метод
-    
+
         /// <summary>
         /// Создание нового объекта File.
         /// </summary>
