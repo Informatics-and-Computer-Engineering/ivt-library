@@ -1,7 +1,11 @@
-﻿@model IvtLibrary.Author
+﻿@using IvtLibrary
+@using IvtLibrary.Controllers
+@using IvtLibrary.Helpers
+@model IvtLibrary.Author
 
 @{
     ViewBag.Title = "Автор";
+    IvtLibraryEntities db = new IvtLibraryEntities();
 }
 
 <h2>Добавление</h2>
@@ -36,6 +40,15 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.last_name)
             @Html.ValidationMessageFor(model => model.last_name)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Theme, "Тематика работ")
+        </div>
+        <div>
+            
+            @Html.CheckBoxList("themeIds", from i in db.Theme.AsEnumerable()
+                                     orderby i.id
+                                     select new SelectListItem { Value = i.id.ToString(), Text = i.name })
         </div>
 
         <p>

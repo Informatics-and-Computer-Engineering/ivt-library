@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
@@ -42,11 +38,12 @@ namespace IvtLibrary.Controllers
         // POST: /Author/Create
 
         [HttpPost]
-        public ActionResult Create(Author author)
+        public ActionResult Create(Author author, int[] themeIds)
         {
             if (ModelState.IsValid)
             {
                 db.Author.AddObject(author);
+                SetAuthorThemes(author, themeIds);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -67,16 +64,54 @@ namespace IvtLibrary.Controllers
         // POST: /Author/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Author author)
+        public ActionResult Edit(Author author, int[] themeIds)
         {
             if (ModelState.IsValid)
             {
                 db.Author.Attach(author);
+                SetAuthorThemes(author, themeIds);
                 db.ObjectStateManager.ChangeObjectState(author, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(author);
+        }
+
+        private void SetAuthorThemes(Author author, int[] themeIds)
+        {
+            // получаем коллекцию тем, выбранных пользователем на форме
+            var selectedThemes = GetThemesByIds(themeIds);
+            // Вытаскиваем темы которые уже есть у данного автора
+            var authorThemes = author.Theme.ToList();
+            // удаляем темы которые исчезли из отмеченных
+            foreach (var theme in authorThemes)
+            {
+                if (!selectedThemes.Contains(theme))
+                {
+                    author.Theme.Remove(theme);
+                }
+            }
+            // добавляем темы которые добавил пользователь
+            foreach (var theme in selectedThemes)
+            {
+                if (!authorThemes.Contains(theme))
+                {
+                    author.Theme.Add(theme);
+                }
+            }
+                
+        }
+
+        private IList<Theme> GetThemesByIds(int[] themeIds)
+        {
+            List<Theme> selectedThemes = new List<Theme>();
+            //выбираем все темы с заданными id
+            foreach (int themeId in themeIds)
+            {
+                Theme theme = db.Theme.Single(t => t.id == themeId);
+                selectedThemes.Add(theme);
+            }
+            return selectedThemes;
         }
 
         //

@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
 using System.Data.EntityClient;
