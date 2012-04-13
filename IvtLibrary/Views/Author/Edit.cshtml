@@ -4,7 +4,6 @@
 
 @{
     ViewBag.Title = "Автор";
-    IvtLibraryEntities db = new IvtLibraryEntities();
 }
 
 <h2>Редактирование</h2>
@@ -47,13 +46,7 @@
         </div>
         <div>
             
-            @Html.CheckBoxList("themeIds", from i in db.Theme.AsEnumerable()
-                                     orderby i.id
-                                           select new SelectListItem { 
-                                               Value = i.id.ToString(), 
-                                               Text = i.name, 
-                                               Selected = Model.Theme.Any(k => k.id == i.id) 
-                                           })
+            @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
         </div>
 
         <p>

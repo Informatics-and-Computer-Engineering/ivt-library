@@ -5,7 +5,6 @@
 
 @{
     ViewBag.Title = "Автор";
-    IvtLibraryEntities db = new IvtLibraryEntities();
 }
 
 <h2>Добавление</h2>
@@ -45,10 +44,7 @@
             @Html.LabelFor(model => model.Theme, "Тематика работ")
         </div>
         <div>
-            
-            @Html.CheckBoxList("themeIds", from i in db.Theme.AsEnumerable()
-                                     orderby i.id
-                                     select new SelectListItem { Value = i.id.ToString(), Text = i.name })
+            @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
         </div>
 
         <p>

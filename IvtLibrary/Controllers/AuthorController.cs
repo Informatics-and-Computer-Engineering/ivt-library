@@ -31,6 +31,7 @@ namespace IvtLibrary.Controllers
 
         public ActionResult Create()
         {
+            FillThemesCheckBoxList(null);
             return View();
         } 
 
@@ -57,6 +58,7 @@ namespace IvtLibrary.Controllers
         public ActionResult Edit(int id)
         {
             Author author = db.Author.Single(a => a.id == id);
+            FillThemesCheckBoxList(author);
             return View(author);
         }
 
@@ -112,6 +114,33 @@ namespace IvtLibrary.Controllers
                 selectedThemes.Add(theme);
             }
             return selectedThemes;
+        }
+
+        // заполняет список чекбоксов тем
+        private void FillThemesCheckBoxList(Author author)
+        {
+            // получаем список тум, привязанных к автору, если он есть
+            HashSet<int> themes;
+            if(author != null)
+            {
+                themes = new HashSet<int>(author.Theme.Select(c => c.id));
+            }
+            else
+            {
+                themes = new HashSet<int>();
+            }
+            var allThemes = db.Theme;
+            var themesCheckBoxList = new List<SelectListItem>();
+            foreach (var theme in allThemes)
+            {
+                themesCheckBoxList.Add(new SelectListItem
+                {
+                    Value = theme.id.ToString(),
+                    Text = theme.name,
+                    Selected = themes.Contains(theme.id)
+                });
+            }
+            ViewBag.ThemesList = themesCheckBoxList;
         }
 
         //
