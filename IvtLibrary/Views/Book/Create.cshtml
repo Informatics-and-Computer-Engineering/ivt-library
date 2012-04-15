@@ -1,4 +1,5 @@
-﻿@model IvtLibrary.Book
+﻿@using IvtLibrary.Helpers
+@model IvtLibrary.Book
 
 @{
     ViewBag.Title = "Книги";
@@ -45,7 +46,12 @@
             @Html.EditorFor(model => model.volume)
             @Html.ValidationMessageFor(model => model.volume)
         </div>
-
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Author, "Авторы книги")
+        </div>
+        <div>
+            @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
+        </div>
         <p>
             <input type="submit" value="Создать" />
         </p>

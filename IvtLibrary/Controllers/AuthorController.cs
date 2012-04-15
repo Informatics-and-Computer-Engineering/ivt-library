@@ -119,7 +119,7 @@ namespace IvtLibrary.Controllers
         // заполняет список чекбоксов тем
         private void FillThemesCheckBoxList(Author author)
         {
-            // получаем список тум, привязанных к автору, если он есть
+            // получаем список тем, привязанных к автору, если он есть
             HashSet<int> themes;
             if(author != null)
             {
