@@ -54,6 +54,12 @@
         <div>
             @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
         </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Theme, "Тематика статьи")
+        </div>
+        <div>
+            @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
+        </div>
 
         <p>
             <input type="submit" value="Создать" />

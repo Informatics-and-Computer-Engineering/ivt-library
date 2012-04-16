@@ -79,6 +79,29 @@ namespace IvtLibrary.Controllers
             return View(author);
         }
 
+        //
+        // GET: /Author/Delete/5
+ 
+        public ActionResult Delete(int id)
+        {
+            Author author = db.Author.Single(a => a.id == id);
+            return View(author);
+        }
+
+        //
+        // POST: /Author/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {            
+            Author author = db.Author.Single(a => a.id == id);
+            db.Author.DeleteObject(author);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        #region Theme connection
+
         private void SetAuthorThemes(Author author, int[] themeIds)
         {
             // получаем коллекцию тем, выбранных пользователем на форме
@@ -101,7 +124,7 @@ namespace IvtLibrary.Controllers
                     author.Theme.Add(theme);
                 }
             }
-                
+
         }
 
         private IList<Theme> GetThemesByIds(int[] themeIds)
@@ -121,7 +144,7 @@ namespace IvtLibrary.Controllers
         {
             // получаем список тем, привязанных к автору, если он есть
             HashSet<int> themes;
-            if(author != null)
+            if (author != null)
             {
                 themes = new HashSet<int>(author.Theme.Select(c => c.id));
             }
@@ -143,26 +166,7 @@ namespace IvtLibrary.Controllers
             ViewBag.ThemesList = themesCheckBoxList;
         }
 
-        //
-        // GET: /Author/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Author author = db.Author.Single(a => a.id == id);
-            return View(author);
-        }
-
-        //
-        // POST: /Author/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {            
-            Author author = db.Author.Single(a => a.id == id);
-            db.Author.DeleteObject(author);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        #endregion
 
         protected override void Dispose(bool disposing)
         {

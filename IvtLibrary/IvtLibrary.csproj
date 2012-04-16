@@ -24,6 +24,27 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <IncludeAppPool>false</IncludeAppPool>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="ApplicationServices-развертывание" Order="1" Enabled="False">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=.\SQLEXPRESS%3bAttachDbFilename=|DataDirectory|aspnetdb.mdf%3bIntegrated Security=True%3bUser Instance=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\ApplicationServices-развертывание_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="IvtLibraryEntities-развертывание" Order="2" Enabled="False">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="HOST=localhost%3bPORT=5432%3bPROTOCOL=3%3bDATABASE=Library%3bUSER ID=postgres%3bPASSWORD=4784%3bSSL=False%3bSSLMODE=Disable%3bTIMEOUT=15%3bSEARCHPATH=%3bPOOLING=True%3bCONNECTIONLIFETIME=15%3bMINPOOLSIZE=1%3bMAXPOOLSIZE=20%3bSYNCNOTIFICATION=False%3bCOMMANDTIMEOUT=20%3bENLIST=true%3bPRELOADREADER=False%3bUSEEXTENDEDTYPES=False%3bINTEGRATED SECURITY=False%3bCOMPATIBLE=2.0.11.0" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\IvtLibraryEntities-развертывание_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -250,12 +271,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1669</DevelopmentServerPort>
+          <DevelopmentServerPort>34775</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost/IvtLibrary</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

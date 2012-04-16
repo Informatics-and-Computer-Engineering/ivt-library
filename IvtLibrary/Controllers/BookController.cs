@@ -36,6 +36,7 @@ namespace IvtLibrary.Controllers
         public ActionResult Create()
         {
             FillAuthorsCheckBoxList(null);
+            FillThemesCheckBoxList(null);
             return View();
         } 
 
@@ -43,12 +44,13 @@ namespace IvtLibrary.Controllers
         // POST: /Book/Create
 
         [HttpPost]
-        public ActionResult Create(Book book, int[] authorIds)
+        public ActionResult Create(Book book, int[] authorIds, int[] themeIds)
         {
             if (ModelState.IsValid)
             {
                 db.Book.AddObject(book);
                 SetBookAuthors(book, authorIds);
+                SetBookThemes(book, themeIds);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -62,6 +64,7 @@ namespace IvtLibrary.Controllers
         {
             Book book = db.Book.Single(b => b.id == id);
             FillAuthorsCheckBoxList(book);
+            FillThemesCheckBoxList(book);
             return View(book);
         }
 
@@ -69,12 +72,13 @@ namespace IvtLibrary.Controllers
         // POST: /Book/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Book book, int[] authorIds)
+        public ActionResult Edit(Book book, int[] authorIds, int[] themeIds)
         {
             if (ModelState.IsValid)
             {
                 db.Book.Attach(book);
                 SetBookAuthors(book, authorIds);
+                SetBookThemes(book, themeIds);
                 db.ObjectStateManager.ChangeObjectState(book, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -102,6 +106,8 @@ namespace IvtLibrary.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        #region Author connection
 
         private IList<Author> GetAuthorsByIds(int[] authorIds)
         {
@@ -166,6 +172,74 @@ namespace IvtLibrary.Controllers
             }
             ViewBag.AuthorsList = authorsCheckBoxList;
         }
+        #endregion
+
+        #region Theme connection
+
+        private void SetBookThemes(Book book, int[] themeIds)
+        {
+            // получаем коллекцию тем, выбранных пользователем на форме
+            var selectedThemes = GetThemesByIds(themeIds);
+            // Вытаскиваем темы которые уже есть у данного автора
+            var bookThemes = book.Theme.ToList();
+            // удаляем темы которые исчезли из отмеченных
+            foreach (var theme in bookThemes)
+            {
+                if (!selectedThemes.Contains(theme))
+                {
+                    book.Theme.Remove(theme);
+                }
+            }
+            // добавляем темы которые добавил пользователь
+            foreach (var theme in selectedThemes)
+            {
+                if (!bookThemes.Contains(theme))
+                {
+                    book.Theme.Add(theme);
+                }
+            }
+
+        }
+
+        private IList<Theme> GetThemesByIds(int[] themeIds)
+        {
+            List<Theme> selectedThemes = new List<Theme>();
+            //выбираем все темы с заданными id
+            foreach (int themeId in themeIds)
+            {
+                Theme theme = db.Theme.Single(t => t.id == themeId);
+                selectedThemes.Add(theme);
+            }
+            return selectedThemes;
+        }
+
+        // заполняет список чекбоксов тем
+        private void FillThemesCheckBoxList(Book book)
+        {
+            // получаем список тем, привязанных к автору, если он есть
+            HashSet<int> themes;
+            if (book != null)
+            {
+                themes = new HashSet<int>(book.Theme.Select(c => c.id));
+            }
+            else
+            {
+                themes = new HashSet<int>();
+            }
+            var allThemes = db.Theme;
+            var themesCheckBoxList = new List<SelectListItem>();
+            foreach (var theme in allThemes)
+            {
+                themesCheckBoxList.Add(new SelectListItem
+                {
+                    Value = theme.id.ToString(),
+                    Text = theme.name,
+                    Selected = themes.Contains(theme.id)
+                });
+            }
+            ViewBag.ThemesList = themesCheckBoxList;
+        }
+        #endregion
 
         protected override void Dispose(bool disposing)
         {
