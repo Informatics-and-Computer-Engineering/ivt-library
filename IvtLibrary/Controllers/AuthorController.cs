@@ -2,12 +2,14 @@
 using System.Data;
 using System.Linq;
 using System.Web.Mvc;
+using IvtLibrary.Models;
 
 namespace IvtLibrary.Controllers
 { 
     public class AuthorController : Controller
     {
         private IvtLibraryEntities db = new IvtLibraryEntities();
+        private ThemeRepository themeRepository = new ThemeRepository();
 
         //
         // GET: /Author/
@@ -31,7 +33,7 @@ namespace IvtLibrary.Controllers
 
         public ActionResult Create()
         {
-            FillThemesCheckBoxList(null);
+            ViewBag.ThemesList = themeRepository.FillThemesCheckBoxList(null);
             return View();
         } 
 
@@ -48,7 +50,6 @@ namespace IvtLibrary.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
-
             return View(author);
         }
         
@@ -58,7 +59,7 @@ namespace IvtLibrary.Controllers
         public ActionResult Edit(int id)
         {
             Author author = db.Author.Single(a => a.id == id);
-            FillThemesCheckBoxList(author);
+            ViewBag.ThemesList = themeRepository.FillThemesCheckBoxList(author.Theme);
             return View(author);
         }
 
@@ -95,6 +96,7 @@ namespace IvtLibrary.Controllers
         public ActionResult DeleteConfirmed(int id)
         {            
             Author author = db.Author.Single(a => a.id == id);
+            author.Theme.Clear();
             db.Author.DeleteObject(author);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -102,68 +104,20 @@ namespace IvtLibrary.Controllers
 
         #region Theme connection
 
-        private void SetAuthorThemes(Author author, int[] themeIds)
+        private void SetAuthorThemes(Author author, IEnumerable<int> themeIds)
         {
             // получаем коллекцию тем, выбранных пользователем на форме
-            var selectedThemes = GetThemesByIds(themeIds);
-            // Вытаскиваем темы которые уже есть у данного автора
-            var authorThemes = author.Theme.ToList();
-            // удаляем темы которые исчезли из отмеченных
-            foreach (var theme in authorThemes)
+            var selectedThemes = db.Theme.Where(t => themeIds.Contains(t.id));
+            // очищаем список старых тем
+            author.Theme.Clear();
+            // заполняем список тем теми которые выбрал пользователь
+            if (themeIds != null)
             {
-                if (!selectedThemes.Contains(theme))
-                {
-                    author.Theme.Remove(theme);
-                }
-            }
-            // добавляем темы которые добавил пользователь
-            foreach (var theme in selectedThemes)
-            {
-                if (!authorThemes.Contains(theme))
+                foreach (var theme in selectedThemes)
                 {
                     author.Theme.Add(theme);
                 }
             }
-
-        }
-
-        private IList<Theme> GetThemesByIds(int[] themeIds)
-        {
-            List<Theme> selectedThemes = new List<Theme>();
-            //выбираем все темы с заданными id
-            foreach (int themeId in themeIds)
-            {
-                Theme theme = db.Theme.Single(t => t.id == themeId);
-                selectedThemes.Add(theme);
-            }
-            return selectedThemes;
-        }
-
-        // заполняет список чекбоксов тем
-        private void FillThemesCheckBoxList(Author author)
-        {
-            // получаем список тем, привязанных к автору, если он есть
-            HashSet<int> themes;
-            if (author != null)
-            {
-                themes = new HashSet<int>(author.Theme.Select(c => c.id));
-            }
-            else
-            {
-                themes = new HashSet<int>();
-            }
-            var allThemes = db.Theme;
-            var themesCheckBoxList = new List<SelectListItem>();
-            foreach (var theme in allThemes)
-            {
-                themesCheckBoxList.Add(new SelectListItem
-                {
-                    Value = theme.id.ToString(),
-                    Text = theme.name,
-                    Selected = themes.Contains(theme.id)
-                });
-            }
-            ViewBag.ThemesList = themesCheckBoxList;
         }
 
         #endregion

@@ -29,7 +29,7 @@
             @Html.LabelFor(model => model.city_id, "Город публикации")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("CityId", String.Empty)
+            @Html.DropDownList("city_id", String.Empty)
             @Html.ValidationMessageFor(model => model.city_id)
         </div>
 
@@ -38,7 +38,7 @@
             @Html.ActionLink("Добавить город", "Create", "City")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ConferenceId", String.Empty)
+            @Html.DropDownList("conference_id", String.Empty)
             @Html.ValidationMessageFor(model => model.conference_id)
             @Html.ActionLink("Создать новую конференцию", "Create", "Conference")
         </div>

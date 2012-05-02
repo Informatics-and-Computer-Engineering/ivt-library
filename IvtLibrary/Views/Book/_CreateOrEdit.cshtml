@@ -1,0 +1,36 @@
+@model IvtLibrary.Book
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.name)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.name)
+    @Html.ValidationMessageFor(model => model.name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.year)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.year)
+    @Html.ValidationMessageFor(model => model.year)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.publisher)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.publisher)
+    @Html.ValidationMessageFor(model => model.publisher)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.volume)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.volume)
+    @Html.ValidationMessageFor(model => model.volume)
+</div>
+

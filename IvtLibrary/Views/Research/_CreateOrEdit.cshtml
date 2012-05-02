@@ -1,0 +1,44 @@
+@model IvtLibrary.Research
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.name)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.name)
+    @Html.ValidationMessageFor(model => model.name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.description)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.description)
+    @Html.ValidationMessageFor(model => model.description)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.goal)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.goal)
+    @Html.ValidationMessageFor(model => model.goal)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.tasks)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.tasks)
+    @Html.ValidationMessageFor(model => model.tasks)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.progress)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.progress)
+    @Html.ValidationMessageFor(model => model.progress)
+</div>
+

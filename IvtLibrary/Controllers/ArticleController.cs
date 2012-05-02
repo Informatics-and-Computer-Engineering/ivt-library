@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Objects.DataClasses;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IvtLibrary;
+using IvtLibrary.Models;
 
 namespace IvtLibrary.Controllers
 { 
     public class ArticleController : Controller
     {
         private IvtLibraryEntities db = new IvtLibraryEntities();
+        private AuthorRepository authorRepository = new AuthorRepository();
+        private ThemeRepository themeRepository = new ThemeRepository();
 
         //
         // GET: /Article/
@@ -36,8 +40,8 @@ namespace IvtLibrary.Controllers
 
         public ActionResult Create()
         {
-            FillAuthorsCheckBoxList(null);
-            FillThemesCheckBoxList(null);
+            ViewBag.AuthorsList = authorRepository.FillAuthorsCheckBoxList(null);
+            ViewBag.ThemesList = themeRepository.FillThemesCheckBoxList(null);
             ViewBag.city_id = new SelectList(db.City, "id", "name");
             ViewBag.conference_id = new SelectList(db.Conference, "id", "name");
             return View();
@@ -57,9 +61,6 @@ namespace IvtLibrary.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
-
-            ViewBag.city_id = new SelectList(db.City, "id", "name", article.city_id);
-            ViewBag.conference_id = new SelectList(db.Conference, "id", "name", article.conference_id);
             return View(article);
         }
 
@@ -69,8 +70,8 @@ namespace IvtLibrary.Controllers
         public ActionResult Edit(int id)
         {
             Article article = db.Article.Single(a => a.id == id);
-            FillAuthorsCheckBoxList(article);
-            FillThemesCheckBoxList(article);
+            ViewBag.AuthorsList = authorRepository.FillAuthorsCheckBoxList(article.Author);
+            ViewBag.ThemesList = themeRepository.FillThemesCheckBoxList(article.Theme);
             ViewBag.city_id = new SelectList(db.City, "id", "name", article.city_id);
             ViewBag.conference_id = new SelectList(db.Conference, "id", "name", article.conference_id);
             return View(article);
@@ -91,8 +92,6 @@ namespace IvtLibrary.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.city_id = new SelectList(db.City, "id", "name", article.city_id);
-            ViewBag.conference_id = new SelectList(db.Conference, "id", "name", article.conference_id);
             return View(article);
         }
 
@@ -112,6 +111,8 @@ namespace IvtLibrary.Controllers
         public ActionResult DeleteConfirmed(int id)
         {            
             Article article = db.Article.Single(a => a.id == id);
+            article.Author.Clear();
+            article.Theme.Clear();
             db.Article.DeleteObject(article);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -119,137 +120,42 @@ namespace IvtLibrary.Controllers
 
         #region Author connection
 
-        private IList<Author> GetAuthorsByIds(int[] authorIds)
+        private void SetArticleAuthors(Article article, IEnumerable<int> authorIds)
         {
-            List<Author> selectedAuthors = new List<Author>();
-            //выбираем все темы с заданными id
-            foreach (int authorId in authorIds)
+            // получаем коллекцию авторов, выбранных пользователем на форме
+            var selectedAuthors = db.Author.Where(t => authorIds.Contains(t.id));
+            // очищаем список старых авторов
+            article.Author.Clear();
+            // заполняем список авторов теми которых выбрал пользователь
+            if (authorIds != null)
             {
-                Author author = db.Author.Single(t => t.id == authorId);
-                selectedAuthors.Add(author);
-            }
-            return selectedAuthors;
-        }
-
-        private void SetArticleAuthors(Article article, int[] authorIds)
-        {
-            // получаем коллекцию тем, выбранных пользователем на форме
-            var selectedAuthors = GetAuthorsByIds(authorIds);
-            // Вытаскиваем темы которые уже есть у данного автора
-            var articleAuthors = article.Author.ToList();
-            // удаляем темы которые исчезли из отмеченных
-            foreach (var author in articleAuthors)
-            {
-                if (!selectedAuthors.Contains(author))
-                {
-                    article.Author.Remove(author);
-                }
-            }
-            // добавляем темы которые добавил пользователь
-            foreach (var author in selectedAuthors)
-            {
-                if (!articleAuthors.Contains(author))
+                foreach (var author in selectedAuthors)
                 {
                     article.Author.Add(author);
                 }
             }
-
-        }
-
-        // заполняет список чекбоксов тем
-        private void FillAuthorsCheckBoxList(Article article)
-        {
-            // получаем список тем, привязанных к автору, если он есть
-            HashSet<int> authors;
-            if (article != null)
-            {
-                authors = new HashSet<int>(article.Author.Select(c => c.id));
-            }
-            else
-            {
-                authors = new HashSet<int>();
-            }
-            var allAuthors = db.Author;
-            var authorsCheckBoxList = new List<SelectListItem>();
-            foreach (var author in allAuthors)
-            {
-                authorsCheckBoxList.Add(new SelectListItem
-                {
-                    Value = author.id.ToString(),
-                    Text = author.first_name + " " + author.middle_name + " " + author.last_name,
-                    Selected = authors.Contains(author.id)
-                });
-            }
-            ViewBag.AuthorsList = authorsCheckBoxList;
         }
 
         #endregion
 
         #region Theme connection
 
-        private void SetArticleThemes(Article article, int[] themeIds)
+        private void SetArticleThemes(Article article, IEnumerable<int> themeIds)
         {
             // получаем коллекцию тем, выбранных пользователем на форме
-            var selectedThemes = GetThemesByIds(themeIds);
-            // Вытаскиваем темы которые уже есть у данного автора
-            var articleThemes = article.Theme.ToList();
-            // удаляем темы которые исчезли из отмеченных
-            foreach (var theme in articleThemes)
+            var selectedThemes = db.Theme.Where(t => themeIds.Contains(t.id));
+            // очищаем список старых тем
+            article.Theme.Clear();
+            // заполняем список тем теми которые выбрал пользователь
+            if (themeIds != null)
             {
-                if (!selectedThemes.Contains(theme))
-                {
-                    article.Theme.Remove(theme);
-                }
-            }
-            // добавляем темы которые добавил пользователь
-            foreach (var theme in selectedThemes)
-            {
-                if (!articleThemes.Contains(theme))
+                foreach (var theme in selectedThemes)
                 {
                     article.Theme.Add(theme);
                 }
             }
-
         }
 
-        private IList<Theme> GetThemesByIds(int[] themeIds)
-        {
-            List<Theme> selectedThemes = new List<Theme>();
-            //выбираем все темы с заданными id
-            foreach (int themeId in themeIds)
-            {
-                Theme theme = db.Theme.Single(t => t.id == themeId);
-                selectedThemes.Add(theme);
-            }
-            return selectedThemes;
-        }
-
-        // заполняет список чекбоксов тем
-        private void FillThemesCheckBoxList(Article article)
-        {
-            // получаем список тем, привязанных к автору, если он есть
-            HashSet<int> themes;
-            if (article != null)
-            {
-                themes = new HashSet<int>(article.Theme.Select(c => c.id));
-            }
-            else
-            {
-                themes = new HashSet<int>();
-            }
-            var allThemes = db.Theme;
-            var themesCheckBoxList = new List<SelectListItem>();
-            foreach (var theme in allThemes)
-            {
-                themesCheckBoxList.Add(new SelectListItem
-                {
-                    Value = theme.id.ToString(),
-                    Text = theme.name,
-                    Selected = themes.Contains(theme.id)
-                });
-            }
-            ViewBag.ThemesList = themesCheckBoxList;
-        }
         #endregion
 
         protected override void Dispose(bool disposing)
