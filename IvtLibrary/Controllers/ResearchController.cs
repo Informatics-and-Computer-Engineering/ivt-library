@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Objects.DataClasses;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -52,8 +53,8 @@ namespace IvtLibrary.Controllers
             if (ModelState.IsValid)
             {
                 db.Research.AddObject(research);
-                SetResearchAuthors(research, authorIds);
-                SetResearchThemes(research, themeIds);
+                SetResearchAuthors(research.Author, authorIds);
+                SetResearchThemes(research.Theme, themeIds);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -81,8 +82,8 @@ namespace IvtLibrary.Controllers
             if (ModelState.IsValid)
             {
                 db.Research.Attach(research);
-                SetResearchAuthors(research, authorIds);
-                SetResearchThemes(research, themeIds);
+                SetResearchAuthors(research.Author, authorIds);
+                SetResearchThemes(research.Theme, themeIds);
                 db.ObjectStateManager.ChangeObjectState(research, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -113,40 +114,40 @@ namespace IvtLibrary.Controllers
             return RedirectToAction("Index");
         }
 
-        #region Theme connection
+        #region Author connection
 
-        private void SetResearchThemes(Research research, IEnumerable<int> themeIds)
+        private void SetResearchAuthors(EntityCollection<Author> authors, IEnumerable<int> authorIds)
         {
-            // получаем коллекцию тем, выбранных пользователем на форме
-            var selectedThemes = db.Theme.Where(t => themeIds.Contains(t.id));
-            // очищаем список старых тем
-            research.Theme.Clear();
-            // заполняем список тем теми которые выбрал пользователь
-            if (themeIds != null)
+            // получаем коллекцию авторов, выбранных пользователем на форме
+            var selectedAuthors = db.Author.Where(t => authorIds.Contains(t.id));
+            // очищаем список старых авторов
+            authors.Clear();
+            // заполняем список авторов теми которых выбрал пользователь
+            if (authorIds != null)
             {
-                foreach (var theme in selectedThemes)
+                foreach (var author in selectedAuthors)
                 {
-                    research.Theme.Add(theme);
+                    authors.Add(author);
                 }
             }
         }
 
         #endregion
 
-        #region Author connection
+        #region Theme connection
 
-        private void SetResearchAuthors(Research research, IEnumerable<int> authorIds)
+        private void SetResearchThemes(EntityCollection<Theme> themes, IEnumerable<int> themeIds)
         {
-            // получаем коллекцию авторов, выбранных пользователем на форме
-            var selectedAuthors = db.Author.Where(t => authorIds.Contains(t.id));
-            // очищаем список старых авторов
-            research.Author.Clear();
-            // заполняем список авторов теми которых выбрал пользователь
-            if (authorIds != null)
+            // получаем коллекцию тем, выбранных пользователем на форме
+            var selectedThemes = db.Theme.Where(t => themeIds.Contains(t.id));
+            // очищаем список старых тем
+            themes.Clear();
+            // заполняем список тем теми которые выбрал пользователь
+            if (themeIds != null)
             {
-                foreach (var author in selectedAuthors)
+                foreach (var theme in selectedThemes)
                 {
-                    research.Author.Add(author);
+                    themes.Add(theme);
                 }
             }
         }

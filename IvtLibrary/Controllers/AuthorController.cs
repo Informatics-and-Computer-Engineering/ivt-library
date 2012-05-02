@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Data.Objects.DataClasses;
 using System.Linq;
 using System.Web.Mvc;
 using IvtLibrary.Models;
@@ -46,7 +47,7 @@ namespace IvtLibrary.Controllers
             if (ModelState.IsValid)
             {
                 db.Author.AddObject(author);
-                SetAuthorThemes(author, themeIds);
+                SetAuthorThemes(author.Theme, themeIds);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -72,7 +73,7 @@ namespace IvtLibrary.Controllers
             if (ModelState.IsValid)
             {
                 db.Author.Attach(author);
-                SetAuthorThemes(author, themeIds);
+                SetAuthorThemes(author.Theme, themeIds);
                 db.ObjectStateManager.ChangeObjectState(author, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -104,18 +105,18 @@ namespace IvtLibrary.Controllers
 
         #region Theme connection
 
-        private void SetAuthorThemes(Author author, IEnumerable<int> themeIds)
+        private void SetAuthorThemes(EntityCollection<Theme> themes, IEnumerable<int> themeIds)
         {
             // получаем коллекцию тем, выбранных пользователем на форме
             var selectedThemes = db.Theme.Where(t => themeIds.Contains(t.id));
             // очищаем список старых тем
-            author.Theme.Clear();
+            themes.Clear();
             // заполняем список тем теми которые выбрал пользователь
             if (themeIds != null)
             {
                 foreach (var theme in selectedThemes)
                 {
-                    author.Theme.Add(theme);
+                    themes.Add(theme);
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿@model IvtLibrary.Book
+﻿@using IvtLibrary.Helpers
+@model IvtLibrary.Book
 
 @{
     ViewBag.Title = "Книги";
@@ -28,6 +29,40 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.volume)
     </div>
+    
+    <br/>
+    <table>
+        <tr>
+            <th>
+                Авторы
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Author) {
+            <tr>
+                <td>
+                    @Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)
+                </td>
+            </tr>
+        }
+    </table>
+
+    <br/>
+    <table>
+        <tr>
+            <th>
+                Тематика публикации
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Theme) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(i => item.name)
+                </td>
+            </tr>
+        }
+    </table>
 </fieldset>
 <p>
     @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |

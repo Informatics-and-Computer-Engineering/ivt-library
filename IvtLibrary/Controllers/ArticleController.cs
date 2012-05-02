@@ -56,8 +56,8 @@ namespace IvtLibrary.Controllers
             if (ModelState.IsValid)
             {
                 db.Article.AddObject(article);
-                SetArticleAuthors(article, authorIds);
-                SetArticleThemes(article, themeIds);
+                SetArticleAuthors(article.Author, authorIds);
+                SetArticleThemes(article.Theme, themeIds);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -86,8 +86,8 @@ namespace IvtLibrary.Controllers
             if (ModelState.IsValid)
             {
                 db.Article.Attach(article);
-                SetArticleAuthors(article, authorIds);
-                SetArticleThemes(article, themeIds);
+                SetArticleAuthors(article.Author, authorIds);
+                SetArticleThemes(article.Theme, themeIds);
                 db.ObjectStateManager.ChangeObjectState(article, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -120,18 +120,18 @@ namespace IvtLibrary.Controllers
 
         #region Author connection
 
-        private void SetArticleAuthors(Article article, IEnumerable<int> authorIds)
+        private void SetArticleAuthors(EntityCollection<Author> authors, IEnumerable<int> authorIds)
         {
             // получаем коллекцию авторов, выбранных пользователем на форме
             var selectedAuthors = db.Author.Where(t => authorIds.Contains(t.id));
             // очищаем список старых авторов
-            article.Author.Clear();
+            authors.Clear();
             // заполняем список авторов теми которых выбрал пользователь
             if (authorIds != null)
             {
                 foreach (var author in selectedAuthors)
                 {
-                    article.Author.Add(author);
+                    authors.Add(author);
                 }
             }
         }
@@ -140,18 +140,18 @@ namespace IvtLibrary.Controllers
 
         #region Theme connection
 
-        private void SetArticleThemes(Article article, IEnumerable<int> themeIds)
+        private void SetArticleThemes(EntityCollection<Theme> themes, IEnumerable<int> themeIds)
         {
             // получаем коллекцию тем, выбранных пользователем на форме
             var selectedThemes = db.Theme.Where(t => themeIds.Contains(t.id));
             // очищаем список старых тем
-            article.Theme.Clear();
+            themes.Clear();
             // заполняем список тем теми которые выбрал пользователь
             if (themeIds != null)
             {
                 foreach (var theme in selectedThemes)
                 {
-                    article.Theme.Add(theme);
+                    themes.Add(theme);
                 }
             }
         }

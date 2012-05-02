@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Objects.DataClasses;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -52,8 +53,8 @@ namespace IvtLibrary.Controllers
             if (ModelState.IsValid)
             {
                 db.Book.AddObject(book);
-                SetBookAuthors(book, authorIds);
-                SetBookThemes(book, themeIds);
+                SetBookAuthors(book.Author, authorIds);
+                SetBookThemes(book.Theme, themeIds);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
@@ -80,8 +81,8 @@ namespace IvtLibrary.Controllers
             if (ModelState.IsValid)
             {
                 db.Book.Attach(book);
-                SetBookAuthors(book, authorIds);
-                SetBookThemes(book, themeIds);
+                SetBookAuthors(book.Author, authorIds);
+                SetBookThemes(book.Theme, themeIds);
                 db.ObjectStateManager.ChangeObjectState(book, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -114,18 +115,18 @@ namespace IvtLibrary.Controllers
 
         #region Author connection
 
-        private void SetBookAuthors(Book book, IEnumerable<int> authorIds)
+        private void SetBookAuthors(EntityCollection<Author> authors, IEnumerable<int> authorIds)
         {
             // получаем коллекцию авторов, выбранных пользователем на форме
             var selectedAuthors = db.Author.Where(t => authorIds.Contains(t.id));
             // очищаем список старых авторов
-            book.Author.Clear();
+            authors.Clear();
             // заполняем список авторов теми которых выбрал пользователь
             if (authorIds != null)
             {
                 foreach (var author in selectedAuthors)
                 {
-                    book.Author.Add(author);
+                    authors.Add(author);
                 }
             }
         }
@@ -134,18 +135,18 @@ namespace IvtLibrary.Controllers
 
         #region Theme connection
 
-        private void SetBookThemes(Book book, IEnumerable<int> themeIds)
+        private void SetBookThemes(EntityCollection<Theme> themes, IEnumerable<int> themeIds)
         {
             // получаем коллекцию тем, выбранных пользователем на форме
             var selectedThemes = db.Theme.Where(t => themeIds.Contains(t.id));
             // очищаем список старых тем
-            book.Theme.Clear();
+            themes.Clear();
             // заполняем список тем теми которые выбрал пользователь
             if (themeIds != null)
             {
                 foreach (var theme in selectedThemes)
                 {
-                    book.Theme.Add(theme);
+                    themes.Add(theme);
                 }
             }
         }
