@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Objects.DataClasses;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -48,11 +49,22 @@ namespace IvtLibrary.Controllers
         // POST: /Book/Create
 
         [HttpPost]
-        public ActionResult Create(Book book, int[] authorIds, int[] themeIds)
+        public ActionResult Create(Book book, int[] authorIds, int[] themeIds, string fileName)
         {
             if (ModelState.IsValid)
             {
+                File file = new File();
+                file.type_id = db.Type.Single(t => t.name == "Книга").id;
+                file.name = fileName;
+                var fileElement = Request.Files[0];
+                file.content_type = fileElement.ContentType;
+                Stream stream = fileElement.InputStream;
+                byte[] fileData = new byte[stream.Length];
+                stream.Read(fileData, 0, (int)stream.Length);
+                file.data = fileData;
+                db.File.AddObject(file);
                 db.Book.AddObject(book);
+                book.File.Add(file);
                 SetBookAuthors(book.Author, authorIds);
                 SetBookThemes(book.Theme, themeIds);
                 db.SaveChanges();
