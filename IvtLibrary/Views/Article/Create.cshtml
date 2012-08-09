@@ -10,10 +10,21 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
-@using (Html.BeginForm()) {
+<script type="text/javascript">
+    function extractFileName(fileName,fieldName) {
+        var splittedPath = $('#'+fileName)[0].value.split('\\');
+        $('#'+fieldName)[0].value = splittedPath[splittedPath.length - 1];
+    }
+</script>
+
+@using (Html.BeginForm("Create", "Article", FormMethod.Post, new { enctype = "multipart/form-data" })) {
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Статья</legend>
+
+        <input type="hidden" name="articleFileName" id="articleFileName"/>
+        <input type="hidden" name="presentationFileName" id="presentationFileName"/>
+        <input type="hidden" name="proposalFileName" id="proposalFileName"/>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name, "Название статьи")
@@ -22,6 +33,21 @@
             @Html.EditorFor(model => model.name)
             @Html.ValidationMessageFor(model => model.name)
         </div>
+
+        <div class="editor-label">
+            Тезисы/статья
+        </div>
+        <input type="file" name="article_file" id="article_file" onchange="extractFileName('article_file','articleFileName');"/>
+
+        <div class="editor-label">
+            Презентация
+        </div>
+        <input type="file" name="presentation_file" id="presentation_file" onchange="extractFileName('presentation_file','presentationFileName');"/>
+
+        <div class="editor-label">
+            Заявка/анкета
+        </div>
+        <input type="file" name="proposal_file" id="proposal_file" onchange="extractFileName('proposal_file','proposalFileName');"/>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.city_id, "Город")

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Objects.DataClasses;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -51,15 +52,51 @@ namespace IvtLibrary.Controllers
         // POST: /Article/Create
 
         [HttpPost]
-        public ActionResult Create(Article article, int[] authorIds, int[] themeIds)
+        public ActionResult Create(Article article, int[] authorIds, int[] themeIds, string articleFileName, string presentationFileName, string proposalFileName)
         {
             if (ModelState.IsValid)
             {
+                File articleFile = new File();
+                articleFile.type_id = db.Type.Single(t => t.name == "Статья/тезисы").id;
+                articleFile.name = articleFileName;
+                var fileElement = Request.Files[0];
+                articleFile.content_type = fileElement.ContentType;
+                Stream stream = fileElement.InputStream;
+                byte[] fileData = new byte[stream.Length];
+                stream.Read(fileData, 0, (int)stream.Length);
+                articleFile.data = fileData;
+                db.File.AddObject(articleFile);
+
+                File presentationFile = new File();
+                presentationFile.type_id = db.Type.Single(t => t.name == "Презентация").id;
+                presentationFile.name = presentationFileName;
+                fileElement = Request.Files[1];
+                presentationFile.content_type = fileElement.ContentType;
+                stream = fileElement.InputStream;
+                fileData = new byte[stream.Length];
+                stream.Read(fileData, 0, (int)stream.Length);
+                presentationFile.data = fileData;
+                db.File.AddObject(presentationFile);
+
+                File proposalFile = new File();
+                proposalFile.type_id = db.Type.Single(t => t.name == "Заявка/анкета").id;
+                proposalFile.name = proposalFileName;
+                fileElement = Request.Files[2];
+                proposalFile.content_type = fileElement.ContentType;
+                stream = fileElement.InputStream;
+                fileData = new byte[stream.Length];
+                stream.Read(fileData, 0, (int)stream.Length);
+                proposalFile.data = fileData;
+                db.File.AddObject(proposalFile);
+
                 db.Article.AddObject(article);
+                article.File.Add(articleFile);
+                article.File.Add(presentationFile);
+                article.File.Add(proposalFile);
                 SetArticleAuthors(article.Author, authorIds);
                 SetArticleThemes(article.Theme, themeIds);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
             return View(article);
         }
