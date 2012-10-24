@@ -55,14 +55,4 @@ namespace IvtLibrary.Models
             context.SaveChanges();
         }
     }
-
-    public interface IHypothesisRepository
-    {
-        IQueryable<Hypothesis> All { get; }
-        IQueryable<Hypothesis> AllIncluding(params Expression<Func<Hypothesis, object>>[] includeProperties);
-        Hypothesis Find(long id);
-        void InsertOrUpdate(Hypothesis hypothesis);
-        void Delete(long id);
-        void Save();
-    }
 }

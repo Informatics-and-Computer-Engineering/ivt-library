@@ -42,6 +42,14 @@
             @Html.ValidationMessageFor(model => model.type_id)
             @Html.ActionLink("Создать новый тип", "Create", "Type")
         </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.version, "Версия файла")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.version)
+            @Html.ValidationMessageFor(model => model.version)      
+        </div>
 
         <p>
             <input type="submit" value="Загрузить" />

@@ -18,10 +18,11 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region Метаданные связи EDM
 
-[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_city", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.City), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
-[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_conference", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Conference), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
-[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_scale", "Scale", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Scale), "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Conference), true)]
-[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_type", "Type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Type), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_author_supervisor_id", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Author), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_city", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.City), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_conference", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Conference), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_conference_scale", "Scale", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Scale), "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Conference), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_type", "Type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Type), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Article1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Book", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author))]
@@ -536,6 +537,126 @@ namespace IvtLibrary
         private Nullable<global::System.Int32> _year;
         partial void OnyearChanging(Nullable<global::System.Int32> value);
         partial void OnyearChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String bibliography
+        {
+            get
+            {
+                return _bibliography;
+            }
+            set
+            {
+                OnbibliographyChanging(value);
+                ReportPropertyChanging("bibliography");
+                _bibliography = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("bibliography");
+                OnbibliographyChanged();
+            }
+        }
+        private global::System.String _bibliography;
+        partial void OnbibliographyChanging(global::System.String value);
+        partial void OnbibliographyChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> supervisor_id
+        {
+            get
+            {
+                return _supervisor_id;
+            }
+            set
+            {
+                Onsupervisor_idChanging(value);
+                ReportPropertyChanging("supervisor_id");
+                _supervisor_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("supervisor_id");
+                Onsupervisor_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _supervisor_id;
+        partial void Onsupervisor_idChanging(Nullable<global::System.Int32> value);
+        partial void Onsupervisor_idChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> conference_start_date
+        {
+            get
+            {
+                return _conference_start_date;
+            }
+            set
+            {
+                Onconference_start_dateChanging(value);
+                ReportPropertyChanging("conference_start_date");
+                _conference_start_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("conference_start_date");
+                Onconference_start_dateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _conference_start_date;
+        partial void Onconference_start_dateChanging(Nullable<global::System.DateTime> value);
+        partial void Onconference_start_dateChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> conference_end_date
+        {
+            get
+            {
+                return _conference_end_date;
+            }
+            set
+            {
+                Onconference_end_dateChanging(value);
+                ReportPropertyChanging("conference_end_date");
+                _conference_end_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("conference_end_date");
+                Onconference_end_dateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _conference_end_date;
+        partial void Onconference_end_dateChanging(Nullable<global::System.DateTime> value);
+        partial void Onconference_end_dateChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> publication_date
+        {
+            get
+            {
+                return _publication_date;
+            }
+            set
+            {
+                Onpublication_dateChanging(value);
+                ReportPropertyChanging("publication_date");
+                _publication_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("publication_date");
+                Onpublication_dateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _publication_date;
+        partial void Onpublication_dateChanging(Nullable<global::System.DateTime> value);
+        partial void Onpublication_dateChanged();
 
         #endregion
     
@@ -547,16 +668,54 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_city", "City")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_article_author_supervisor_id", "Author")]
+        public Author Supervizor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Author>("IvtLibraryModel.fk_article_author_supervisor_id", "Author").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Author>("IvtLibraryModel.fk_article_author_supervisor_id", "Author").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Author> SupervizorReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Author>("IvtLibraryModel.fk_article_author_supervisor_id", "Author");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Author>("IvtLibraryModel.fk_article_author_supervisor_id", "Author", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_article_city", "City")]
         public City City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("IvtLibraryModel.fk_city", "City").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("IvtLibraryModel.fk_article_city", "City").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("IvtLibraryModel.fk_city", "City").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("IvtLibraryModel.fk_article_city", "City").Value = value;
             }
         }
         /// <summary>
@@ -568,13 +727,13 @@ namespace IvtLibrary
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("IvtLibraryModel.fk_city", "City");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("IvtLibraryModel.fk_article_city", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("IvtLibraryModel.fk_city", "City", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("IvtLibraryModel.fk_article_city", "City", value);
                 }
             }
         }
@@ -585,16 +744,16 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_conference", "Conference")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_article_conference", "Conference")]
         public Conference Conference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conference>("IvtLibraryModel.fk_conference", "Conference").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conference>("IvtLibraryModel.fk_article_conference", "Conference").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conference>("IvtLibraryModel.fk_conference", "Conference").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conference>("IvtLibraryModel.fk_article_conference", "Conference").Value = value;
             }
         }
         /// <summary>
@@ -606,13 +765,13 @@ namespace IvtLibrary
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conference>("IvtLibraryModel.fk_conference", "Conference");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conference>("IvtLibraryModel.fk_article_conference", "Conference");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Conference>("IvtLibraryModel.fk_conference", "Conference", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Conference>("IvtLibraryModel.fk_article_conference", "Conference", value);
                 }
             }
         }
@@ -909,8 +1068,30 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Author_Article", "Article")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_article_author_supervisor_id", "Article")]
         public EntityCollection<Article> Article
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Article>("IvtLibraryModel.fk_article_author_supervisor_id", "Article");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Article>("IvtLibraryModel.fk_article_author_supervisor_id", "Article", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Author_Article", "Article")]
+        public EntityCollection<Article> Article1
         {
             get
             {
@@ -1142,6 +1323,30 @@ namespace IvtLibrary
         private Nullable<global::System.Int32> _volume;
         partial void OnvolumeChanging(Nullable<global::System.Int32> value);
         partial void OnvolumeChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String bibliography
+        {
+            get
+            {
+                return _bibliography;
+            }
+            set
+            {
+                OnbibliographyChanging(value);
+                ReportPropertyChanging("bibliography");
+                _bibliography = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("bibliography");
+                OnbibliographyChanged();
+            }
+        }
+        private global::System.String _bibliography;
+        partial void OnbibliographyChanging(global::System.String value);
+        partial void OnbibliographyChanged();
 
         #endregion
     
@@ -1347,18 +1552,18 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_city", "Article")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_article_city", "Article")]
         public EntityCollection<Article> Article
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Article>("IvtLibraryModel.fk_city", "Article");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Article>("IvtLibraryModel.fk_article_city", "Article");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Article>("IvtLibraryModel.fk_city", "Article", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Article>("IvtLibraryModel.fk_article_city", "Article", value);
                 }
             }
         }
@@ -1527,18 +1732,18 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_conference", "Article")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_article_conference", "Article")]
         public EntityCollection<Article> Article
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Article>("IvtLibraryModel.fk_conference", "Article");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Article>("IvtLibraryModel.fk_article_conference", "Article");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Article>("IvtLibraryModel.fk_conference", "Article", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Article>("IvtLibraryModel.fk_article_conference", "Article", value);
                 }
             }
         }
@@ -1549,16 +1754,16 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_scale", "Scale")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_conference_scale", "Scale")]
         public Scale Scale
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Scale>("IvtLibraryModel.fk_scale", "Scale").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Scale>("IvtLibraryModel.fk_conference_scale", "Scale").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Scale>("IvtLibraryModel.fk_scale", "Scale").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Scale>("IvtLibraryModel.fk_conference_scale", "Scale").Value = value;
             }
         }
         /// <summary>
@@ -1570,13 +1775,13 @@ namespace IvtLibrary
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Scale>("IvtLibraryModel.fk_scale", "Scale");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Scale>("IvtLibraryModel.fk_conference_scale", "Scale");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Scale>("IvtLibraryModel.fk_scale", "Scale", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Scale>("IvtLibraryModel.fk_conference_scale", "Scale", value);
                 }
             }
         }
@@ -1732,13 +1937,15 @@ namespace IvtLibrary
         /// <param name="name">Исходное значение свойства name.</param>
         /// <param name="content_type">Исходное значение свойства content_type.</param>
         /// <param name="data">Исходное значение свойства data.</param>
-        public static File CreateFile(global::System.Int32 id, global::System.String name, global::System.String content_type, global::System.Byte[] data)
+        /// <param name="version">Исходное значение свойства version.</param>
+        public static File CreateFile(global::System.Int32 id, global::System.String name, global::System.String content_type, global::System.Byte[] data, global::System.Int32 version)
         {
             File file = new File();
             file.id = id;
             file.name = name;
             file.content_type = content_type;
             file.data = data;
+            file.version = version;
             return file;
         }
 
@@ -1867,6 +2074,30 @@ namespace IvtLibrary
         private Nullable<global::System.Int32> _type_id;
         partial void Ontype_idChanging(Nullable<global::System.Int32> value);
         partial void Ontype_idChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private global::System.Int32 _version;
+        partial void OnversionChanging(global::System.Int32 value);
+        partial void OnversionChanged();
 
         #endregion
     
@@ -1878,16 +2109,16 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_type", "Type")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_type", "Type")]
         public Type Type
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_type", "Type").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_type", "Type").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_type", "Type").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_type", "Type").Value = value;
             }
         }
         /// <summary>
@@ -1899,13 +2130,13 @@ namespace IvtLibrary
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_type", "Type");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_type", "Type");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Type>("IvtLibraryModel.fk_type", "Type", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Type>("IvtLibraryModel.fk_file_type", "Type", value);
                 }
             }
         }
@@ -2485,18 +2716,18 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_scale", "Conference")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_conference_scale", "Conference")]
         public EntityCollection<Conference> Conference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Conference>("IvtLibraryModel.fk_scale", "Conference");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Conference>("IvtLibraryModel.fk_conference_scale", "Conference");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conference>("IvtLibraryModel.fk_scale", "Conference", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conference>("IvtLibraryModel.fk_conference_scale", "Conference", value);
                 }
             }
         }
@@ -2811,18 +3042,18 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_type", "File")]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_type", "File")]
         public EntityCollection<File> File
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("IvtLibraryModel.fk_type", "File");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("IvtLibraryModel.fk_file_type", "File");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("IvtLibraryModel.fk_type", "File", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("IvtLibraryModel.fk_file_type", "File", value);
                 }
             }
         }

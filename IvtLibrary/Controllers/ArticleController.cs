@@ -33,6 +33,7 @@ namespace IvtLibrary.Controllers
         public ViewResult Details(int id)
         {
             Article article = db.Article.Single(a => a.id == id);
+            //ViewBag.SupervizorSingle = db.Author.Single(a => a.id == article.supervisor_id);
             return View(article);
         }
 
@@ -45,6 +46,7 @@ namespace IvtLibrary.Controllers
             ViewBag.ThemesList = themeRepository.FillThemesCheckBoxList(null);
             ViewBag.city_id = new SelectList(db.City, "id", "name");
             ViewBag.conference_id = new SelectList(db.Conference, "id", "name");
+            ViewBag.supervizor_id = new SelectList(db.Author, "id", "last_name");
             return View();
         } 
 
@@ -111,6 +113,7 @@ namespace IvtLibrary.Controllers
             ViewBag.ThemesList = themeRepository.FillThemesCheckBoxList(article.Theme);
             ViewBag.city_id = new SelectList(db.City, "id", "name", article.city_id);
             ViewBag.conference_id = new SelectList(db.Conference, "id", "name", article.conference_id);
+            ViewBag.supervizor_id = new SelectList(db.Author, "id", "last_name");
             return View(article);
         }
 

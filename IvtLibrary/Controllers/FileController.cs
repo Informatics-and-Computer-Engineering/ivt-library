@@ -73,16 +73,8 @@ namespace IvtLibrary.Controllers
         public ActionResult Edit(int id)
         {
             File file = db.File.Single(f => f.id == id);
-            byte[] fileData = new byte[0];
-            foreach (string fileName in Request.Files)
-            {
-                file.content_type = Request.Files[fileName].ContentType;
-                Stream stream = Request.Files[fileName].InputStream;
-                fileData = new byte[stream.Length];
-                stream.Read(fileData, 0, (int)stream.Length);
-            }
-            file.data = fileData;
-            ViewBag.type_id = new SelectList(db.Type, "id", "name", file.type_id);
+
+            ViewBag.type_id = new SelectList(db.Type, "id", "name");
             return View(file);
         }
 

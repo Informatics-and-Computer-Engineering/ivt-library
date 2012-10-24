@@ -83,14 +83,4 @@ namespace IvtLibrary.Models
             return authorsCheckBoxList;
         }
     }
-
-    public interface IAuthorRepository
-    {
-        IQueryable<Author> All { get; }
-        IQueryable<Author> AllIncluding(params Expression<Func<Author, object>>[] includeProperties);
-        Author Find(int id);
-        void InsertOrUpdate(Author author);
-        void Delete(int id);
-        void Save();
-    }
 }

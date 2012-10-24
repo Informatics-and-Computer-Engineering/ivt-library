@@ -55,14 +55,4 @@ namespace IvtLibrary.Models
             context.SaveChanges();
         }
     }
-
-    public interface IDraftRepository
-    {
-        IQueryable<Draft> All { get; }
-        IQueryable<Draft> AllIncluding(params Expression<Func<Draft, object>>[] includeProperties);
-        Draft Find(long id);
-        void InsertOrUpdate(Draft draft);
-        void Delete(long id);
-        void Save();
-    }
 }

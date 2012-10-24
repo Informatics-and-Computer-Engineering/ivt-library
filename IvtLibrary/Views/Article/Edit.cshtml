@@ -63,7 +63,36 @@
         <div>
             @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
         </div>
-
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.supervisor_id, "Научный руководитель")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.supervisor_id, (List<SelectListItem>)ViewBag.AuthorsList)
+            @Html.ValidationMessageFor(model => model.supervisor_id)
+            @Html.ActionLink("Добавить научного руководителя", "Create", "Author")
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.conference_start_date, "Дата начала конференции")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.conference_start_date)
+            @Html.ValidationMessageFor(model => model.conference_start_date)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.conference_end_date, "Дата окончания конференции")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.conference_end_date)
+            @Html.ValidationMessageFor(model => model.conference_end_date)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.publication_date, "Дата публикации")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.publication_date)
+            @Html.ValidationMessageFor(model => model.publication_date)
+        </div>
         <p>
             <input type="submit" value="Сохранить" />
         </p>

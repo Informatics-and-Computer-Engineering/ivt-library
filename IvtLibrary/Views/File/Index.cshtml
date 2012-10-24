@@ -17,6 +17,9 @@
         <th>
             Тип
         </th>
+        <th>
+            Версия файла
+        </th>
         <th></th>
     </tr>
 
@@ -29,11 +32,15 @@
             @Html.DisplayFor(modelItem => item.Type.name)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.version)
+        </td>
+        <td>
             @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
             @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
             @Html.ActionLink("Удалить", "Delete", new { id=item.id }) |
             @Html.ActionLink("Скачать файл", "Download", new { id = item.id })
         </td>
+
     </tr>
 }
 

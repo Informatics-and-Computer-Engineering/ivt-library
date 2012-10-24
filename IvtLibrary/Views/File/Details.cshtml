@@ -4,7 +4,7 @@
     ViewBag.Title = "Файл";
 }
 
-<h2>ПОдробная информация</h2>
+<h2>Подробная информация</h2>
 
 <fieldset>
     <legend>Файл</legend>
@@ -22,6 +22,11 @@
     <div class="display-label">Тип</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Type.name)
+    </div>
+    
+    <div class="display-label">Версия</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.version)
     </div>
 </fieldset>
 <p>

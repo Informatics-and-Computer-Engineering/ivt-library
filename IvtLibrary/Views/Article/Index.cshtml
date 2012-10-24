@@ -23,6 +23,18 @@
         <th>
             Год
         </th>
+        <th>
+            Научный руководитель
+        </th>
+        <th>
+            Дата начала конференции
+        </th>
+        <th>
+            Дата конца конференции
+        </th>
+        <th>
+            Дата публикации
+        </th>
         <th></th>
     </tr>
 
@@ -41,10 +53,23 @@
             @Html.DisplayFor(modelItem => item.year)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Supervizor.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conference_start_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conference_end_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.publication_date)
+        </td>
+        <td>
             @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
             @Html.ActionLink("Подробнее", "Details", new { id=item.id }) |
             @Html.ActionLink("Удалить", "Delete", new { id=item.id })
         </td>
+
     </tr>
 }
 

@@ -24,6 +24,12 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Type.name)
     </div>
+    
+    <div class="display-label">Версия</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.version)
+    </div>
+
 </fieldset>
 @using (Html.BeginForm()) {
     <p>

@@ -55,14 +55,4 @@ namespace IvtLibrary.Models
             context.SaveChanges();
         }
     }
-
-    public interface IBookRepository
-    {
-        IQueryable<Book> All { get; }
-        IQueryable<Book> AllIncluding(params Expression<Func<Book, object>>[] includeProperties);
-        Book Find(int id);
-        void InsertOrUpdate(Book book);
-        void Delete(int id);
-        void Save();
-    }
 }

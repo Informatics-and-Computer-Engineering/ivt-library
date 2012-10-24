@@ -55,14 +55,4 @@ namespace IvtLibrary.Models
             context.SaveChanges();
         }
     }
-
-    public interface IConferenceRepository
-    {
-        IQueryable<Conference> All { get; }
-        IQueryable<Conference> AllIncluding(params Expression<Func<Conference, object>>[] includeProperties);
-        Conference Find(int id);
-        void InsertOrUpdate(Conference conference);
-        void Delete(int id);
-        void Save();
-    }
 }

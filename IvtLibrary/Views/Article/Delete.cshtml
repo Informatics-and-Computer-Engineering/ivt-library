@@ -29,6 +29,27 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.year)
     </div>
+    
+    <div class="display-label">Научный руководитель</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Supervizor.last_name)
+    </div>
+    
+        <div class="display-label">Дата начала конференции</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.conference_start_date)
+    </div>
+    
+    <div class="display-label">Дата окончания конференции</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.conference_end_date)
+    </div>
+    
+    <div class="display-label">Дата публикации</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.publication_date)
+    </div>
+
 </fieldset>
 @using (Html.BeginForm()) {
     <p>
