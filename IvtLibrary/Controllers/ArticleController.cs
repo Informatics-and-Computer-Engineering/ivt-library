@@ -33,7 +33,6 @@ namespace IvtLibrary.Controllers
         public ViewResult Details(int id)
         {
             Article article = db.Article.Single(a => a.id == id);
-            //ViewBag.SupervizorSingle = db.Author.Single(a => a.id == article.supervisor_id);
             return View(article);
         }
 

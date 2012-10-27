@@ -9,6 +9,22 @@
 
 <fieldset>
     <legend>Книга</legend>
+    <br/>
+    <table>
+        <tr>
+            <th>
+                Авторы
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Author) {
+            <tr>
+                <td>
+                    @Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)
+                </td>
+            </tr>
+        }
+    </table>
 
     <div class="display-label">Название</div>
     <div class="display-field">
@@ -29,23 +45,6 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.volume)
     </div>
-    
-    <br/>
-    <table>
-        <tr>
-            <th>
-                Авторы
-            </th>
-        </tr>
-
-        @foreach (var item in Model.Author) {
-            <tr>
-                <td>
-                    @Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)
-                </td>
-            </tr>
-        }
-    </table>
 
     <br/>
     <table>

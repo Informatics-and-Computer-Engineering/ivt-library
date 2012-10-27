@@ -16,6 +16,13 @@
         <legend>Исследование</legend>
 
         @Html.HiddenFor(model => model.id)
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Author, "Авторы исследования")
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name, "Название")
@@ -32,16 +39,11 @@
             @Html.EditorFor(model => model.description)
             @Html.ValidationMessageFor(model => model.description)
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Author, "Авторы исследования")
-        </div>
-        <div>
-            @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
-        </div>
+        
         <div class="editor-label">
             @Html.LabelFor(model => model.Theme, "Тематика исследования")
         </div>
-        <div>
+        <div class="editor-field">
             @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
         </div>
         <p>

@@ -1,4 +1,5 @@
-﻿@model IvtLibrary.Book
+﻿@using IvtLibrary.Helpers
+@model IvtLibrary.Book
 
 @{
     ViewBag.Title = "Книги";
@@ -9,6 +10,23 @@
 <h3>Вы действительно хотите удалить эту книгу?</h3>
 <fieldset>
     <legend>Книга</legend>
+
+    <br/>
+    <table>
+        <tr>
+            <th>
+                Авторы
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Author) {
+            <tr>
+                <td>
+                    @Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)
+                </td>
+            </tr>
+        }
+    </table>
 
     <div class="display-label">Название</div>
     <div class="display-field">
@@ -29,6 +47,23 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.volume)
     </div>
+
+    <br/>
+    <table>
+        <tr>
+            <th>
+                Тематика публикации
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Theme) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(i => item.name)
+                </td>
+            </tr>
+        }
+    </table>
 </fieldset>
 @using (Html.BeginForm()) {
     <p>

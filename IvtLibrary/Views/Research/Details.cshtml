@@ -10,16 +10,6 @@
 <fieldset>
     <legend>Исследование</legend>
 
-    <div class="display-label">Название</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.name)
-    </div>
-
-    <div class="display-label">Подробное описание</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.description)
-    </div>
-    
     <br/>
     <table>
         <tr>
@@ -36,6 +26,16 @@
             </tr>
         }
     </table>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">Подробное описание</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
 
     <br/>
     <table>

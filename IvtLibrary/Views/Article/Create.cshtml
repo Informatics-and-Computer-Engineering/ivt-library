@@ -27,6 +27,13 @@
         <input type="hidden" name="articleFileName" id="articleFileName"/>
         <input type="hidden" name="presentationFileName" id="presentationFileName"/>
         <input type="hidden" name="proposalFileName" id="proposalFileName"/>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Author, "Авторы статьи")
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name, "Название статьи")
@@ -50,6 +57,13 @@
             Заявка/анкета
         </div>
         <input type="file" name="proposal_file" id="proposal_file" onchange="extractFileName('proposal_file','proposalFileName');"/>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Theme, "Тематика статьи")
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.city_id, "Город")
@@ -75,18 +89,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.year)
             @Html.ValidationMessageFor(model => model.year)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Author, "Авторы статьи")
-        </div>
-        <div>
-            @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Theme, "Тематика статьи")
-        </div>
-        <div>
-            @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
         </div>
         
         <div class="editor-label">

@@ -14,7 +14,24 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.name)
     </div>
+    <br/>
+    <table>
+        <tr>
+            <th>
+                Авторы
+            </th>
+        </tr>
 
+        @foreach (var item in Model.Author)
+        {
+            <tr>
+                <td>
+                    @Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)
+                </td>
+            </tr>
+        }
+    </table>
+    <br/>
     <div class="display-label">Город публикации</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.City.name)
@@ -32,7 +49,15 @@
     
     <div class="display-label">Научный руководитель</div>
     <div class="display-field">
-        @Html.GetAbbreviatedName(Model.Supervizor.first_name, Model.Supervizor.middle_name, Model.Supervizor.last_name)
+        @if (Model.Supervizor != null)
+        {
+            var supervisor = Html.GetAbbreviatedName(Model.Supervizor.first_name, Model.Supervizor.middle_name, Model.Supervizor.last_name);
+            @supervisor
+        }
+        else
+        {
+            @:Отсутствует
+        }
     </div>
     
     <div class="display-label">Дата начала конференции</div>
@@ -54,28 +79,12 @@
     <table>
         <tr>
             <th>
-                Авторы
-            </th>
-        </tr>
-
-        @foreach (var item in Model.Author) {
-            <tr>
-                <td>
-                    @Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)
-                </td>
-            </tr>
-        }
-    </table>
-
-    <br/>
-    <table>
-        <tr>
-            <th>
                 Тематика публикации
             </th>
         </tr>
 
-        @foreach (var item in Model.Theme) {
+        @foreach (var item in Model.Theme)
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(i => item.name)
@@ -85,6 +94,6 @@
     </table>
 </fieldset>
 <p>
-    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Назад к списку", "Index")
 </p>

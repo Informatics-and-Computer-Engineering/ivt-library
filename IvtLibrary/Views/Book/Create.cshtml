@@ -23,6 +23,13 @@
         <legend>Книга</legend>
 
         <input type="hidden" name="fileName" id="fileName"/>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Author, "Авторы книги")
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name, "Название")
@@ -61,16 +68,11 @@
             @Html.EditorFor(model => model.volume)
             @Html.ValidationMessageFor(model => model.volume)
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Author, "Авторы книги")
-        </div>
-        <div>
-            @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
-        </div>
+        
         <div class="editor-label">
             @Html.LabelFor(model => model.Theme, "Тематика книги")
         </div>
-        <div>
+        <div class="editor-field">
             @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
         </div>
 
