@@ -41,6 +41,7 @@ namespace IvtLibrary.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.types = new SelectList(db.Type, "id", "name");
             ViewBag.AuthorsList = authorRepository.FillAuthorsCheckBoxList(null);
             ViewBag.ThemesList = themeRepository.FillThemesCheckBoxList(null);
             ViewBag.city_id = new SelectList(db.City, "id", "name");

@@ -13,9 +13,37 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 <script type="text/javascript">
+
+    var fileCounter = 0;
+    
     function extractFileName(fileName,fieldName) {
+        //извлекаем путь к файлу и разделяем его на части по \\
         var splittedPath = $('#'+fileName)[0].value.split('\\');
+        //сохраняем последний компонент пути - имя файла
         $('#'+fieldName)[0].value = splittedPath[splittedPath.length - 1];
+    }
+    function AddFile() {
+        
+        var fileTypes = new Array();
+        
+        @foreach (var option in ViewBag.types)
+        {
+            @:fileTypes.push($("<option></option>").attr("value",@option.Value).text('@option.Text'));
+        }
+        $("#file_div").append($('<input/>').attr('type', 'file').attr('name', 'file_data' + fileCounter).attr('onchange', 'extractFileName("file_data' + fileCounter + '","fileName' + fileCounter + '")'));
+        $("#file_div").append($('<input/>').attr('type', 'hidden').attr('name', 'fileName' + fileCounter));
+        $("#file_div").append($('<br/>'));
+        var selectList = $('<select/>').attr('name', 'type_id');
+        for (var i = 0; i < fileTypes.length; i++) 
+        {
+            selectList.append(fileTypes[i]);
+        }
+        $("#file_div").append(selectList);
+        $("#file_div").append($('<br/>'));
+        $("#file_div").append($('<input/>').attr('type', 'number').attr('name', 'version').attr('value', 1).attr('min',1));
+        $("#file_div").append($('<br/>'));
+        fileCounter++;
+        return false;
     }
 </script>
 
@@ -23,6 +51,10 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Статья</legend>
+        
+        <input type="button" onclick="AddFile()" value="Добавить файл"/>
+
+        <div id="file_div"></div>
 
         <input type="hidden" name="articleFileName" id="articleFileName"/>
         <input type="hidden" name="presentationFileName" id="presentationFileName"/>
