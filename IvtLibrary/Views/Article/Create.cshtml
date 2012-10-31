@@ -22,6 +22,15 @@
         //сохраняем последний компонент пути - имя файла
         $('#'+fieldName)[0].value = splittedPath[splittedPath.length - 1];
     }
+    
+    function AppendLabel(elem, text) {
+        elem.append($('<div/>').attr('class', 'editor-label').text(text));
+    }
+    
+    function AppendBr(elem) {
+        elem.append($('<br/>'));
+    }
+    
     function AddFile() {
         
         var fileTypes = new Array();
@@ -30,18 +39,24 @@
         {
             @:fileTypes.push($("<option></option>").attr("value",@option.Value).text('@option.Text'));
         }
-        $("#file_div").append($('<input/>').attr('type', 'file').attr('name', 'file_data' + fileCounter).attr('onchange', 'extractFileName("file_data' + fileCounter + '","fileName' + fileCounter + '")'));
-        $("#file_div").append($('<input/>').attr('type', 'hidden').attr('name', 'fileName' + fileCounter));
-        $("#file_div").append($('<br/>'));
+        var fd = $("<div/>").attr('name', 'file_params' + fileCounter);
+        $("#file_div").append(fd);
+        AppendBr(fd);
+        AppendLabel(fd, 'Выбор файла');
+        fd.append($('<input/>').attr('type', 'file').attr('name', 'file_data' + fileCounter).attr('onchange', 'extractFileName("file_data' + fileCounter + '","fileName' + fileCounter + '")'));
+        fd.append($('<input/>').attr('type', 'hidden').attr('name', 'fileName' + fileCounter));
+        AppendBr(fd);
+        AppendLabel(fd, 'Тип файла');
         var selectList = $('<select/>').attr('name', 'type_id');
         for (var i = 0; i < fileTypes.length; i++) 
         {
             selectList.append(fileTypes[i]);
         }
-        $("#file_div").append(selectList);
-        $("#file_div").append($('<br/>'));
-        $("#file_div").append($('<input/>').attr('type', 'number').attr('name', 'version').attr('value', 1).attr('min',1));
-        $("#file_div").append($('<br/>'));
+        fd.append(selectList);
+        AppendBr(fd);
+        AppendLabel(fd, 'Версия файла');
+        fd.append($('<input/>').attr('type', 'number').attr('name', 'version').attr('value', 1).attr('min',1));
+        AppendBr(fd);
         fileCounter++;
         return false;
     }
