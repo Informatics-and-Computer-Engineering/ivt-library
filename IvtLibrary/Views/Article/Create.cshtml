@@ -16,7 +16,7 @@
 
     var fileCounter = 0;
     
-    function extractFileName(fileName,fieldName) {
+    function ExtractFileName(fileName,fieldName) {
         //извлекаем путь к файлу и разделяем его на части по \\
         var splittedPath = $('#'+fileName)[0].value.split('\\');
         //сохраняем последний компонент пути - имя файла
@@ -31,6 +31,11 @@
         elem.append($('<br/>'));
     }
     
+    function DeleteElementByName(elemName) {
+        $('#' +elemName).remove();
+        return false;
+    }
+    
     function AddFile() {
         
         var fileTypes = new Array();
@@ -39,15 +44,25 @@
         {
             @:fileTypes.push($("<option></option>").attr("value",@option.Value).text('@option.Text'));
         }
-        var fd = $("<div/>").attr('name', 'file_params' + fileCounter);
+        var fd = $("<div/>").attr('name', 'file_params' + fileCounter).attr('id', 'file_params' + fileCounter);
         $("#file_div").append(fd);
         AppendBr(fd);
         AppendLabel(fd, 'Выбор файла');
-        fd.append($('<input/>').attr('type', 'file').attr('name', 'file_data' + fileCounter).attr('onchange', 'extractFileName("file_data' + fileCounter + '","fileName' + fileCounter + '")'));
-        fd.append($('<input/>').attr('type', 'hidden').attr('name', 'fileName' + fileCounter));
+        
+        //функция, возвращающая функцию для call back'а
+        var tempGetNameFunction = function(extraStuff) {
+            return function() {
+                ExtractFileName(extraStuff.fileData, extraStuff.fileField);
+            };
+        };
+        var callBackGetnameFunction = tempGetNameFunction({ fileData: "file_data" + fileCounter, fileField: "fileName" + fileCounter });
+        fd.append($('<input/>').attr('type', 'file').attr('requered', 'true').attr('name', 'file_data' + fileCounter).attr('id', 'file_data'+ fileCounter).change(callBackGetnameFunction));
+        
+        fd.append($('<input/>').attr('type', 'hidden').attr('name', 'fileName').attr('id', 'fileName' + fileCounter));
         AppendBr(fd);
+        
         AppendLabel(fd, 'Тип файла');
-        var selectList = $('<select/>').attr('name', 'type_id');
+        var selectList = $('<select/>').attr('name', 'typeId');
         for (var i = 0; i < fileTypes.length; i++) 
         {
             selectList.append(fileTypes[i]);
@@ -57,6 +72,19 @@
         AppendLabel(fd, 'Версия файла');
         fd.append($('<input/>').attr('type', 'number').attr('name', 'version').attr('value', 1).attr('min',1));
         AppendBr(fd);
+        
+        AppendBr(fd);
+
+        //функция, возвращающая функцию для call back'а
+        var tempDeleteFunction = function(extraStuff) {
+            return function() {
+                DeleteElementByName(extraStuff.elemName);
+            };
+        };
+        var callBackDeleteFunction = tempDeleteFunction({ elemName: 'file_params' + fileCounter });
+        fd.append($('<input/>').attr('type', 'button').attr('value','Удалить').click(callBackDeleteFunction));
+        AppendBr(fd);
+        
         fileCounter++;
         return false;
     }
@@ -70,10 +98,6 @@
         <input type="button" onclick="AddFile()" value="Добавить файл"/>
 
         <div id="file_div"></div>
-
-        <input type="hidden" name="articleFileName" id="articleFileName"/>
-        <input type="hidden" name="presentationFileName" id="presentationFileName"/>
-        <input type="hidden" name="proposalFileName" id="proposalFileName"/>
         
         <div class="editor-label">
             @Html.LabelFor(model => model.Author, "Авторы статьи")
@@ -89,21 +113,6 @@
             @Html.EditorFor(model => model.name)
             @Html.ValidationMessageFor(model => model.name)
         </div>
-
-        <div class="editor-label">
-            Тезисы/статья
-        </div>
-        <input type="file" name="article_file" id="article_file" onchange="extractFileName('article_file','articleFileName');"/>
-
-        <div class="editor-label">
-            Презентация
-        </div>
-        <input type="file" name="presentation_file" id="presentation_file" onchange="extractFileName('presentation_file','presentationFileName');"/>
-
-        <div class="editor-label">
-            Заявка/анкета
-        </div>
-        <input type="file" name="proposal_file" id="proposal_file" onchange="extractFileName('proposal_file','proposalFileName');"/>
         
         <div class="editor-label">
             @Html.LabelFor(model => model.Theme, "Тематика статьи")
