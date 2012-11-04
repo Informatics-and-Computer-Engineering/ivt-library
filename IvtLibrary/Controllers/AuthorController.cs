@@ -9,8 +9,13 @@ namespace IvtLibrary.Controllers
 { 
     public class AuthorController : Controller
     {
-        private IvtLibraryEntities db = new IvtLibraryEntities();
-        private ThemeRepository themeRepository = new ThemeRepository();
+        private readonly IvtLibraryEntities db = new IvtLibraryEntities();
+        private readonly ThemeRepository themeRepository;
+
+        public AuthorController()
+        {
+            themeRepository = new ThemeRepository(db);
+        }
 
         //
         // GET: /Author/

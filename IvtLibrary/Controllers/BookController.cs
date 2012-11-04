@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.Objects.DataClasses;
 using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using IvtLibrary;
 using IvtLibrary.Models;
 
 namespace IvtLibrary.Controllers
 { 
     public class BookController : Controller
     {
-        private IvtLibraryEntities db = new IvtLibraryEntities();
-        private AuthorRepository authorRepository = new AuthorRepository();
-        private ThemeRepository themeRepository = new ThemeRepository();
+        private readonly IvtLibraryEntities db = new IvtLibraryEntities();
+        private readonly AuthorRepository authorRepository;
+        private readonly ThemeRepository themeRepository;
+
+        public BookController()
+        {
+            authorRepository = new AuthorRepository(db);
+            themeRepository = new ThemeRepository(db);
+        }
 
         //
         // GET: /Book/

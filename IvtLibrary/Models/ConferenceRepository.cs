@@ -1,26 +1,28 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
-using IvtLibrary;
 
 namespace IvtLibrary.Models
 { 
     public class ConferenceRepository : IConferenceRepository
     {
-        IvtLibraryEntities context = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db;
+
+        public ConferenceRepository(IvtLibraryEntities db)
+        {
+            this.db = db;
+        }
 
         public IQueryable<Conference> All
         {
-            get { return context.Conference; }
+            get { return db.Conference; }
         }
 
         public IQueryable<Conference> AllIncluding(params Expression<Func<Conference, object>>[] includeProperties)
         {
-            IQueryable<Conference> query = context.Conference;
+            IQueryable<Conference> query = db.Conference;
             foreach (var includeProperty in includeProperties) {
                 query = query.Include(includeProperty);
             }
@@ -29,30 +31,30 @@ namespace IvtLibrary.Models
 
         public Conference Find(int id)
         {
-            return context.Conference.Single(x => x.id == id);
+            return db.Conference.Single(x => x.id == id);
         }
 
         public void InsertOrUpdate(Conference conference)
         {
             if (conference.id == default(int)) {
                 // New entity
-                context.Conference.AddObject(conference);
+                db.Conference.AddObject(conference);
             } else {
                 // Existing entity
-                context.Conference.Attach(conference);
-                context.ObjectStateManager.ChangeObjectState(conference, EntityState.Modified);
+                db.Conference.Attach(conference);
+                db.ObjectStateManager.ChangeObjectState(conference, EntityState.Modified);
             }
         }
 
         public void Delete(int id)
         {
-            var conference = context.Conference.Single(x => x.id == id);
-            context.Conference.DeleteObject(conference);
+            var conference = db.Conference.Single(x => x.id == id);
+            db.Conference.DeleteObject(conference);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }

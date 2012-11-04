@@ -1,26 +1,28 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
-using IvtLibrary;
 
 namespace IvtLibrary.Models
 { 
     public class HypothesisRepository : IHypothesisRepository
     {
-        IvtLibraryEntities context = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db;
+
+        public HypothesisRepository(IvtLibraryEntities db)
+        {
+            this.db = db;
+        }
 
         public IQueryable<Hypothesis> All
         {
-            get { return context.Hypothesis; }
+            get { return db.Hypothesis; }
         }
 
         public IQueryable<Hypothesis> AllIncluding(params Expression<Func<Hypothesis, object>>[] includeProperties)
         {
-            IQueryable<Hypothesis> query = context.Hypothesis;
+            IQueryable<Hypothesis> query = db.Hypothesis;
             foreach (var includeProperty in includeProperties) {
                 query = query.Include(includeProperty);
             }
@@ -29,30 +31,30 @@ namespace IvtLibrary.Models
 
         public Hypothesis Find(long id)
         {
-            return context.Hypothesis.Single(x => x.id == id);
+            return db.Hypothesis.Single(x => x.id == id);
         }
 
         public void InsertOrUpdate(Hypothesis hypothesis)
         {
             if (hypothesis.id == default(long)) {
                 // New entity
-                context.Hypothesis.AddObject(hypothesis);
+                db.Hypothesis.AddObject(hypothesis);
             } else {
                 // Existing entity
-                context.Hypothesis.Attach(hypothesis);
-                context.ObjectStateManager.ChangeObjectState(hypothesis, EntityState.Modified);
+                db.Hypothesis.Attach(hypothesis);
+                db.ObjectStateManager.ChangeObjectState(hypothesis, EntityState.Modified);
             }
         }
 
         public void Delete(long id)
         {
-            var hypothesis = context.Hypothesis.Single(x => x.id == id);
-            context.Hypothesis.DeleteObject(hypothesis);
+            var hypothesis = db.Hypothesis.Single(x => x.id == id);
+            db.Hypothesis.DeleteObject(hypothesis);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }

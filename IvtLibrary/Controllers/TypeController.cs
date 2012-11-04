@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using IvtLibrary;
 
 namespace IvtLibrary.Controllers
 { 
     public class TypeController : Controller
     {
-        private IvtLibraryEntities db = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db = new IvtLibraryEntities();
 
         //
         // GET: /Type/

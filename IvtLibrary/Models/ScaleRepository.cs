@@ -1,26 +1,28 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
-using IvtLibrary;
 
 namespace IvtLibrary.Models
 { 
     public class ScaleRepository : IScaleRepository
     {
-        IvtLibraryEntities context = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db;
+
+        public ScaleRepository(IvtLibraryEntities db)
+        {
+            this.db = db;
+        }
 
         public IQueryable<Scale> All
         {
-            get { return context.Scale; }
+            get { return db.Scale; }
         }
 
         public IQueryable<Scale> AllIncluding(params Expression<Func<Scale, object>>[] includeProperties)
         {
-            IQueryable<Scale> query = context.Scale;
+            IQueryable<Scale> query = db.Scale;
             foreach (var includeProperty in includeProperties) {
                 query = query.Include(includeProperty);
             }
@@ -29,30 +31,30 @@ namespace IvtLibrary.Models
 
         public Scale Find(int id)
         {
-            return context.Scale.Single(x => x.id == id);
+            return db.Scale.Single(x => x.id == id);
         }
 
         public void InsertOrUpdate(Scale scale)
         {
             if (scale.id == default(int)) {
                 // New entity
-                context.Scale.AddObject(scale);
+                db.Scale.AddObject(scale);
             } else {
                 // Existing entity
-                context.Scale.Attach(scale);
-                context.ObjectStateManager.ChangeObjectState(scale, EntityState.Modified);
+                db.Scale.Attach(scale);
+                db.ObjectStateManager.ChangeObjectState(scale, EntityState.Modified);
             }
         }
 
         public void Delete(int id)
         {
-            var scale = context.Scale.Single(x => x.id == id);
-            context.Scale.DeleteObject(scale);
+            var scale = db.Scale.Single(x => x.id == id);
+            db.Scale.DeleteObject(scale);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }

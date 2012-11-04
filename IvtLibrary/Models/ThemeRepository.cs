@@ -4,24 +4,27 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
 using System.Web.Mvc;
-using IvtLibrary;
 
 namespace IvtLibrary.Models
 { 
     public class ThemeRepository : IThemeRepository
     {
-        IvtLibraryEntities context = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db;
+
+        public ThemeRepository(IvtLibraryEntities db)
+        {
+            this.db = db;
+        }
 
         public IQueryable<Theme> All
         {
-            get { return context.Theme; }
+            get { return db.Theme; }
         }
 
         public IQueryable<Theme> AllIncluding(params Expression<Func<Theme, object>>[] includeProperties)
         {
-            IQueryable<Theme> query = context.Theme;
+            IQueryable<Theme> query = db.Theme;
             foreach (var includeProperty in includeProperties) {
                 query = query.Include(includeProperty);
             }
@@ -30,18 +33,18 @@ namespace IvtLibrary.Models
 
         public Theme Find(int id)
         {
-            return context.Theme.Single(x => x.id == id);
+            return db.Theme.Single(x => x.id == id);
         }
 
         public void InsertOrUpdate(Theme theme)
         {
             if (theme.id == default(int)) {
                 // New entity
-                context.Theme.AddObject(theme);
+                db.Theme.AddObject(theme);
             } else {
                 // Existing entity
-                context.Theme.Attach(theme);
-                context.ObjectStateManager.ChangeObjectState(theme, EntityState.Modified);
+                db.Theme.Attach(theme);
+                db.ObjectStateManager.ChangeObjectState(theme, EntityState.Modified);
             }
         }
 
@@ -58,7 +61,7 @@ namespace IvtLibrary.Models
             {
                 themeIds = new HashSet<int>();
             }
-            var allThemes = context.Theme;
+            var allThemes = db.Theme;
             var themesCheckBoxList = new List<SelectListItem>();
             foreach (var theme in allThemes)
             {
@@ -74,13 +77,13 @@ namespace IvtLibrary.Models
 
         public void Delete(int id)
         {
-            var theme = context.Theme.Single(x => x.id == id);
-            context.Theme.DeleteObject(theme);
+            var theme = db.Theme.Single(x => x.id == id);
+            db.Theme.DeleteObject(theme);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }

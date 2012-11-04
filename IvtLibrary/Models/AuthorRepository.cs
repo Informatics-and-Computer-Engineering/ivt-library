@@ -4,24 +4,27 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
 using System.Web.Mvc;
-using IvtLibrary;
 
 namespace IvtLibrary.Models
 { 
     public class AuthorRepository : IAuthorRepository
     {
-        IvtLibraryEntities context = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db;
+
+        public AuthorRepository(IvtLibraryEntities db)
+        {
+            this.db = db;
+        }
 
         public IQueryable<Author> All
         {
-            get { return context.Author; }
+            get { return db.Author; }
         }
 
         public IQueryable<Author> AllIncluding(params Expression<Func<Author, object>>[] includeProperties)
         {
-            IQueryable<Author> query = context.Author;
+            IQueryable<Author> query = db.Author;
             foreach (var includeProperty in includeProperties) {
                 query = query.Include(includeProperty);
             }
@@ -30,30 +33,30 @@ namespace IvtLibrary.Models
 
         public Author Find(int id)
         {
-            return context.Author.Single(x => x.id == id);
+            return db.Author.Single(x => x.id == id);
         }
 
         public void InsertOrUpdate(Author author)
         {
             if (author.id == default(int)) {
                 // New entity
-                context.Author.AddObject(author);
+                db.Author.AddObject(author);
             } else {
                 // Existing entity
-                context.Author.Attach(author);
-                context.ObjectStateManager.ChangeObjectState(author, EntityState.Modified);
+                db.Author.Attach(author);
+                db.ObjectStateManager.ChangeObjectState(author, EntityState.Modified);
             }
         }
 
         public void Delete(int id)
         {
-            var author = context.Author.Single(x => x.id == id);
-            context.Author.DeleteObject(author);
+            var author = db.Author.Single(x => x.id == id);
+            db.Author.DeleteObject(author);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            db.SaveChanges();
         }
 
         // заполняет список чекбоксов авторов
@@ -69,7 +72,7 @@ namespace IvtLibrary.Models
             {
                 authorIds = new HashSet<int>();
             }
-            var allAuthors = context.Author;
+            var allAuthors = db.Author;
             var authorsCheckBoxList = new List<SelectListItem>();
             foreach (var author in allAuthors)
             {

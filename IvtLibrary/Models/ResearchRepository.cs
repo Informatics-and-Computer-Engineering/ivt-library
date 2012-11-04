@@ -1,26 +1,28 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
-using IvtLibrary;
 
 namespace IvtLibrary.Models
 { 
     public class ResearchRepository : IResearchRepository
     {
-        IvtLibraryEntities context = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db;
+
+        public ResearchRepository(IvtLibraryEntities db)
+        {
+            this.db = db;
+        }
 
         public IQueryable<Research> All
         {
-            get { return context.Research; }
+            get { return db.Research; }
         }
 
         public IQueryable<Research> AllIncluding(params Expression<Func<Research, object>>[] includeProperties)
         {
-            IQueryable<Research> query = context.Research;
+            IQueryable<Research> query = db.Research;
             foreach (var includeProperty in includeProperties) {
                 query = query.Include(includeProperty);
             }
@@ -29,30 +31,30 @@ namespace IvtLibrary.Models
 
         public Research Find(int id)
         {
-            return context.Research.Single(x => x.id == id);
+            return db.Research.Single(x => x.id == id);
         }
 
         public void InsertOrUpdate(Research research)
         {
             if (research.id == default(int)) {
                 // New entity
-                context.Research.AddObject(research);
+                db.Research.AddObject(research);
             } else {
                 // Existing entity
-                context.Research.Attach(research);
-                context.ObjectStateManager.ChangeObjectState(research, EntityState.Modified);
+                db.Research.Attach(research);
+                db.ObjectStateManager.ChangeObjectState(research, EntityState.Modified);
             }
         }
 
         public void Delete(int id)
         {
-            var research = context.Research.Single(x => x.id == id);
-            context.Research.DeleteObject(research);
+            var research = db.Research.Single(x => x.id == id);
+            db.Research.DeleteObject(research);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }

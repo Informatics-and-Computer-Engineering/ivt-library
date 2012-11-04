@@ -1,26 +1,28 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
-using IvtLibrary;
 
 namespace IvtLibrary.Models
 { 
     public class CityRepository : ICityRepository
     {
-        IvtLibraryEntities context = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db;
+
+        public CityRepository(IvtLibraryEntities db)
+        {
+            this.db = db;
+        }
 
         public IQueryable<City> All
         {
-            get { return context.City; }
+            get { return db.City; }
         }
 
         public IQueryable<City> AllIncluding(params Expression<Func<City, object>>[] includeProperties)
         {
-            IQueryable<City> query = context.City;
+            IQueryable<City> query = db.City;
             foreach (var includeProperty in includeProperties) {
                 query = query.Include(includeProperty);
             }
@@ -29,30 +31,30 @@ namespace IvtLibrary.Models
 
         public City Find(int id)
         {
-            return context.City.Single(x => x.id == id);
+            return db.City.Single(x => x.id == id);
         }
 
         public void InsertOrUpdate(City city)
         {
             if (city.id == default(int)) {
                 // New entity
-                context.City.AddObject(city);
+                db.City.AddObject(city);
             } else {
                 // Existing entity
-                context.City.Attach(city);
-                context.ObjectStateManager.ChangeObjectState(city, EntityState.Modified);
+                db.City.Attach(city);
+                db.ObjectStateManager.ChangeObjectState(city, EntityState.Modified);
             }
         }
 
         public void Delete(int id)
         {
-            var city = context.City.Single(x => x.id == id);
-            context.City.DeleteObject(city);
+            var city = db.City.Single(x => x.id == id);
+            db.City.DeleteObject(city);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }

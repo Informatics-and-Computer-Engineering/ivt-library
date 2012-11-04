@@ -1,26 +1,28 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
-using IvtLibrary;
 
 namespace IvtLibrary.Models
 { 
     public class ArticleRepository : IArticleRepository
     {
-        IvtLibraryEntities context = new IvtLibraryEntities();
+        private readonly IvtLibraryEntities db;
+
+        public ArticleRepository(IvtLibraryEntities db)
+        {
+            this.db = db;
+        }
 
         public IQueryable<Article> All
         {
-            get { return context.Article; }
+            get { return db.Article; }
         }
 
         public IQueryable<Article> AllIncluding(params Expression<Func<Article, object>>[] includeProperties)
         {
-            IQueryable<Article> query = context.Article;
+            IQueryable<Article> query = db.Article;
             foreach (var includeProperty in includeProperties) {
                 query = query.Include(includeProperty);
             }
@@ -29,30 +31,30 @@ namespace IvtLibrary.Models
 
         public Article Find(int id)
         {
-            return context.Article.Single(x => x.id == id);
+            return db.Article.Single(x => x.id == id);
         }
 
         public void InsertOrUpdate(Article article)
         {
             if (article.id == default(int)) {
                 // New entity
-                context.Article.AddObject(article);
+                db.Article.AddObject(article);
             } else {
                 // Existing entity
-                context.Article.Attach(article);
-                context.ObjectStateManager.ChangeObjectState(article, EntityState.Modified);
+                db.Article.Attach(article);
+                db.ObjectStateManager.ChangeObjectState(article, EntityState.Modified);
             }
         }
 
         public void Delete(int id)
         {
-            var article = context.Article.Single(x => x.id == id);
-            context.Article.DeleteObject(article);
+            var article = db.Article.Single(x => x.id == id);
+            db.Article.DeleteObject(article);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }
