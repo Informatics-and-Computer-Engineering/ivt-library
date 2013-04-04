@@ -1,0 +1,11 @@
+# git ignore file
+*.pidb
+*.userprefs
+*.DotSettings.user
+*.suo
+*.cache
+*.csproj.user
+obj
+bin
+*ReSharper*
+[Pp]ackages
