@@ -100,14 +100,14 @@
         <div id="file_div"></div>
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.Author, "Авторы статьи")
+            @Html.LabelFor(model => model.Author)
         </div>
         <div class="editor-field">
             @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.name, "Название статьи")
+            @Html.LabelFor(model => model.name)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.name)
@@ -115,14 +115,14 @@
         </div>
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.Theme, "Тематика статьи")
+            @Html.LabelFor(model => model.Theme)
         </div>
         <div class="editor-field">
             @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.city_id, "Город")
+            @Html.LabelFor(model => model.city_id)
         </div>
         <div class="editor-field">
             @Html.DropDownList("city_id", String.Empty)
@@ -131,7 +131,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.conference_id, "Конференция")
+            @Html.LabelFor(model => model.conference_id)
         </div>
         <div class="editor-field">
             @Html.DropDownList("conference_id", String.Empty)
@@ -140,7 +140,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.year, "Год")
+            @Html.LabelFor(model => model.year)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.year)
@@ -148,7 +148,7 @@
         </div>
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.supervisor_id, "Научный руководитель")
+            @Html.LabelFor(model => model.supervisor_id)
         </div>
         <div class="editor-field">
             @Html.DropDownListFor(model => model.supervisor_id, (List<SelectListItem>)ViewBag.AuthorsList)
@@ -157,21 +157,21 @@
         </div>
         
                 <div class="editor-label">
-            @Html.LabelFor(model => model.conference_start_date, "Дата начала конференции")
+            @Html.LabelFor(model => model.conference_start_date)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.conference_start_date)
             @Html.ValidationMessageFor(model => model.conference_start_date)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.conference_end_date, "Дата окончания конференции")
+            @Html.LabelFor(model => model.conference_end_date)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.conference_end_date)
             @Html.ValidationMessageFor(model => model.conference_end_date)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.publication_date, "Дата публикации")
+            @Html.LabelFor(model => model.publication_date)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.publication_date)

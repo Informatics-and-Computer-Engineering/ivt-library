@@ -16,14 +16,14 @@
         <legend>Исследование</legend>
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.Author, "Авторы исследования")
+            @Html.LabelFor(model => model.Author)
         </div>
         <div class="editor-field">
             @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
         </div>
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.name, "Название")
+            @Html.LabelFor(model => model.name)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.name)
@@ -31,7 +31,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.description, "Подробное описание")
+            @Html.LabelFor(model => model.description)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.description)
@@ -39,7 +39,7 @@
         </div>
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.Theme, "Тематика исследования")
+            @Html.LabelFor(model => model.Theme)
         </div>
         <div class="editor-field">
             @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)

@@ -1,34 +1,35 @@
-﻿<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+﻿<!---->
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
 <edmx:Runtime>
 <edmx:StorageModels>
-<Schema Namespace="IvtLibraryModel.Store" Alias="Self" Provider="npgsql" ProviderManifestToken="9.2.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+<Schema Namespace="IvtLibraryModel.Store" Alias="Self" Provider="npgsql" ProviderManifestToken="9.2.1" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="IvtLibraryModelStoreContainer">
-    <EntitySet Name="Article" EntityType="IvtLibraryModel.Store.Article" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Article_Article" EntityType="IvtLibraryModel.Store.Article_Article" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Article_Book" EntityType="IvtLibraryModel.Store.Article_Book" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Author" EntityType="IvtLibraryModel.Store.Author" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Author_Article" EntityType="IvtLibraryModel.Store.Author_Article" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Author_Book" EntityType="IvtLibraryModel.Store.Author_Book" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Book" EntityType="IvtLibraryModel.Store.Book" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Book_File" EntityType="IvtLibraryModel.Store.Book_File" store:Type="Tables" Schema="public" />
-    <EntitySet Name="City" EntityType="IvtLibraryModel.Store.City" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Conference" EntityType="IvtLibraryModel.Store.Conference" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Draft" EntityType="IvtLibraryModel.Store.Draft" store:Type="Tables" Schema="public" />
-    <EntitySet Name="File" EntityType="IvtLibraryModel.Store.File" store:Type="Tables" Schema="public" />
-    <EntitySet Name="File_Article" EntityType="IvtLibraryModel.Store.File_Article" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Hypothesis" EntityType="IvtLibraryModel.Store.Hypothesis" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Research" EntityType="IvtLibraryModel.Store.Research" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Research_Article" EntityType="IvtLibraryModel.Store.Research_Article" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Research_Author" EntityType="IvtLibraryModel.Store.Research_Author" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Research_Book" EntityType="IvtLibraryModel.Store.Research_Book" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Research_File" EntityType="IvtLibraryModel.Store.Research_File" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Research_Theme" EntityType="IvtLibraryModel.Store.Research_Theme" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Scale" EntityType="IvtLibraryModel.Store.Scale" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Theme" EntityType="IvtLibraryModel.Store.Theme" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Theme_Article" EntityType="IvtLibraryModel.Store.Theme_Article" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Theme_Author" EntityType="IvtLibraryModel.Store.Theme_Author" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Theme_Book" EntityType="IvtLibraryModel.Store.Theme_Book" store:Type="Tables" Schema="public" />
-    <EntitySet Name="Type" EntityType="IvtLibraryModel.Store.Type" store:Type="Tables" Schema="public" />
+    <EntitySet Name="Article" EntityType="IvtLibraryModel.Store.Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Article_Article" EntityType="IvtLibraryModel.Store.Article_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Article_Book" EntityType="IvtLibraryModel.Store.Article_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Author" EntityType="IvtLibraryModel.Store.Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Author_Article" EntityType="IvtLibraryModel.Store.Author_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Author_Book" EntityType="IvtLibraryModel.Store.Author_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Book" EntityType="IvtLibraryModel.Store.Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Book_File" EntityType="IvtLibraryModel.Store.Book_File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="City" EntityType="IvtLibraryModel.Store.City" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Conference" EntityType="IvtLibraryModel.Store.Conference" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Draft" EntityType="IvtLibraryModel.Store.Draft" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="File" EntityType="IvtLibraryModel.Store.File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="File_Article" EntityType="IvtLibraryModel.Store.File_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Hypothesis" EntityType="IvtLibraryModel.Store.Hypothesis" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research" EntityType="IvtLibraryModel.Store.Research" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_Article" EntityType="IvtLibraryModel.Store.Research_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_Author" EntityType="IvtLibraryModel.Store.Research_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_Book" EntityType="IvtLibraryModel.Store.Research_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_File" EntityType="IvtLibraryModel.Store.Research_File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_Theme" EntityType="IvtLibraryModel.Store.Research_Theme" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Scale" EntityType="IvtLibraryModel.Store.Scale" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Theme" EntityType="IvtLibraryModel.Store.Theme" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Theme_Article" EntityType="IvtLibraryModel.Store.Theme_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Theme_Author" EntityType="IvtLibraryModel.Store.Theme_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Theme_Book" EntityType="IvtLibraryModel.Store.Theme_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Type" EntityType="IvtLibraryModel.Store.Type" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <AssociationSet Name="fk_article_author_supervisor_id" Association="IvtLibraryModel.Store.fk_article_author_supervisor_id">
       <End Role="Author" EntitySet="Author" />
       <End Role="Article" EntitySet="Article" />
@@ -788,8 +789,8 @@
 </Schema>
 </edmx:StorageModels>
 <edmx:ConceptualModels>
-<Schema Namespace="IvtLibraryModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="IvtLibraryEntities" annotation:LazyLoadingEnabled="true">
+<Schema Namespace="IvtLibraryModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="IvtLibraryEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
     <EntitySet Name="Article" EntityType="IvtLibraryModel.Article" />
     <EntitySet Name="Author" EntityType="IvtLibraryModel.Author" />
     <EntitySet Name="Book" EntityType="IvtLibraryModel.Book" />
@@ -883,7 +884,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="city_id" Type="Int32" />
     <Property Name="conference_id" Type="Int32" Nullable="false" />
@@ -908,7 +909,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="first_name" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
     <Property Name="middle_name" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
     <Property Name="last_name" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
@@ -922,7 +923,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="year" Type="Int32" />
     <Property Name="publisher" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
@@ -938,7 +939,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Article" Relationship="IvtLibraryModel.fk_article_city" FromRole="City" ToRole="Article" />
   </EntityType>
@@ -946,7 +947,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="place" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="full_name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
@@ -958,7 +959,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="title" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="creation_date" Type="DateTimeOffset" Nullable="false" Precision="7" />
@@ -967,7 +968,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="content_type" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="data" Type="Binary" Nullable="false" MaxLength="2147483647" FixedLength="false" />
@@ -982,7 +983,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="explanation" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -991,7 +992,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="goal" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -1007,7 +1008,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Conference" Relationship="IvtLibraryModel.fk_conference_scale" FromRole="Scale" ToRole="Conference" />
   </EntityType>
@@ -1015,7 +1016,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Research" Relationship="IvtLibraryModel.Research_Theme" FromRole="Theme" ToRole="Research" />
@@ -1027,7 +1028,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="description" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="File" Relationship="IvtLibraryModel.fk_file_type" FromRole="Type" ToRole="File" />
@@ -1151,7 +1152,7 @@
 </Schema>
 </edmx:ConceptualModels>
 <edmx:Mappings>
-<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="IvtLibraryModelStoreContainer" CdmEntityContainer="IvtLibraryEntities">
     <EntitySetMapping Name="Article">
       <EntityTypeMapping TypeName="IvtLibraryModel.Article">
@@ -1396,123 +1397,123 @@
 </Mapping>
 </edmx:Mappings>
 </edmx:Runtime>
-<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
-<Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
+<edmx:Designer>
+<edmx:Connection><edmx:DesignerInfoPropertySet><edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></edmx:DesignerInfoPropertySet></edmx:Connection>
 <edmx:Options />
-<edmx:Diagrams >
-  <Diagram Name="IvtLibrary" ZoomLevel="71">
-    <EntityTypeShape EntityType="IvtLibraryModel.Article" Width="1.5" PointX="5.25" PointY="3.75" Height="3.7109993489583322" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Author" Width="1.5" PointX="8" PointY="10.125" Height="2.5571907552083317" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Book" Width="1.5" PointX="9.125" PointY="4.125" Height="2.9417936197916656" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.City" Width="1.5" PointX="3" PointY="1.875" Height="1.5956835937499996" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Conference" Width="1.5" PointX="3" PointY="4.5" Height="2.3648893229166656" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Draft" Width="1.5" PointX="0.75" PointY="8" Height="1.7879850260416674" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.File" Width="1.5" PointX="13" PointY="0.625" Height="2.7494921874999996" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Hypothesis" Width="1.5" PointX="2.75" PointY="9" Height="1.7879850260416674" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Research" Width="1.5" PointX="14.25" PointY="4.125" Height="3.1340950520833317" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Scale" Width="1.5" PointX="0.75" PointY="4.875" Height="1.5956835937499996" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Theme" Width="1.5" PointX="11.75" PointY="7.375" Height="2.3648893229166745" IsExpanded="true" />
-    <EntityTypeShape EntityType="IvtLibraryModel.Type" Width="1.5" PointX="9.75" PointY="0.75" Height="1.7879850260416745" IsExpanded="true" />
-    <AssociationConnector Association="IvtLibraryModel.fk_city" ManuallyRouted="false">
-      <ConnectorPoint PointX="4.5" PointY="2.672841796875" />
-      <ConnectorPoint PointX="5.79687425" PointY="2.672841796875" />
-      <ConnectorPoint PointX="5.79687425" PointY="3.75" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.fk_conference" ManuallyRouted="false">
-      <ConnectorPoint PointX="4.5" PointY="5.6824446614583328" />
-      <ConnectorPoint PointX="5.25" PointY="5.6824446614583328" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.fk_scale" ManuallyRouted="false">
-      <ConnectorPoint PointX="2.25" PointY="5.672841796875" />
-      <ConnectorPoint PointX="3" PointY="5.672841796875" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.fk_type" ManuallyRouted="false">
-      <ConnectorPoint PointX="11.25" PointY="1.6439925130208373" />
-      <ConnectorPoint PointX="13" PointY="1.6439925130208373" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Article_Article" ManuallyRouted="false">
-      <ConnectorPoint PointX="5.7819230769230767" PointY="7.4609993489583317" />
-      <ConnectorPoint PointX="5.7819230769230767" PointY="7.7109993489583317" />
-      <ConnectorPoint PointX="6.2284615384615378" PointY="7.7109993489583317" />
-      <ConnectorPoint PointX="6.2284615384615378" PointY="7.4609993489583317" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Article_Book" ManuallyRouted="false">
-      <ConnectorPoint PointX="6.75" PointY="5.2618076610828659" />
-      <ConnectorPoint PointX="8.7916666666666661" PointY="5.261807661082865" />
-          <ConnectorPoint PointX="8.9583333333333339" PointY="5.2618076610828659" />
-          <ConnectorPoint PointX="9.125" PointY="5.2618076610828659" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Author_Article" ManuallyRouted="false">
-      <ConnectorPoint PointX="5.4847090384615385" PointY="7.4609993489583317" />
-      <ConnectorPoint PointX="5.4847090384615385" PointY="11.403595377604166" />
-      <ConnectorPoint PointX="8" PointY="11.403595377604166" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Author_Book" ManuallyRouted="false">
-      <ConnectorPoint PointX="9.3125" PointY="10.125" />
-      <ConnectorPoint PointX="9.3125" PointY="7.2590950520833326" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Book_File" ManuallyRouted="false">
-      <ConnectorPoint PointX="9.40625" PointY="4.125" />
-      <ConnectorPoint PointX="9.40625" PointY="3.2028857074554358" />
-      <ConnectorPoint PointX="13" PointY="3.2028857074554358" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.File_Article" ManuallyRouted="true">
-      <ConnectorPoint PointX="6.4062525" PointY="3.75" />
-      <ConnectorPoint PointX="6.4062525" PointY="2.6982610664996272" />
-      <ConnectorPoint PointX="13" PointY="2.6982610664996272" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Research_Article" ManuallyRouted="false">
-      <ConnectorPoint PointX="6.75" PointY="6.4707785050205988" />
-      <ConnectorPoint PointX="8.875" PointY="6.4707785050205988" />
-      <ConnectorPoint PointX="8.875" PointY="3.875" />
-      <ConnectorPoint PointX="9.3229166666666661" PointY="3.8749999999999996" />
-      <ConnectorPoint PointX="9.4895833333333339" PointY="3.875" />
-      <ConnectorPoint PointX="14.593748" PointY="3.875" />
-      <ConnectorPoint PointX="14.593748" PointY="4.125" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Research_Author" ManuallyRouted="true">
-      <ConnectorPoint PointX="9.5" PointY="11.51719663010423" />
-      <ConnectorPoint PointX="14.863082931337367" PointY="11.51719663010423" />
-      <ConnectorPoint PointX="14.863082931337367" PointY="7.2590950520833317" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Research_Book" ManuallyRouted="false">
-      <ConnectorPoint PointX="10.625" PointY="5.6920475260416659" />
-      <ConnectorPoint PointX="12.010414166666665" PointY="5.692047526041665" />
-          <ConnectorPoint PointX="12.177080833333333" PointY="5.6920475260416659" />
-          <ConnectorPoint PointX="14.25" PointY="5.6920475260416659" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Research_File" ManuallyRouted="false">
-      <ConnectorPoint PointX="13.75" PointY="3.566793619791667" />
-      <ConnectorPoint PointX="13.75" PointY="3.75" />
-      <ConnectorPoint PointX="15" PointY="3.75" />
-          <ConnectorPoint PointX="15" PointY="4.125" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Research_Theme" ManuallyRouted="false">
-      <ConnectorPoint PointX="14.25" PointY="6.5068237890625" />
-      <ConnectorPoint PointX="12.5" PointY="6.5068237890625" />
-          <ConnectorPoint PointX="12.5" PointY="7.375" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Theme_Article" ManuallyRouted="false">
-      <ConnectorPoint PointX="6.75" PointY="7.610941437456578" />
-      <ConnectorPoint PointX="9.2291666666666661" PointY="7.6109414374565771" />
-      <ConnectorPoint PointX="9.3958333333333339" PointY="7.610941437456578" />
-      <ConnectorPoint PointX="11.75" PointY="7.610941437456578" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Theme_Author" ManuallyRouted="false">
-      <ConnectorPoint PointX="9.5" PointY="10.953862439540654" />
-      <ConnectorPoint PointX="12.5" PointY="10.953862439540654" />
-      <ConnectorPoint PointX="12.5" PointY="9.7398893229166745" />
-    </AssociationConnector>
-    <AssociationConnector Association="IvtLibraryModel.Theme_Book" ManuallyRouted="false">
-      <ConnectorPoint PointX="10.625" PointY="6.2431578072846072" />
-      <ConnectorPoint PointX="12.0937475" PointY="6.2431578072846072" />
-      <ConnectorPoint PointX="12.0937475" PointY="7.375" />
-    </AssociationConnector>
-        <AssociationConnector Association="IvtLibraryModel.fk_article_author_supervisor_id">
-          <ConnectorPoint PointX="8.6249975" PointY="10.125" />
-          <ConnectorPoint PointX="8.6249975" PointY="7.9015204833079977" />
-          <ConnectorPoint PointX="6.75" PointY="7.9015204833079977" />
-        </AssociationConnector>
-  </Diagram>
+<edmx:Diagrams>
+  <edmx:Diagram Name="IvtLibrary" ZoomLevel="71">
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Article" Width="1.5" PointX="5.25" PointY="3.75" Height="3.7109993489583322" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Author" Width="1.5" PointX="8" PointY="10.125" Height="2.5571907552083317" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Book" Width="1.5" PointX="9.125" PointY="4.125" Height="2.9417936197916656" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.City" Width="1.5" PointX="3" PointY="1.875" Height="1.5956835937499996" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Conference" Width="1.5" PointX="3" PointY="4.5" Height="2.3648893229166656" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Draft" Width="1.5" PointX="0.75" PointY="8" Height="1.7879850260416674" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.File" Width="1.5" PointX="13" PointY="0.625" Height="2.7494921874999996" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Hypothesis" Width="1.5" PointX="2.75" PointY="9" Height="1.7879850260416674" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Research" Width="1.5" PointX="14.25" PointY="4.125" Height="3.1340950520833317" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Scale" Width="1.5" PointX="0.75" PointY="4.875" Height="1.5956835937499996" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Theme" Width="1.5" PointX="11.75" PointY="7.375" Height="2.3648893229166745" IsExpanded="true" />
+    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Type" Width="1.5" PointX="9.75" PointY="0.75" Height="1.7879850260416745" IsExpanded="true" />
+    <edmx:AssociationConnector Association="IvtLibraryModel.fk_city" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="4.5" PointY="2.672841796875" />
+      <edmx:ConnectorPoint PointX="5.79687425" PointY="2.672841796875" />
+      <edmx:ConnectorPoint PointX="5.79687425" PointY="3.75" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.fk_conference" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="4.5" PointY="5.6824446614583328" />
+      <edmx:ConnectorPoint PointX="5.25" PointY="5.6824446614583328" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.fk_scale" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="2.25" PointY="5.672841796875" />
+      <edmx:ConnectorPoint PointX="3" PointY="5.672841796875" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.fk_type" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="11.25" PointY="1.6439925130208373" />
+      <edmx:ConnectorPoint PointX="13" PointY="1.6439925130208373" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Article_Article" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="5.7819230769230767" PointY="7.4609993489583317" />
+      <edmx:ConnectorPoint PointX="5.7819230769230767" PointY="7.7109993489583317" />
+      <edmx:ConnectorPoint PointX="6.2284615384615378" PointY="7.7109993489583317" />
+      <edmx:ConnectorPoint PointX="6.2284615384615378" PointY="7.4609993489583317" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Article_Book" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="6.75" PointY="5.2618076610828659" />
+      <edmx:ConnectorPoint PointX="8.7916666666666661" PointY="5.261807661082865" />
+          <edmx:ConnectorPoint PointX="8.9583333333333339" PointY="5.2618076610828659" />
+          <edmx:ConnectorPoint PointX="9.125" PointY="5.2618076610828659" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Author_Article" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="5.4847090384615385" PointY="7.4609993489583317" />
+      <edmx:ConnectorPoint PointX="5.4847090384615385" PointY="11.403595377604166" />
+      <edmx:ConnectorPoint PointX="8" PointY="11.403595377604166" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Author_Book" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="9.3125" PointY="10.125" />
+      <edmx:ConnectorPoint PointX="9.3125" PointY="7.2590950520833326" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Book_File" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="9.40625" PointY="4.125" />
+      <edmx:ConnectorPoint PointX="9.40625" PointY="3.2028857074554358" />
+      <edmx:ConnectorPoint PointX="13" PointY="3.2028857074554358" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.File_Article" ManuallyRouted="true">
+      <edmx:ConnectorPoint PointX="6.4062525" PointY="3.75" />
+      <edmx:ConnectorPoint PointX="6.4062525" PointY="2.6982610664996272" />
+      <edmx:ConnectorPoint PointX="13" PointY="2.6982610664996272" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Research_Article" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="6.75" PointY="6.4707785050205988" />
+      <edmx:ConnectorPoint PointX="8.875" PointY="6.4707785050205988" />
+      <edmx:ConnectorPoint PointX="8.875" PointY="3.875" />
+      <edmx:ConnectorPoint PointX="9.3229166666666661" PointY="3.8749999999999996" />
+      <edmx:ConnectorPoint PointX="9.4895833333333339" PointY="3.875" />
+      <edmx:ConnectorPoint PointX="14.593748" PointY="3.875" />
+      <edmx:ConnectorPoint PointX="14.593748" PointY="4.125" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Research_Author" ManuallyRouted="true">
+      <edmx:ConnectorPoint PointX="9.5" PointY="11.51719663010423" />
+      <edmx:ConnectorPoint PointX="14.863082931337367" PointY="11.51719663010423" />
+      <edmx:ConnectorPoint PointX="14.863082931337367" PointY="7.2590950520833317" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Research_Book" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="10.625" PointY="5.6920475260416659" />
+      <edmx:ConnectorPoint PointX="12.010414166666665" PointY="5.692047526041665" />
+          <edmx:ConnectorPoint PointX="12.177080833333333" PointY="5.6920475260416659" />
+          <edmx:ConnectorPoint PointX="14.25" PointY="5.6920475260416659" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Research_File" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="13.75" PointY="3.566793619791667" />
+      <edmx:ConnectorPoint PointX="13.75" PointY="3.75" />
+      <edmx:ConnectorPoint PointX="15" PointY="3.75" />
+          <edmx:ConnectorPoint PointX="15" PointY="4.125" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Research_Theme" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="14.25" PointY="6.5068237890625" />
+      <edmx:ConnectorPoint PointX="12.5" PointY="6.5068237890625" />
+          <edmx:ConnectorPoint PointX="12.5" PointY="7.375" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Article" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="6.75" PointY="7.610941437456578" />
+      <edmx:ConnectorPoint PointX="9.2291666666666661" PointY="7.6109414374565771" />
+      <edmx:ConnectorPoint PointX="9.3958333333333339" PointY="7.610941437456578" />
+      <edmx:ConnectorPoint PointX="11.75" PointY="7.610941437456578" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Author" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="9.5" PointY="10.953862439540654" />
+      <edmx:ConnectorPoint PointX="12.5" PointY="10.953862439540654" />
+      <edmx:ConnectorPoint PointX="12.5" PointY="9.7398893229166745" />
+    </edmx:AssociationConnector>
+    <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Book" ManuallyRouted="false">
+      <edmx:ConnectorPoint PointX="10.625" PointY="6.2431578072846072" />
+      <edmx:ConnectorPoint PointX="12.0937475" PointY="6.2431578072846072" />
+      <edmx:ConnectorPoint PointX="12.0937475" PointY="7.375" />
+    </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_author_supervisor_id">
+          <edmx:ConnectorPoint PointX="8.6249975" PointY="10.125" />
+          <edmx:ConnectorPoint PointX="8.6249975" PointY="7.9015204833079977" />
+          <edmx:ConnectorPoint PointX="6.75" PointY="7.9015204833079977" />
+        </edmx:AssociationConnector>
+  </edmx:Diagram>
     </edmx:Diagrams>
 </edmx:Designer></edmx:Edmx>

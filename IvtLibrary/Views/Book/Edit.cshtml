@@ -18,14 +18,14 @@
         @Html.HiddenFor(model => model.id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Author, "Авторы книги")
+            @Html.LabelFor(model => model.Author)
         </div>
         <div class="editor-field">
             @Html.CheckBoxList("authorIds", (List<SelectListItem>)ViewBag.AuthorsList)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.name, "Название")
+            @Html.LabelFor(model => model.name)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.name)
@@ -33,7 +33,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.year, "Год издания")
+            @Html.LabelFor(model => model.year)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.year)
@@ -41,7 +41,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.publisher, "Издательство")
+            @Html.LabelFor(model => model.publisher)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.publisher)
@@ -49,7 +49,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.volume, "Количество страниц")
+            @Html.LabelFor(model => model.volume)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.volume)
@@ -57,7 +57,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Theme, "Тематика книги")
+            @Html.LabelFor(model => model.Theme)
         </div>
         <div class="editor-field">
             @Html.CheckBoxList("themeIds", (List<SelectListItem>)ViewBag.ThemesList)

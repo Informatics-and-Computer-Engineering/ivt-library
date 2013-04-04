@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IvtLibraryModel.Store" Alias="Self" Provider="npgsql" ProviderManifestToken="9.2.1" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="IvtLibraryModelStoreContainer">
+    <EntitySet Name="Article" EntityType="IvtLibraryModel.Store.Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Article_Article" EntityType="IvtLibraryModel.Store.Article_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Article_Book" EntityType="IvtLibraryModel.Store.Article_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Author" EntityType="IvtLibraryModel.Store.Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Author_Article" EntityType="IvtLibraryModel.Store.Author_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Author_Book" EntityType="IvtLibraryModel.Store.Author_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Book" EntityType="IvtLibraryModel.Store.Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Book_File" EntityType="IvtLibraryModel.Store.Book_File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="City" EntityType="IvtLibraryModel.Store.City" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Conference" EntityType="IvtLibraryModel.Store.Conference" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Draft" EntityType="IvtLibraryModel.Store.Draft" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="File" EntityType="IvtLibraryModel.Store.File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="File_Article" EntityType="IvtLibraryModel.Store.File_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Hypothesis" EntityType="IvtLibraryModel.Store.Hypothesis" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research" EntityType="IvtLibraryModel.Store.Research" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_Article" EntityType="IvtLibraryModel.Store.Research_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_Author" EntityType="IvtLibraryModel.Store.Research_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_Book" EntityType="IvtLibraryModel.Store.Research_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_File" EntityType="IvtLibraryModel.Store.Research_File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Research_Theme" EntityType="IvtLibraryModel.Store.Research_Theme" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Scale" EntityType="IvtLibraryModel.Store.Scale" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Theme" EntityType="IvtLibraryModel.Store.Theme" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Theme_Article" EntityType="IvtLibraryModel.Store.Theme_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Theme_Author" EntityType="IvtLibraryModel.Store.Theme_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Theme_Book" EntityType="IvtLibraryModel.Store.Theme_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Type" EntityType="IvtLibraryModel.Store.Type" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="fk_article_author_supervisor_id" Association="IvtLibraryModel.Store.fk_article_author_supervisor_id">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_article_book_article" Association="IvtLibraryModel.Store.fk_article_book_article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Article_Book" EntitySet="Article_Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_article_book_book" Association="IvtLibraryModel.Store.fk_article_book_book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Article_Book" EntitySet="Article_Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_article_city" Association="IvtLibraryModel.Store.fk_article_city">
+      <End Role="City" EntitySet="City" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_article_conference" Association="IvtLibraryModel.Store.fk_article_conference">
+      <End Role="Conference" EntitySet="Conference" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_author_article_article" Association="IvtLibraryModel.Store.fk_author_article_article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Author_Article" EntitySet="Author_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_author_article_author" Association="IvtLibraryModel.Store.fk_author_article_author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Author_Article" EntitySet="Author_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_author_book_author" Association="IvtLibraryModel.Store.fk_author_book_author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Author_Book" EntitySet="Author_Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_author_book_book" Association="IvtLibraryModel.Store.fk_author_book_book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Author_Book" EntitySet="Author_Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_book_file_book" Association="IvtLibraryModel.Store.fk_book_file_book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Book_File" EntitySet="Book_File" />
+    </AssociationSet>
+    <AssociationSet Name="fk_book_file_file" Association="IvtLibraryModel.Store.fk_book_file_file">
+      <End Role="File" EntitySet="File" />
+      <End Role="Book_File" EntitySet="Book_File" />
+    </AssociationSet>
+    <AssociationSet Name="fk_conference_scale" Association="IvtLibraryModel.Store.fk_conference_scale">
+      <End Role="Scale" EntitySet="Scale" />
+      <End Role="Conference" EntitySet="Conference" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_article_article" Association="IvtLibraryModel.Store.fk_file_article_article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="File_Article" EntitySet="File_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_article_file" Association="IvtLibraryModel.Store.fk_file_article_file">
+      <End Role="File" EntitySet="File" />
+      <End Role="File_Article" EntitySet="File_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_type" Association="IvtLibraryModel.Store.fk_file_type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="File" EntitySet="File" />
+    </AssociationSet>
+    <AssociationSet Name="fk_host_article" Association="IvtLibraryModel.Store.fk_host_article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Article_Article" EntitySet="Article_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_referenced_article" Association="IvtLibraryModel.Store.fk_referenced_article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Article_Article" EntitySet="Article_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_article_article" Association="IvtLibraryModel.Store.fk_research_article_article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Research_Article" EntitySet="Research_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_article_research" Association="IvtLibraryModel.Store.fk_research_article_research">
+      <End Role="Research" EntitySet="Research" />
+      <End Role="Research_Article" EntitySet="Research_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_author_author" Association="IvtLibraryModel.Store.fk_research_author_author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Research_Author" EntitySet="Research_Author" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_author_research" Association="IvtLibraryModel.Store.fk_research_author_research">
+      <End Role="Research" EntitySet="Research" />
+      <End Role="Research_Author" EntitySet="Research_Author" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_book_book" Association="IvtLibraryModel.Store.fk_research_book_book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Research_Book" EntitySet="Research_Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_book_research" Association="IvtLibraryModel.Store.fk_research_book_research">
+      <End Role="Research" EntitySet="Research" />
+      <End Role="Research_Book" EntitySet="Research_Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_file_file" Association="IvtLibraryModel.Store.fk_research_file_file">
+      <End Role="File" EntitySet="File" />
+      <End Role="Research_File" EntitySet="Research_File" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_file_research" Association="IvtLibraryModel.Store.fk_research_file_research">
+      <End Role="Research" EntitySet="Research" />
+      <End Role="Research_File" EntitySet="Research_File" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_theme_research" Association="IvtLibraryModel.Store.fk_research_theme_research">
+      <End Role="Research" EntitySet="Research" />
+      <End Role="Research_Theme" EntitySet="Research_Theme" />
+    </AssociationSet>
+    <AssociationSet Name="fk_research_theme_theme" Association="IvtLibraryModel.Store.fk_research_theme_theme">
+      <End Role="Theme" EntitySet="Theme" />
+      <End Role="Research_Theme" EntitySet="Research_Theme" />
+    </AssociationSet>
+    <AssociationSet Name="fk_theme_article_article" Association="IvtLibraryModel.Store.fk_theme_article_article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Theme_Article" EntitySet="Theme_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_theme_article_theme" Association="IvtLibraryModel.Store.fk_theme_article_theme">
+      <End Role="Theme" EntitySet="Theme" />
+      <End Role="Theme_Article" EntitySet="Theme_Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_theme_author_author" Association="IvtLibraryModel.Store.fk_theme_author_author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Theme_Author" EntitySet="Theme_Author" />
+    </AssociationSet>
+    <AssociationSet Name="fk_theme_author_theme" Association="IvtLibraryModel.Store.fk_theme_author_theme">
+      <End Role="Theme" EntitySet="Theme" />
+      <End Role="Theme_Author" EntitySet="Theme_Author" />
+    </AssociationSet>
+    <AssociationSet Name="fk_theme_book_book" Association="IvtLibraryModel.Store.fk_theme_book_book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Theme_Book" EntitySet="Theme_Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_theme_book_theme" Association="IvtLibraryModel.Store.fk_theme_book_theme">
+      <End Role="Theme" EntitySet="Theme" />
+      <End Role="Theme_Book" EntitySet="Theme_Book" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="city_id" Type="int4" />
+    <Property Name="conference_id" Type="int4" Nullable="false" />
+    <Property Name="year" Type="int4" />
+    <Property Name="bibliography" Type="varchar" MaxLength="255" />
+    <Property Name="supervisor_id" Type="int4" />
+    <Property Name="conference_start_date" Type="date" />
+    <Property Name="conference_end_date" Type="date" />
+    <Property Name="publication_date" Type="date" />
+  </EntityType>
+  <EntityType Name="Article_Article">
+    <Key>
+      <PropertyRef Name="host_article_id" />
+      <PropertyRef Name="referenced_article_id" />
+    </Key>
+    <Property Name="host_article_id" Type="int4" Nullable="false" />
+    <Property Name="referenced_article_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Article_Book">
+    <Key>
+      <PropertyRef Name="article_id" />
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="article_id" Type="int4" Nullable="false" />
+    <Property Name="book_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="varchar" MaxLength="60" />
+    <Property Name="middle_name" Type="varchar" MaxLength="60" />
+    <Property Name="last_name" Type="varchar" Nullable="false" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Author_Article">
+    <Key>
+      <PropertyRef Name="author_id" />
+      <PropertyRef Name="article_id" />
+    </Key>
+    <Property Name="author_id" Type="int4" Nullable="false" />
+    <Property Name="article_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Author_Book">
+    <Key>
+      <PropertyRef Name="author_id" />
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="author_id" Type="int4" Nullable="false" />
+    <Property Name="book_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="year" Type="int4" />
+    <Property Name="publisher" Type="varchar" MaxLength="255" />
+    <Property Name="volume" Type="int4" />
+    <Property Name="bibliography" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Book_File">
+    <Key>
+      <PropertyRef Name="book_id" />
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="book_id" Type="int4" Nullable="false" />
+    <Property Name="file_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Conference">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="place" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="full_name" Type="varchar" MaxLength="255" />
+    <Property Name="scale_id" Type="int4" />
+  </EntityType>
+  <EntityType Name="Draft">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="content" Type="text" Nullable="false" />
+    <Property Name="creation_date" Type="timestamptz" Nullable="false" />
+  </EntityType>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="content_type" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="data" Type="bytea" Nullable="false" />
+    <Property Name="type_id" Type="int4" />
+    <Property Name="version" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="File_Article">
+    <Key>
+      <PropertyRef Name="file_id" />
+      <PropertyRef Name="article_id" />
+    </Key>
+    <Property Name="file_id" Type="int4" Nullable="false" />
+    <Property Name="article_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hypothesis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="content" Type="text" Nullable="false" />
+    <Property Name="explanation" Type="text" />
+  </EntityType>
+  <EntityType Name="Research">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="goal" Type="text" />
+    <Property Name="tasks" Type="text" />
+    <Property Name="progress" Type="int2" />
+  </EntityType>
+  <EntityType Name="Research_Article">
+    <Key>
+      <PropertyRef Name="research_id" />
+      <PropertyRef Name="article_id" />
+    </Key>
+    <Property Name="research_id" Type="int4" Nullable="false" />
+    <Property Name="article_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Research_Author">
+    <Key>
+      <PropertyRef Name="author_id" />
+      <PropertyRef Name="research_id" />
+    </Key>
+    <Property Name="author_id" Type="int4" Nullable="false" />
+    <Property Name="research_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Research_Book">
+    <Key>
+      <PropertyRef Name="research_id" />
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="research_id" Type="int4" Nullable="false" />
+    <Property Name="book_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Research_File">
+    <Key>
+      <PropertyRef Name="research_id" />
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="research_id" Type="int4" Nullable="false" />
+    <Property Name="file_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Research_Theme">
+    <Key>
+      <PropertyRef Name="research_id" />
+      <PropertyRef Name="theme_id" />
+    </Key>
+    <Property Name="research_id" Type="int4" Nullable="false" />
+    <Property Name="theme_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Scale">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Theme">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Theme_Article">
+    <Key>
+      <PropertyRef Name="theme_id" />
+      <PropertyRef Name="article_id" />
+    </Key>
+    <Property Name="theme_id" Type="int4" Nullable="false" />
+    <Property Name="article_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Theme_Author">
+    <Key>
+      <PropertyRef Name="theme_id" />
+      <PropertyRef Name="author_id" />
+    </Key>
+    <Property Name="theme_id" Type="int4" Nullable="false" />
+    <Property Name="author_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Theme_Book">
+    <Key>
+      <PropertyRef Name="theme_id" />
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="theme_id" Type="int4" Nullable="false" />
+    <Property Name="book_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="512" />
+  </EntityType>
+  <Association Name="fk_article_author_supervisor_id">
+    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="0..1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="supervisor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_article_book_article">
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article_Book" Type="IvtLibraryModel.Store.Article_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article_Book">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_article_book_book">
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Article_Book" Type="IvtLibraryModel.Store.Article_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article_Book">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_article_city">
+    <End Role="City" Type="IvtLibraryModel.Store.City" Multiplicity="0..1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_article_conference">
+    <End Role="Conference" Type="IvtLibraryModel.Store.Conference" Multiplicity="1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conference">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="conference_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_author_article_article">
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Author_Article" Type="IvtLibraryModel.Store.Author_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Author_Article">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_author_article_author">
+    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1" />
+    <End Role="Author_Article" Type="IvtLibraryModel.Store.Author_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Author_Article">
+        <PropertyRef Name="author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_author_book_author">
+    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1" />
+    <End Role="Author_Book" Type="IvtLibraryModel.Store.Author_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Author_Book">
+        <PropertyRef Name="author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_author_book_book">
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Author_Book" Type="IvtLibraryModel.Store.Author_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Author_Book">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_book_file_book">
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Book_File" Type="IvtLibraryModel.Store.Book_File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Book_File">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_book_file_file">
+    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1" />
+    <End Role="Book_File" Type="IvtLibraryModel.Store.Book_File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Book_File">
+        <PropertyRef Name="file_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_conference_scale">
+    <End Role="Scale" Type="IvtLibraryModel.Store.Scale" Multiplicity="0..1" />
+    <End Role="Conference" Type="IvtLibraryModel.Store.Conference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scale">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Conference">
+        <PropertyRef Name="scale_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_article_article">
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="File_Article" Type="IvtLibraryModel.Store.File_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="File_Article">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_article_file">
+    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1" />
+    <End Role="File_Article" Type="IvtLibraryModel.Store.File_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="File_Article">
+        <PropertyRef Name="file_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_type">
+    <End Role="Type" Type="IvtLibraryModel.Store.Type" Multiplicity="0..1" />
+    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_host_article">
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article_Article" Type="IvtLibraryModel.Store.Article_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article_Article">
+        <PropertyRef Name="host_article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_referenced_article">
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article_Article" Type="IvtLibraryModel.Store.Article_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article_Article">
+        <PropertyRef Name="referenced_article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_article_article">
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Research_Article" Type="IvtLibraryModel.Store.Research_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_Article">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_article_research">
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1" />
+    <End Role="Research_Article" Type="IvtLibraryModel.Store.Research_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Research">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_Article">
+        <PropertyRef Name="research_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_author_author">
+    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1" />
+    <End Role="Research_Author" Type="IvtLibraryModel.Store.Research_Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_Author">
+        <PropertyRef Name="author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_author_research">
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1" />
+    <End Role="Research_Author" Type="IvtLibraryModel.Store.Research_Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Research">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_Author">
+        <PropertyRef Name="research_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_book_book">
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Research_Book" Type="IvtLibraryModel.Store.Research_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_Book">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_book_research">
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1" />
+    <End Role="Research_Book" Type="IvtLibraryModel.Store.Research_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Research">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_Book">
+        <PropertyRef Name="research_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_file_file">
+    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1" />
+    <End Role="Research_File" Type="IvtLibraryModel.Store.Research_File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_File">
+        <PropertyRef Name="file_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_file_research">
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1" />
+    <End Role="Research_File" Type="IvtLibraryModel.Store.Research_File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Research">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_File">
+        <PropertyRef Name="research_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_theme_research">
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1" />
+    <End Role="Research_Theme" Type="IvtLibraryModel.Store.Research_Theme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Research">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_Theme">
+        <PropertyRef Name="research_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_research_theme_theme">
+    <End Role="Theme" Type="IvtLibraryModel.Store.Theme" Multiplicity="1" />
+    <End Role="Research_Theme" Type="IvtLibraryModel.Store.Research_Theme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Research_Theme">
+        <PropertyRef Name="theme_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_theme_article_article">
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Theme_Article" Type="IvtLibraryModel.Store.Theme_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Theme_Article">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_theme_article_theme">
+    <End Role="Theme" Type="IvtLibraryModel.Store.Theme" Multiplicity="1" />
+    <End Role="Theme_Article" Type="IvtLibraryModel.Store.Theme_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Theme_Article">
+        <PropertyRef Name="theme_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_theme_author_author">
+    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1" />
+    <End Role="Theme_Author" Type="IvtLibraryModel.Store.Theme_Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Theme_Author">
+        <PropertyRef Name="author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_theme_author_theme">
+    <End Role="Theme" Type="IvtLibraryModel.Store.Theme" Multiplicity="1" />
+    <End Role="Theme_Author" Type="IvtLibraryModel.Store.Theme_Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Theme_Author">
+        <PropertyRef Name="theme_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_theme_book_book">
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Theme_Book" Type="IvtLibraryModel.Store.Theme_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Theme_Book">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_theme_book_theme">
+    <End Role="Theme" Type="IvtLibraryModel.Store.Theme" Multiplicity="1" />
+    <End Role="Theme_Book" Type="IvtLibraryModel.Store.Theme_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Theme_Book">
+        <PropertyRef Name="theme_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

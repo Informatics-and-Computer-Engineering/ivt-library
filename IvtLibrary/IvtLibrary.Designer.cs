@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Метаданные связи EDM
@@ -281,6 +282,7 @@ namespace IvtLibrary
         private ObjectSet<Type> _Type;
 
         #endregion
+
         #region Методы AddTo
     
         /// <summary>
@@ -380,11 +382,11 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Сущности
     
     /// <summary>
@@ -413,7 +415,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -432,7 +435,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -457,7 +460,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -481,7 +484,7 @@ namespace IvtLibrary
             {
                 Oncity_idChanging(value);
                 ReportPropertyChanging("city_id");
-                _city_id = StructuralObject.SetValidValue(value);
+                _city_id = StructuralObject.SetValidValue(value, "city_id");
                 ReportPropertyChanged("city_id");
                 Oncity_idChanged();
             }
@@ -505,7 +508,7 @@ namespace IvtLibrary
             {
                 Onconference_idChanging(value);
                 ReportPropertyChanging("conference_id");
-                _conference_id = StructuralObject.SetValidValue(value);
+                _conference_id = StructuralObject.SetValidValue(value, "conference_id");
                 ReportPropertyChanged("conference_id");
                 Onconference_idChanged();
             }
@@ -529,7 +532,7 @@ namespace IvtLibrary
             {
                 OnyearChanging(value);
                 ReportPropertyChanging("year");
-                _year = StructuralObject.SetValidValue(value);
+                _year = StructuralObject.SetValidValue(value, "year");
                 ReportPropertyChanged("year");
                 OnyearChanged();
             }
@@ -553,7 +556,7 @@ namespace IvtLibrary
             {
                 OnbibliographyChanging(value);
                 ReportPropertyChanging("bibliography");
-                _bibliography = StructuralObject.SetValidValue(value, true);
+                _bibliography = StructuralObject.SetValidValue(value, true, "bibliography");
                 ReportPropertyChanged("bibliography");
                 OnbibliographyChanged();
             }
@@ -577,7 +580,7 @@ namespace IvtLibrary
             {
                 Onsupervisor_idChanging(value);
                 ReportPropertyChanging("supervisor_id");
-                _supervisor_id = StructuralObject.SetValidValue(value);
+                _supervisor_id = StructuralObject.SetValidValue(value, "supervisor_id");
                 ReportPropertyChanged("supervisor_id");
                 Onsupervisor_idChanged();
             }
@@ -601,7 +604,7 @@ namespace IvtLibrary
             {
                 Onconference_start_dateChanging(value);
                 ReportPropertyChanging("conference_start_date");
-                _conference_start_date = StructuralObject.SetValidValue(value);
+                _conference_start_date = StructuralObject.SetValidValue(value, "conference_start_date");
                 ReportPropertyChanged("conference_start_date");
                 Onconference_start_dateChanged();
             }
@@ -625,7 +628,7 @@ namespace IvtLibrary
             {
                 Onconference_end_dateChanging(value);
                 ReportPropertyChanging("conference_end_date");
-                _conference_end_date = StructuralObject.SetValidValue(value);
+                _conference_end_date = StructuralObject.SetValidValue(value, "conference_end_date");
                 ReportPropertyChanged("conference_end_date");
                 Onconference_end_dateChanged();
             }
@@ -649,7 +652,7 @@ namespace IvtLibrary
             {
                 Onpublication_dateChanging(value);
                 ReportPropertyChanging("publication_date");
-                _publication_date = StructuralObject.SetValidValue(value);
+                _publication_date = StructuralObject.SetValidValue(value, "publication_date");
                 ReportPropertyChanged("publication_date");
                 Onpublication_dateChanged();
             }
@@ -659,7 +662,7 @@ namespace IvtLibrary
         partial void Onpublication_dateChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -931,6 +934,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -957,7 +961,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -976,7 +981,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -1001,7 +1006,7 @@ namespace IvtLibrary
             {
                 Onfirst_nameChanging(value);
                 ReportPropertyChanging("first_name");
-                _first_name = StructuralObject.SetValidValue(value, true);
+                _first_name = StructuralObject.SetValidValue(value, true, "first_name");
                 ReportPropertyChanged("first_name");
                 Onfirst_nameChanged();
             }
@@ -1025,7 +1030,7 @@ namespace IvtLibrary
             {
                 Onmiddle_nameChanging(value);
                 ReportPropertyChanging("middle_name");
-                _middle_name = StructuralObject.SetValidValue(value, true);
+                _middle_name = StructuralObject.SetValidValue(value, true, "middle_name");
                 ReportPropertyChanged("middle_name");
                 Onmiddle_nameChanged();
             }
@@ -1049,7 +1054,7 @@ namespace IvtLibrary
             {
                 Onlast_nameChanging(value);
                 ReportPropertyChanging("last_name");
-                _last_name = StructuralObject.SetValidValue(value, false);
+                _last_name = StructuralObject.SetValidValue(value, false, "last_name");
                 ReportPropertyChanged("last_name");
                 Onlast_nameChanged();
             }
@@ -1059,7 +1064,7 @@ namespace IvtLibrary
         partial void Onlast_nameChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -1173,6 +1178,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1199,7 +1205,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1218,7 +1225,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -1243,7 +1250,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -1267,7 +1274,7 @@ namespace IvtLibrary
             {
                 OnyearChanging(value);
                 ReportPropertyChanging("year");
-                _year = StructuralObject.SetValidValue(value);
+                _year = StructuralObject.SetValidValue(value, "year");
                 ReportPropertyChanged("year");
                 OnyearChanged();
             }
@@ -1291,7 +1298,7 @@ namespace IvtLibrary
             {
                 OnpublisherChanging(value);
                 ReportPropertyChanging("publisher");
-                _publisher = StructuralObject.SetValidValue(value, true);
+                _publisher = StructuralObject.SetValidValue(value, true, "publisher");
                 ReportPropertyChanged("publisher");
                 OnpublisherChanged();
             }
@@ -1315,7 +1322,7 @@ namespace IvtLibrary
             {
                 OnvolumeChanging(value);
                 ReportPropertyChanging("volume");
-                _volume = StructuralObject.SetValidValue(value);
+                _volume = StructuralObject.SetValidValue(value, "volume");
                 ReportPropertyChanged("volume");
                 OnvolumeChanged();
             }
@@ -1339,7 +1346,7 @@ namespace IvtLibrary
             {
                 OnbibliographyChanging(value);
                 ReportPropertyChanging("bibliography");
-                _bibliography = StructuralObject.SetValidValue(value, true);
+                _bibliography = StructuralObject.SetValidValue(value, true, "bibliography");
                 ReportPropertyChanged("bibliography");
                 OnbibliographyChanged();
             }
@@ -1349,7 +1356,7 @@ namespace IvtLibrary
         partial void OnbibliographyChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -1463,6 +1470,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1489,7 +1497,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1508,7 +1517,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -1533,7 +1542,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -1543,7 +1552,7 @@ namespace IvtLibrary
         partial void OnnameChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -1569,6 +1578,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1597,7 +1607,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1616,7 +1627,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -1641,7 +1652,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -1665,7 +1676,7 @@ namespace IvtLibrary
             {
                 OnplaceChanging(value);
                 ReportPropertyChanging("place");
-                _place = StructuralObject.SetValidValue(value, false);
+                _place = StructuralObject.SetValidValue(value, false, "place");
                 ReportPropertyChanged("place");
                 OnplaceChanged();
             }
@@ -1689,7 +1700,7 @@ namespace IvtLibrary
             {
                 Onfull_nameChanging(value);
                 ReportPropertyChanging("full_name");
-                _full_name = StructuralObject.SetValidValue(value, true);
+                _full_name = StructuralObject.SetValidValue(value, true, "full_name");
                 ReportPropertyChanged("full_name");
                 Onfull_nameChanged();
             }
@@ -1713,7 +1724,7 @@ namespace IvtLibrary
             {
                 Onscale_idChanging(value);
                 ReportPropertyChanging("scale_id");
-                _scale_id = StructuralObject.SetValidValue(value);
+                _scale_id = StructuralObject.SetValidValue(value, "scale_id");
                 ReportPropertyChanged("scale_id");
                 Onscale_idChanged();
             }
@@ -1723,7 +1734,7 @@ namespace IvtLibrary
         partial void Onscale_idChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -1787,6 +1798,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1815,7 +1827,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1834,7 +1847,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -1859,7 +1872,7 @@ namespace IvtLibrary
             {
                 OntitleChanging(value);
                 ReportPropertyChanging("title");
-                _title = StructuralObject.SetValidValue(value, true);
+                _title = StructuralObject.SetValidValue(value, true, "title");
                 ReportPropertyChanged("title");
                 OntitleChanged();
             }
@@ -1883,7 +1896,7 @@ namespace IvtLibrary
             {
                 OncontentChanging(value);
                 ReportPropertyChanging("content");
-                _content = StructuralObject.SetValidValue(value, false);
+                _content = StructuralObject.SetValidValue(value, false, "content");
                 ReportPropertyChanged("content");
                 OncontentChanged();
             }
@@ -1907,7 +1920,7 @@ namespace IvtLibrary
             {
                 Oncreation_dateChanging(value);
                 ReportPropertyChanging("creation_date");
-                _creation_date = StructuralObject.SetValidValue(value);
+                _creation_date = StructuralObject.SetValidValue(value, "creation_date");
                 ReportPropertyChanged("creation_date");
                 Oncreation_dateChanged();
             }
@@ -1917,7 +1930,7 @@ namespace IvtLibrary
         partial void Oncreation_dateChanged();
 
         #endregion
-    
+
     }
     
     /// <summary>
@@ -1950,7 +1963,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1969,7 +1983,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -1994,7 +2008,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -2018,7 +2032,7 @@ namespace IvtLibrary
             {
                 Oncontent_typeChanging(value);
                 ReportPropertyChanging("content_type");
-                _content_type = StructuralObject.SetValidValue(value, false);
+                _content_type = StructuralObject.SetValidValue(value, false, "content_type");
                 ReportPropertyChanged("content_type");
                 Oncontent_typeChanged();
             }
@@ -2042,7 +2056,7 @@ namespace IvtLibrary
             {
                 OndataChanging(value);
                 ReportPropertyChanging("data");
-                _data = StructuralObject.SetValidValue(value, false);
+                _data = StructuralObject.SetValidValue(value, false, "data");
                 ReportPropertyChanged("data");
                 OndataChanged();
             }
@@ -2066,7 +2080,7 @@ namespace IvtLibrary
             {
                 Ontype_idChanging(value);
                 ReportPropertyChanging("type_id");
-                _type_id = StructuralObject.SetValidValue(value);
+                _type_id = StructuralObject.SetValidValue(value, "type_id");
                 ReportPropertyChanged("type_id");
                 Ontype_idChanged();
             }
@@ -2090,7 +2104,7 @@ namespace IvtLibrary
             {
                 OnversionChanging(value);
                 ReportPropertyChanging("version");
-                _version = StructuralObject.SetValidValue(value);
+                _version = StructuralObject.SetValidValue(value, "version");
                 ReportPropertyChanged("version");
                 OnversionChanged();
             }
@@ -2100,7 +2114,7 @@ namespace IvtLibrary
         partial void OnversionChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -2208,6 +2222,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2234,7 +2249,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -2253,7 +2269,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -2278,7 +2294,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, true);
+                _name = StructuralObject.SetValidValue(value, true, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -2302,7 +2318,7 @@ namespace IvtLibrary
             {
                 OncontentChanging(value);
                 ReportPropertyChanging("content");
-                _content = StructuralObject.SetValidValue(value, false);
+                _content = StructuralObject.SetValidValue(value, false, "content");
                 ReportPropertyChanged("content");
                 OncontentChanged();
             }
@@ -2326,7 +2342,7 @@ namespace IvtLibrary
             {
                 OnexplanationChanging(value);
                 ReportPropertyChanging("explanation");
-                _explanation = StructuralObject.SetValidValue(value, true);
+                _explanation = StructuralObject.SetValidValue(value, true, "explanation");
                 ReportPropertyChanged("explanation");
                 OnexplanationChanged();
             }
@@ -2336,7 +2352,7 @@ namespace IvtLibrary
         partial void OnexplanationChanged();
 
         #endregion
-    
+
     }
     
     /// <summary>
@@ -2363,7 +2379,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -2382,7 +2399,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -2407,7 +2424,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -2431,7 +2448,7 @@ namespace IvtLibrary
             {
                 OndescriptionChanging(value);
                 ReportPropertyChanging("description");
-                _description = StructuralObject.SetValidValue(value, true);
+                _description = StructuralObject.SetValidValue(value, true, "description");
                 ReportPropertyChanged("description");
                 OndescriptionChanged();
             }
@@ -2455,7 +2472,7 @@ namespace IvtLibrary
             {
                 OngoalChanging(value);
                 ReportPropertyChanging("goal");
-                _goal = StructuralObject.SetValidValue(value, true);
+                _goal = StructuralObject.SetValidValue(value, true, "goal");
                 ReportPropertyChanged("goal");
                 OngoalChanged();
             }
@@ -2479,7 +2496,7 @@ namespace IvtLibrary
             {
                 OntasksChanging(value);
                 ReportPropertyChanging("tasks");
-                _tasks = StructuralObject.SetValidValue(value, true);
+                _tasks = StructuralObject.SetValidValue(value, true, "tasks");
                 ReportPropertyChanged("tasks");
                 OntasksChanged();
             }
@@ -2503,7 +2520,7 @@ namespace IvtLibrary
             {
                 OnprogressChanging(value);
                 ReportPropertyChanging("progress");
-                _progress = StructuralObject.SetValidValue(value);
+                _progress = StructuralObject.SetValidValue(value, "progress");
                 ReportPropertyChanged("progress");
                 OnprogressChanged();
             }
@@ -2513,7 +2530,7 @@ namespace IvtLibrary
         partial void OnprogressChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -2627,6 +2644,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2653,7 +2671,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -2672,7 +2691,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -2697,7 +2716,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -2707,7 +2726,7 @@ namespace IvtLibrary
         partial void OnnameChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -2733,6 +2752,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2759,7 +2779,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -2778,7 +2799,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -2803,7 +2824,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -2827,7 +2848,7 @@ namespace IvtLibrary
             {
                 OndescriptionChanging(value);
                 ReportPropertyChanging("description");
-                _description = StructuralObject.SetValidValue(value, true);
+                _description = StructuralObject.SetValidValue(value, true, "description");
                 ReportPropertyChanged("description");
                 OndescriptionChanged();
             }
@@ -2837,7 +2858,7 @@ namespace IvtLibrary
         partial void OndescriptionChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -2929,6 +2950,7 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2955,7 +2977,8 @@ namespace IvtLibrary
         }
 
         #endregion
-        #region Свойства-примитивы
+
+        #region Простые свойства
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -2974,7 +2997,7 @@ namespace IvtLibrary
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -2999,7 +3022,7 @@ namespace IvtLibrary
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
+                _name = StructuralObject.SetValidValue(value, false, "name");
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -3023,7 +3046,7 @@ namespace IvtLibrary
             {
                 OndescriptionChanging(value);
                 ReportPropertyChanging("description");
-                _description = StructuralObject.SetValidValue(value, true);
+                _description = StructuralObject.SetValidValue(value, true, "description");
                 ReportPropertyChanged("description");
                 OndescriptionChanged();
             }
@@ -3033,7 +3056,7 @@ namespace IvtLibrary
         partial void OndescriptionChanged();
 
         #endregion
-    
+
         #region Свойства навигации
     
         /// <summary>
@@ -3059,8 +3082,9 @@ namespace IvtLibrary
         }
 
         #endregion
+
     }
 
     #endregion
-    
+
 }

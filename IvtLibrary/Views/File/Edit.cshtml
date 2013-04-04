@@ -23,7 +23,7 @@
         @Html.HiddenFor(model => model.id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.name, "Название")
+            @Html.LabelFor(model => model.name)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.name)
@@ -41,7 +41,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.type_id, "Тип")
+            @Html.LabelFor(model => model.type_id)
         </div>
         <div class="editor-field">
             @Html.DropDownList("type_id", String.Empty)
@@ -50,7 +50,7 @@
         </div>
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.version, "Версия")
+            @Html.LabelFor(model => model.version)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.version)

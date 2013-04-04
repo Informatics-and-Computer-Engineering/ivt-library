@@ -1,8 +1,5 @@
 ﻿@model IvtLibrary.Theme
 
-@{
-    ViewBag.Title = "Тема";
-}
 
 <h2>Создание темы</h2>
 
@@ -15,7 +12,7 @@
         <legend>Тема</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.name, "Название темы")
+            @Html.LabelFor(model => model.name)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.name)
@@ -23,7 +20,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.description, "Описание темы")
+            @Html.LabelFor(model => model.description)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.description)

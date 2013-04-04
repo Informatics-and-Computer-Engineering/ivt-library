@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IvtLibraryModelStoreContainer" CdmEntityContainer="IvtLibraryEntities">
+    <EntitySetMapping Name="Article">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="conference_id" ColumnName="conference_id" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="bibliography" ColumnName="bibliography" />
+          <ScalarProperty Name="supervisor_id" ColumnName="supervisor_id" />
+          <ScalarProperty Name="conference_start_date" ColumnName="conference_start_date" />
+          <ScalarProperty Name="conference_end_date" ColumnName="conference_end_date" />
+          <ScalarProperty Name="publication_date" ColumnName="publication_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Author">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Book">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+          <ScalarProperty Name="volume" ColumnName="volume" />
+          <ScalarProperty Name="bibliography" ColumnName="bibliography" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="IvtLibraryModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conference">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Conference">
+        <MappingFragment StoreEntitySet="Conference">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="place" ColumnName="place" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="scale_id" ColumnName="scale_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Draft">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Draft">
+        <MappingFragment StoreEntitySet="Draft">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="File">
+      <EntityTypeMapping TypeName="IvtLibraryModel.File">
+        <MappingFragment StoreEntitySet="File">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="content_type" ColumnName="content_type" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hypothesis">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Hypothesis">
+        <MappingFragment StoreEntitySet="Hypothesis">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="explanation" ColumnName="explanation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Research">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Research">
+        <MappingFragment StoreEntitySet="Research">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="goal" ColumnName="goal" />
+          <ScalarProperty Name="tasks" ColumnName="tasks" />
+          <ScalarProperty Name="progress" ColumnName="progress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scale">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Scale">
+        <MappingFragment StoreEntitySet="Scale">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Theme">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Theme">
+        <MappingFragment StoreEntitySet="Theme">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Type">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Article_Article" TypeName="IvtLibraryModel.Article_Article" StoreEntitySet="Article_Article">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="id" ColumnName="host_article_id" />
+      </EndProperty>
+      <EndProperty Name="Article1">
+        <ScalarProperty Name="id" ColumnName="referenced_article_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Article_Book" TypeName="IvtLibraryModel.Article_Book" StoreEntitySet="Article_Book">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="Book">
+        <ScalarProperty Name="id" ColumnName="book_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Author_Article" TypeName="IvtLibraryModel.Author_Article" StoreEntitySet="Author_Article">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="Author">
+        <ScalarProperty Name="id" ColumnName="author_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Author_Book" TypeName="IvtLibraryModel.Author_Book" StoreEntitySet="Author_Book">
+      <EndProperty Name="Author">
+        <ScalarProperty Name="id" ColumnName="author_id" />
+      </EndProperty>
+      <EndProperty Name="Book">
+        <ScalarProperty Name="id" ColumnName="book_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Book_File" TypeName="IvtLibraryModel.Book_File" StoreEntitySet="Book_File">
+      <EndProperty Name="Book">
+        <ScalarProperty Name="id" ColumnName="book_id" />
+      </EndProperty>
+      <EndProperty Name="File">
+        <ScalarProperty Name="id" ColumnName="file_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="File_Article" TypeName="IvtLibraryModel.File_Article" StoreEntitySet="File_Article">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="File">
+        <ScalarProperty Name="id" ColumnName="file_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Research_Article" TypeName="IvtLibraryModel.Research_Article" StoreEntitySet="Research_Article">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="Research">
+        <ScalarProperty Name="id" ColumnName="research_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Research_Author" TypeName="IvtLibraryModel.Research_Author" StoreEntitySet="Research_Author">
+      <EndProperty Name="Author">
+        <ScalarProperty Name="id" ColumnName="author_id" />
+      </EndProperty>
+      <EndProperty Name="Research">
+        <ScalarProperty Name="id" ColumnName="research_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Research_Book" TypeName="IvtLibraryModel.Research_Book" StoreEntitySet="Research_Book">
+      <EndProperty Name="Book">
+        <ScalarProperty Name="id" ColumnName="book_id" />
+      </EndProperty>
+      <EndProperty Name="Research">
+        <ScalarProperty Name="id" ColumnName="research_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Research_File" TypeName="IvtLibraryModel.Research_File" StoreEntitySet="Research_File">
+      <EndProperty Name="File">
+        <ScalarProperty Name="id" ColumnName="file_id" />
+      </EndProperty>
+      <EndProperty Name="Research">
+        <ScalarProperty Name="id" ColumnName="research_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Research_Theme" TypeName="IvtLibraryModel.Research_Theme" StoreEntitySet="Research_Theme">
+      <EndProperty Name="Research">
+        <ScalarProperty Name="id" ColumnName="research_id" />
+      </EndProperty>
+      <EndProperty Name="Theme">
+        <ScalarProperty Name="id" ColumnName="theme_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Theme_Article" TypeName="IvtLibraryModel.Theme_Article" StoreEntitySet="Theme_Article">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="id" ColumnName="article_id" />
+      </EndProperty>
+      <EndProperty Name="Theme">
+        <ScalarProperty Name="id" ColumnName="theme_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Theme_Author" TypeName="IvtLibraryModel.Theme_Author" StoreEntitySet="Theme_Author">
+      <EndProperty Name="Author">
+        <ScalarProperty Name="id" ColumnName="author_id" />
+      </EndProperty>
+      <EndProperty Name="Theme">
+        <ScalarProperty Name="id" ColumnName="theme_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Theme_Book" TypeName="IvtLibraryModel.Theme_Book" StoreEntitySet="Theme_Book">
+      <EndProperty Name="Book">
+        <ScalarProperty Name="id" ColumnName="book_id" />
+      </EndProperty>
+      <EndProperty Name="Theme">
+        <ScalarProperty Name="id" ColumnName="theme_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
