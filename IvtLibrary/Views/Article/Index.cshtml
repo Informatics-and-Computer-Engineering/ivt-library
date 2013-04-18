@@ -3,74 +3,52 @@
 @{
     ViewBag.Title = "Статьи";
 }
+<script type="text/javascript">
 
+        $(document).ready(function () {
+            $("table").dataTable({
+                bJQueryUI: true,
+                sPaginationType: "full_numbers",
+                "aoColumns": [null, null, null, null, null, null, null, null, { "bSearchable": false }]
+            });
+        });
+    </script>
 <h2>Список статей</h2>
 
 <p>
     @Html.ActionLink("Создать статью", "Create")
 </p>
 <table>
+    <thead>
     <tr>
-        <th>
-            Название
-        </th>
-        <th>
-            Город публикации
-        </th>
-        <th>
-            Конференция
-        </th>
-        <th>
-            Год
-        </th>
-        <th>
-            Научный руководитель
-        </th>
-        <th>
-            Дата начала конференции
-        </th>
-        <th>
-            Дата конца конференции
-        </th>
-        <th>
-            Дата публикации
-        </th>
+        <th>Название</th>
+        <th>Город публикации</th>
+        <th>Конференция</th>
+        <th>Год</th>
+        <th>Научный руководитель</th>
+        <th>Дата начала конференции</th>
+        <th>Дата конца конференции</th>
+        <th>Дата публикации</th>
         <th></th>
     </tr>
-
+    </thead>
+    <tbody>
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Conference.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Supervizor.last_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.conference_start_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.conference_end_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.publication_date)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
+        <td>@Html.DisplayFor(modelItem => item.name)</td>
+        <td>@Html.DisplayFor(modelItem => item.City.name)</td>
+        <td>@Html.DisplayFor(modelItem => item.Conference.name)</td>
+        <td>@Html.DisplayFor(modelItem => item.year)</td>
+        <td>@Html.DisplayFor(modelItem => item.Supervizor.last_name)</td>
+        <td>@Html.DisplayFor(modelItem => item.conference_start_date)</td>
+        <td>@Html.DisplayFor(modelItem => item.conference_end_date)</td>
+        <td>@Html.DisplayFor(modelItem => item.publication_date)</td>
+        <td>@Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
             @Html.ActionLink("Подробнее", "Details", new { id=item.id }) |
             @Html.ActionLink("Удалить", "Delete", new { id=item.id })
         </td>
 
     </tr>
 }
-
+    </tbody>
 </table>

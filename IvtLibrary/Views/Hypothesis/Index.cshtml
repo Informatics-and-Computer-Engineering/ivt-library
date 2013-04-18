@@ -3,26 +3,31 @@
 @{
     ViewBag.Title = "Index";
 }
+<script type="text/javascript">
 
+        $(document).ready(function () {
+            $("table").dataTable({
+                bJQueryUI: true,
+                sPaginationType: "full_numbers",
+                "aoColumns": [null, null, null, { "bSearchable": false }]
+            });
+        });
+    </script>
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table>
+    <thead>
     <tr>
-        <th>
-            name
-        </th>
-        <th>
-            content
-        </th>
-        <th>
-            explanation
-        </th>
+        <th>name</th>
+        <th>content</th>
+        <th>explanation</th>
         <th></th>
     </tr>
-
+    </thead>
+    <tbody>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -41,5 +46,5 @@
         </td>
     </tr>
 }
-
+    </tbody>
 </table>

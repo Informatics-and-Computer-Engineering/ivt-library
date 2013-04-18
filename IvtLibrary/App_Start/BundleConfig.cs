@@ -23,6 +23,11 @@ namespace IvtLibrary
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            // Дабавим обработку таблиц.
+            bundles.Add(new ScriptBundle("~/bundles/jqueryDataTables").Include(
+                        "~/Scripts/DataTables-1.9.4/media/js/jquery.dataTables.js",
+                        "~/Scripts/datatables.plugins.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
@@ -37,7 +42,8 @@ namespace IvtLibrary
                         "~/Content/themes/base/jquery.ui.tabs.css",
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+                        "~/Content/themes/base/jquery.ui.theme.css",
+                        "~/Content/DataTables-1.9.4/media/css/jquery.dataTables_themeroller.css"));
         }
     }
 }

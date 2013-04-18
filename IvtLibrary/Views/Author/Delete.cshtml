@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Автор";
 }
-
+ 
 <h2>Удаление</h2>
 
 <h3>Вы действительно хотите удалить данного автора?</h3>
@@ -26,12 +26,12 @@
     </div>
     <br/>
     <table>
+        <thead>
         <tr>
-            <th>
-                Направления исследований
-            </th>
+            <th>Направления исследований</th><th></th>
         </tr>
-
+        </thead>
+        <tbody>
         @foreach (var item in Model.Theme) {
             <tr>
                 <td>
@@ -39,6 +39,7 @@
                 </td>
             </tr>
         }
+        </tbody>
     </table>
 </fieldset>
 @using (Html.BeginForm()) {

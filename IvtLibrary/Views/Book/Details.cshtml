@@ -4,26 +4,27 @@
 @{
     ViewBag.Title = "Книги";
 }
-
 <h2>Подробности</h2>
 
 <fieldset>
     <legend>Книга</legend>
     <br/>
     <table>
-        <tr>
-            <th>
-                Авторы
-            </th>
-        </tr>
-
-        @foreach (var item in Model.Author) {
+       <thead> 
+            <tr>
+                <th>Авторы</th><th></th>
+            </tr>
+       </thead>
+        <tbody>
+        @foreach (var item in Model.Author)
+        {
             <tr>
                 <td>
                     @Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)
                 </td>
             </tr>
         }
+        </tbody>
     </table>
 
     <div class="display-label">Название</div>
@@ -48,22 +49,24 @@
 
     <br/>
     <table>
-        <tr>
-            <th>
-                Тематика публикации
-            </th>
-        </tr>
-
-        @foreach (var item in Model.Theme) {
+        <thead>
+            <tr>
+                <th>Тематика публикации</th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Theme)
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(i => item.name)
                 </td>
             </tr>
         }
+        </tbody>
     </table>
 </fieldset>
 <p>
-    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Назад к списку", "Index")
 </p>

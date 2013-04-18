@@ -4,23 +4,30 @@
 @{
     ViewBag.Title = "Исследования";
 }
+<script type="text/javascript">
 
+        $(document).ready(function () {
+            $("table").dataTable({
+                bJQueryUI: true,
+                sPaginationType: "full_numbers",
+                "aoColumns": [null, null, { "bSearchable": false }]
+            });
+        });
+    </script>
 <h2>Исследования</h2>
 
 <p>
     @Html.ActionLink("Добавить новое", "Create")
 </p>
 <table>
+    <thead>
     <tr>
-        <th>
-            Название
-        </th>
-        <th>
-            Описание исследования
-        </th>
+        <th>Название</th>
+        <th>Описание исследования</th>
         <th></th>
     </tr>
-
+    </thead>
+    <tbody>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -36,5 +43,5 @@
         </td>
     </tr>
 }
-
+    </tbody>
 </table>

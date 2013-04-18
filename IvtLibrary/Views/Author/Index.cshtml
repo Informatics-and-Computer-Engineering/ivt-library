@@ -3,45 +3,45 @@
 @{
     ViewBag.Title = "Авторы";
 }
+<script type="text/javascript">
 
+    $(document).ready(function () {
+        $("table").dataTable({
+            bJQueryUI: true,
+            sPaginationType: "full_numbers",
+            "aoColumns": [null, null, null, { "bSearchable": false }]
+        });
+    });
+    </script>
 <h2>Авторы</h2>
 
 <p>
     @Html.ActionLink("Добавить нового автора", "Create")
 </p>
 <table>
-    <tr>
-        <th>
-            Имя
-        </th>
-        <th>
-            Отчество
-        </th>
-        <th>
-            Фамилия
-        </th>
-        <th></th>
-    </tr>
-
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Фамилия</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.first_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.middle_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.last_name)
-        </td>
-        <td>
-            @Html.ActionLink("Изменить", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.first_name)</td>
+            <td>@Html.DisplayFor(modelItem => item.middle_name)</td>
+            <td>@Html.DisplayFor(modelItem => item.last_name)</td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
+                @Html.ActionLink("Удалить", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+    </tbody>
 </table>
+
 
 

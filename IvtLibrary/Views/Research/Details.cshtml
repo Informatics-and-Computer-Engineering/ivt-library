@@ -12,12 +12,12 @@
 
     <br/>
     <table>
+        <thead>
         <tr>
-            <th>
-                Авторы
-            </th>
+            <th>Авторы</th>
         </tr>
-
+        </thead>
+        <tbody>
         @foreach (var item in Model.Author) {
             <tr>
                 <td>
@@ -25,6 +25,7 @@
                 </td>
             </tr>
         }
+        </tbody>
     </table>
 
     <div class="display-label">Название</div>
@@ -39,12 +40,12 @@
 
     <br/>
     <table>
+        <thead>
         <tr>
-            <th>
-                Тематика публикации
-            </th>
+            <th>Тематика публикации</th><th></th>
         </tr>
-
+        </thead>
+        <tbody>
         @foreach (var item in Model.Theme) {
             <tr>
                 <td>
@@ -52,7 +53,8 @@
                 </td>
             </tr>
         }
-    </table>
+        </tbody>
+            </table>
 </fieldset>
 <p>
     @Html.ActionLink("Редактирование", "Edit", new { id=Model.id }) |

@@ -4,7 +4,15 @@
 @{
     ViewBag.Title = "Статья";
 }
+<script type="text/javascript">
 
+        $(document).ready(function () {
+            $("table").dataTable({
+                bJQueryUI: true,
+                sPaginationType: "full_numbers"
+            });
+        });
+    </script>
 <h2>Подробное описание</h2>
 
 <fieldset>
@@ -16,20 +24,19 @@
     </div>
     <br/>
     <table>
+        <thead>
         <tr>
-            <th>
-                Авторы
-            </th>
+            <th>Авторы</th><th></th>
         </tr>
-
+        </thead>
+        <tbody>
         @foreach (var item in Model.Author)
         {
             <tr>
-                <td>
-                    @Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)
-                </td>
+                <td>@Html.GetAbbreviatedName(item.first_name, item.middle_name, item.last_name)</td>
             </tr>
         }
+        </tbody>
     </table>
     <br/>
     <div class="display-label">Город публикации</div>
@@ -77,20 +84,19 @@
 
     <br/>
     <table>
+        <thead>
         <tr>
-            <th>
-                Тематика публикации
-            </th>
+            <th>Тематика публикации</th><th></th>
         </tr>
-
+        </thead>
+        <tbody>
         @foreach (var item in Model.Theme)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(i => item.name)
-                </td>
+                <td>@Html.DisplayFor(i => item.name)</td>
             </tr>
         }
+        </tbody>
     </table>
 </fieldset>
 <p>

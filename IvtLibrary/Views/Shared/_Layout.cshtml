@@ -1,41 +1,42 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
     <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
         <title>@ViewBag.Title</title>
-        <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-        @Scripts.Render("~/Scripts/jquery-1.8.20.min.js")
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
         @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryDataTables")
+        
+        @RenderSection("scripts", required: false)
     </head>
     <body>
         <div class="float-right">
-                    <section id="login">
-                        <h2>Добро пожаловать, <strong>@User.Identity.Name</strong>!</h2>
-                    </section>
+            <section id="login">
+                <h2>Добро пожаловать, <strong>@User.Identity.Name</strong>!</h2>
+            </section>
         </div>     
         <div class="float-left">
-                    <nav>
+            <nav>
                 <ul id="menu">
-                            <li>@Html.ActionLink("Библиотека", "Index", "Home")</li>
-                    
+                    <li>@Html.ActionLink("Библиотека", "Index", "Home")</li>
                     <li>@Html.ActionLink("Авторы", "Index", "Author")</li>
                     <li>@Html.ActionLink("Статьи", "Index", "Article")</li>
                     <li>@Html.ActionLink("Книги", "Index", "Book")</li>
                     <li>@Html.ActionLink("Файлы", "Index", "File")</li>
                     <li>@Html.ActionLink("Исследования", "Index", "Research")</li>
                     <li>@Html.ActionLink("Темы", "Index", "Theme")</li>
-                   <!-- <li>@Html.ActionLink("О программе", "About", "Home")</li> -->
+                    <!-- <li>@Html.ActionLink("О программе", "About", "Home")</li> -->
                 </ul>
-                    </nav>
-               </div>
-         <div id="body">
+            </nav>
+        </div>
+        <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>
         </div>
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
     </body>
 </html>

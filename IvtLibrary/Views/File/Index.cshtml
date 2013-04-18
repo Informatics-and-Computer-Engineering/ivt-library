@@ -3,26 +3,31 @@
 @{
     ViewBag.Title = "Файлы";
 }
+<script type="text/javascript">
 
+        $(document).ready(function () {
+            $("table").dataTable({
+                bJQueryUI: true,
+                sPaginationType: "full_numbers",
+                "aoColumns": [null, null, null, { "bSearchable": false }]
+            });
+        });
+    </script>
 <h2>Список файлов</h2>
 
 <p>
     @Html.ActionLink("Создать новый", "Create")
 </p>
 <table>
+    <thead>
     <tr>
-        <th>
-            Название
-        </th>
-        <th>
-            Тип
-        </th>
-        <th>
-            Версия файла
-        </th>
+        <th>Название</th>
+        <th>Тип</th>
+        <th>Версия файла</th>
         <th></th>
     </tr>
-
+    </thead>
+    <tbody>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -43,5 +48,5 @@
 
     </tr>
 }
-
+    </tbody>
 </table>
