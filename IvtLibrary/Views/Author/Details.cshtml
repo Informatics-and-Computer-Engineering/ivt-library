@@ -8,7 +8,10 @@
 
 <fieldset>
     <legend>Автор</legend>
-
+    <div class="display-label">Фамилия</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.last_name)
+    </div>
     <div class="display-label">Имя</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.first_name)
@@ -19,10 +22,6 @@
         @Html.DisplayFor(model => model.middle_name)
     </div>
 
-    <div class="display-label">Фамилия</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.last_name)
-    </div>
     <br/>
     <table>
         <thead>

@@ -44,7 +44,7 @@
             @Html.LabelFor(model => model.scale_id)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ScaleId", String.Empty)
+            @Html.DropDownList("scale_id", String.Empty)
             @Html.ValidationMessageFor(model => model.scale_id)
             @Html.ActionLink("Добавить масштаб", "Create", "Scale")
         </div>

@@ -193,6 +193,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IvtLibrary.edmx</DependentUpon>
     </Compile>
+    <Compile Include="IvtLibraryDataAnnotations.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ArticleRepository.cs" />
     <Compile Include="Models\AuthorRepository.cs" />
@@ -545,6 +546,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

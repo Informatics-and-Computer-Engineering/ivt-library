@@ -35,10 +35,11 @@
         </div>
         <input type="file" name="file_data" id="file_data" onchange="extractFileName();"/>
 
+        
         <div class="display-label">Тип содержимого</div>
         <div class="display-field">
             @Html.DisplayFor(model => model.content_type)
-        </div>
+        </div> 
 
         <div class="editor-label">
             @Html.LabelFor(model => model.type_id)

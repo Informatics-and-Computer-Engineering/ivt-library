@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<IvtLibrary.Draft>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Проект";
 }
 <script type="text/javascript">
 
@@ -13,17 +13,17 @@
             });
         });
     </script>
-<h2>Index</h2>
+<h2>Проект</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать новый", "Create")
 </p>
 <table>
     <thead>
     <tr>
-        <th>title</th>
-        <th>content</th>
-        <th>creation_date</th>
+        <th>@Html.DisplayNameFor(model => model.title)</th>
+        <th>@Html.DisplayNameFor(model => model.content)</th>
+        <th>@Html.DisplayNameFor(model => model.creation_date)</th>
         <th></th>
     </tr>
     </thead>
@@ -40,9 +40,9 @@
             @Html.DisplayFor(modelItem => item.creation_date)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
         </td>
     </tr>
 }

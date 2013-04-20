@@ -21,7 +21,7 @@
 <table>
     <thead>
     <tr>
-        <th>Название</th>
+        <th>@Html.DisplayNameFor(model => model.name)</th>
         <th></th>
     </tr>
     </thead>
@@ -33,7 +33,7 @@
         </td>
         <td>
             @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Подробности", "Details", new { id=item.id }) |
+            @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
             @Html.ActionLink("Удалить", "Delete", new { id=item.id })
         </td>
     </tr>

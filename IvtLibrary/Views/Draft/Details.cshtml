@@ -1,30 +1,30 @@
 ﻿@model IvtLibrary.Draft
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Подробное описание";
 }
 
-<h2>Details</h2>
+<h2>Подробное описание</h2>
 
 <fieldset>
     <legend>Draft</legend>
 
-    <div class="display-label">title</div>
+    <div class="display-label">Название</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.title)
     </div>
 
-    <div class="display-label">content</div>
+    <div class="display-label">Содержание</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.content)
     </div>
 
-    <div class="display-label">creation_date</div>
+    <div class="display-label">Дата создания</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.creation_date)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Назад к списку", "Index")
 </p>

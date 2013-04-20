@@ -17,7 +17,14 @@
         <legend>Автор</legend>
 
         @Html.HiddenFor(model => model.id)
-
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.last_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.last_name)
+            @Html.ValidationMessageFor(model => model.last_name)
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.first_name)
         </div>
@@ -34,13 +41,6 @@
             @Html.ValidationMessageFor(model => model.middle_name)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.last_name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.last_name)
-            @Html.ValidationMessageFor(model => model.last_name)
-        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Theme)
         </div>

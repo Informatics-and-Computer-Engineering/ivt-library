@@ -21,18 +21,18 @@
 <table>
     <thead>
         <tr>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Фамилия</th>
+            <th>@Html.DisplayNameFor(model => model.last_name)</th>
+            <th>@Html.DisplayNameFor(model => model.first_name)</th>
+            <th>@Html.DisplayNameFor(model => model.middle_name)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.last_name)</td>
             <td>@Html.DisplayFor(modelItem => item.first_name)</td>
             <td>@Html.DisplayFor(modelItem => item.middle_name)</td>
-            <td>@Html.DisplayFor(modelItem => item.last_name)</td>
             <td>
                 @Html.ActionLink("Изменить", "Edit", new { id=item.id }) |
                 @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |

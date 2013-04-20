@@ -9,14 +9,13 @@
 
 <h2>Добавление</h2>
 
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@Scripts.Render("~/bundles/jqueryval")
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Автор</legend>
-
+         
         <div class="editor-label">
             @Html.LabelFor(model => model.last_name)
         </div>
@@ -24,7 +23,7 @@
             @Html.EditorFor(model => model.last_name)
             @Html.ValidationMessageFor(model => model.last_name)
         </div>
-        
+
         <div class="editor-label">
             @Html.LabelFor(model => model.first_name)
         </div>
@@ -40,8 +39,8 @@
             @Html.EditorFor(model => model.middle_name)
             @Html.ValidationMessageFor(model => model.middle_name)
         </div>
-
-        <div class="editor-label">
+                     
+         <div class="editor-label">
             @Html.LabelFor(model => model.Theme)
         </div>
         <div class="editor-field">
