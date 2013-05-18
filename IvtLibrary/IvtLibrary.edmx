@@ -2,7 +2,7 @@
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
 <edmx:Runtime>
 <edmx:StorageModels>
-<Schema Namespace="IvtLibraryModel.Store" Alias="Self" Provider="npgsql" ProviderManifestToken="9.2.1" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="IvtLibraryModel.Store" Alias="Self" Provider="npgsql" ProviderManifestToken="9.2.2" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="IvtLibraryModelStoreContainer">
     <EntitySet Name="Article" EntityType="IvtLibraryModel.Store.Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="Article_Article" EntityType="IvtLibraryModel.Store.Article_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
@@ -12,8 +12,11 @@
     <EntitySet Name="Author_Book" EntityType="IvtLibraryModel.Store.Author_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="Book" EntityType="IvtLibraryModel.Store.Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="Book_File" EntityType="IvtLibraryModel.Store.Book_File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Book_Type" EntityType="IvtLibraryModel.Store.Book_Type" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="City" EntityType="IvtLibraryModel.Store.City" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="Conference" EntityType="IvtLibraryModel.Store.Conference" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Discipline" EntityType="IvtLibraryModel.Store.Discipline" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Discipline_Author" EntityType="IvtLibraryModel.Store.Discipline_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="Draft" EntityType="IvtLibraryModel.Store.Draft" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="File" EntityType="IvtLibraryModel.Store.File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="File_Article" EntityType="IvtLibraryModel.Store.File_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
@@ -66,6 +69,10 @@
       <End Role="Book" EntitySet="Book" />
       <End Role="Author_Book" EntitySet="Author_Book" />
     </AssociationSet>
+    <AssociationSet Name="fk_book_book_type" Association="IvtLibraryModel.Store.fk_book_book_type">
+      <End Role="Book_Type" EntitySet="Book_Type" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
     <AssociationSet Name="fk_book_file_book" Association="IvtLibraryModel.Store.fk_book_file_book">
       <End Role="Book" EntitySet="Book" />
       <End Role="Book_File" EntitySet="Book_File" />
@@ -77,6 +84,14 @@
     <AssociationSet Name="fk_conference_scale" Association="IvtLibraryModel.Store.fk_conference_scale">
       <End Role="Scale" EntitySet="Scale" />
       <End Role="Conference" EntitySet="Conference" />
+    </AssociationSet>
+    <AssociationSet Name="fk_discipline_author_author" Association="IvtLibraryModel.Store.fk_discipline_author_author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Discipline_Author" EntitySet="Discipline_Author" />
+    </AssociationSet>
+    <AssociationSet Name="fk_discipline_author_discipline" Association="IvtLibraryModel.Store.fk_discipline_author_discipline">
+      <End Role="Discipline" EntitySet="Discipline" />
+      <End Role="Discipline_Author" EntitySet="Discipline_Author" />
     </AssociationSet>
     <AssociationSet Name="fk_file_article_article" Association="IvtLibraryModel.Store.fk_file_article_article">
       <End Role="Article" EntitySet="Article" />
@@ -229,6 +244,7 @@
     <Property Name="publisher" Type="varchar" MaxLength="255" />
     <Property Name="volume" Type="int4" />
     <Property Name="bibliography" Type="varchar" MaxLength="255" />
+    <Property Name="book_type_id" Type="int4" Nullable="false" />
   </EntityType>
   <EntityType Name="Book_File">
     <Key>
@@ -237,6 +253,13 @@
     </Key>
     <Property Name="book_id" Type="int4" Nullable="false" />
     <Property Name="file_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Book_Type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="City">
     <Key>
@@ -254,6 +277,22 @@
     <Property Name="place" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="full_name" Type="varchar" MaxLength="255" />
     <Property Name="scale_id" Type="int4" />
+  </EntityType>
+  <EntityType Name="Discipline">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="semester" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Discipline_Author">
+    <Key>
+      <PropertyRef Name="discipline_id" />
+      <PropertyRef Name="author_id" />
+    </Key>
+    <Property Name="discipline_id" Type="int4" Nullable="false" />
+    <Property Name="author_id" Type="int4" Nullable="false" />
   </EntityType>
   <EntityType Name="Draft">
     <Key>
@@ -403,7 +442,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_article_book_article">
-    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Article_Book" Type="IvtLibraryModel.Store.Article_Book" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Article">
@@ -451,7 +492,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_author_article_article">
-    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Author_Article" Type="IvtLibraryModel.Store.Author_Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Article">
@@ -487,7 +530,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_author_book_book">
-    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Author_Book" Type="IvtLibraryModel.Store.Author_Book" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Book">
@@ -498,8 +543,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_book_book_type">
+    <End Role="Book_Type" Type="IvtLibraryModel.Store.Book_Type" Multiplicity="1" />
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book_Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="book_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_book_file_book">
-    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Book_File" Type="IvtLibraryModel.Store.Book_File" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Book">
@@ -511,7 +570,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_book_file_file">
-    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1" />
+    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Book_File" Type="IvtLibraryModel.Store.Book_File" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="File">
@@ -534,8 +595,36 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_discipline_author_author">
+    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1" />
+    <End Role="Discipline_Author" Type="IvtLibraryModel.Store.Discipline_Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Discipline_Author">
+        <PropertyRef Name="author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_discipline_author_discipline">
+    <End Role="Discipline" Type="IvtLibraryModel.Store.Discipline" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Discipline_Author" Type="IvtLibraryModel.Store.Discipline_Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Discipline">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Discipline_Author">
+        <PropertyRef Name="discipline_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_file_article_article">
-    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="File_Article" Type="IvtLibraryModel.Store.File_Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Article">
@@ -547,7 +636,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_file_article_file">
-    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1" />
+    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="File_Article" Type="IvtLibraryModel.Store.File_Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="File">
@@ -571,7 +662,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_host_article">
-    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Article_Article" Type="IvtLibraryModel.Store.Article_Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Article">
@@ -595,7 +688,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_research_article_article">
-    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Research_Article" Type="IvtLibraryModel.Store.Research_Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Article">
@@ -619,7 +714,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_research_author_author">
-    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1" />
+    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Research_Author" Type="IvtLibraryModel.Store.Research_Author" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Author">
@@ -631,7 +728,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_research_author_research">
-    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1" />
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Research_Author" Type="IvtLibraryModel.Store.Research_Author" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Research">
@@ -643,7 +742,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_research_book_book">
-    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Research_Book" Type="IvtLibraryModel.Store.Research_Book" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Book">
@@ -679,7 +780,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_research_file_research">
-    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1" />
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Research_File" Type="IvtLibraryModel.Store.Research_File" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Research">
@@ -691,7 +794,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_research_theme_research">
-    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1" />
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Research_Theme" Type="IvtLibraryModel.Store.Research_Theme" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Research">
@@ -715,7 +820,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_theme_article_article">
-    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1" />
+    <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Theme_Article" Type="IvtLibraryModel.Store.Theme_Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Article">
@@ -739,7 +846,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_theme_author_author">
-    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1" />
+    <End Role="Author" Type="IvtLibraryModel.Store.Author" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Theme_Author" Type="IvtLibraryModel.Store.Theme_Author" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Author">
@@ -763,7 +872,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_theme_book_book">
-    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1" />
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Theme_Book" Type="IvtLibraryModel.Store.Theme_Book" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Book">
@@ -786,6 +897,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6005: Функция "trigger_article_conference_date_validation" имеет возвращаемый тип данных "trigger", который в настоящее время не поддерживается для целевой версии платформы .NET Framework. Функция исключена.
+
+<Function Name="trigger_article_conference_date_validation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="public" />-->
 </Schema>
 </edmx:StorageModels>
 <edmx:ConceptualModels>
@@ -794,8 +909,10 @@
     <EntitySet Name="Article" EntityType="IvtLibraryModel.Article" />
     <EntitySet Name="Author" EntityType="IvtLibraryModel.Author" />
     <EntitySet Name="Book" EntityType="IvtLibraryModel.Book" />
+    <EntitySet Name="Book_Type" EntityType="IvtLibraryModel.Book_Type" />
     <EntitySet Name="City" EntityType="IvtLibraryModel.City" />
     <EntitySet Name="Conference" EntityType="IvtLibraryModel.Conference" />
+    <EntitySet Name="Discipline" EntityType="IvtLibraryModel.Discipline" />
     <EntitySet Name="Draft" EntityType="IvtLibraryModel.Draft" />
     <EntitySet Name="File" EntityType="IvtLibraryModel.File" />
     <EntitySet Name="Hypothesis" EntityType="IvtLibraryModel.Hypothesis" />
@@ -814,6 +931,10 @@
     <AssociationSet Name="fk_article_conference" Association="IvtLibraryModel.fk_article_conference">
       <End Role="Conference" EntitySet="Conference" />
       <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="fk_book_book_type" Association="IvtLibraryModel.fk_book_book_type">
+      <End Role="Book_Type" EntitySet="Book_Type" />
+      <End Role="Book" EntitySet="Book" />
     </AssociationSet>
     <AssociationSet Name="fk_conference_scale" Association="IvtLibraryModel.fk_conference_scale">
       <End Role="Scale" EntitySet="Scale" />
@@ -842,6 +963,10 @@
     <AssociationSet Name="Book_File" Association="IvtLibraryModel.Book_File">
       <End Role="Book" EntitySet="Book" />
       <End Role="File" EntitySet="File" />
+    </AssociationSet>
+    <AssociationSet Name="Discipline_Author" Association="IvtLibraryModel.Discipline_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Discipline" EntitySet="Discipline" />
     </AssociationSet>
     <AssociationSet Name="File_Article" Association="IvtLibraryModel.File_Article">
       <End Role="Article" EntitySet="Article" />
@@ -916,6 +1041,7 @@
     <NavigationProperty Name="Article" Relationship="IvtLibraryModel.fk_article_author_supervisor_id" FromRole="Author" ToRole="Article" />
     <NavigationProperty Name="Article1" Relationship="IvtLibraryModel.Author_Article" FromRole="Author" ToRole="Article" />
     <NavigationProperty Name="Book" Relationship="IvtLibraryModel.Author_Book" FromRole="Author" ToRole="Book" />
+    <NavigationProperty Name="Discipline" Relationship="IvtLibraryModel.Discipline_Author" FromRole="Author" ToRole="Discipline" />
     <NavigationProperty Name="Research" Relationship="IvtLibraryModel.Research_Author" FromRole="Author" ToRole="Research" />
     <NavigationProperty Name="Theme" Relationship="IvtLibraryModel.Theme_Author" FromRole="Author" ToRole="Theme" />
   </EntityType>
@@ -929,11 +1055,21 @@
     <Property Name="publisher" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="volume" Type="Int32" />
     <Property Name="bibliography" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="book_type_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book_Type" Relationship="IvtLibraryModel.fk_book_book_type" FromRole="Book" ToRole="Book_Type" />
     <NavigationProperty Name="Article" Relationship="IvtLibraryModel.Article_Book" FromRole="Book" ToRole="Article" />
     <NavigationProperty Name="Author" Relationship="IvtLibraryModel.Author_Book" FromRole="Book" ToRole="Author" />
     <NavigationProperty Name="File" Relationship="IvtLibraryModel.Book_File" FromRole="Book" ToRole="File" />
     <NavigationProperty Name="Research" Relationship="IvtLibraryModel.Research_Book" FromRole="Book" ToRole="Research" />
     <NavigationProperty Name="Theme" Relationship="IvtLibraryModel.Theme_Book" FromRole="Book" ToRole="Theme" />
+  </EntityType>
+  <EntityType Name="Book_Type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Book" Relationship="IvtLibraryModel.fk_book_book_type" FromRole="Book_Type" ToRole="Book" />
   </EntityType>
   <EntityType Name="City">
     <Key>
@@ -954,6 +1090,15 @@
     <Property Name="scale_id" Type="Int32" />
     <NavigationProperty Name="Article" Relationship="IvtLibraryModel.fk_article_conference" FromRole="Conference" ToRole="Article" />
     <NavigationProperty Name="Scale" Relationship="IvtLibraryModel.fk_conference_scale" FromRole="Conference" ToRole="Scale" />
+  </EntityType>
+  <EntityType Name="Discipline">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="semester" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="IvtLibraryModel.Discipline_Author" FromRole="Discipline" ToRole="Author" />
   </EntityType>
   <EntityType Name="Draft">
     <Key>
@@ -1069,6 +1214,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_book_book_type">
+    <End Role="Book_Type" Type="IvtLibraryModel.Book_Type" Multiplicity="1" />
+    <End Role="Book" Type="IvtLibraryModel.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book_Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="book_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_conference_scale">
     <End Role="Scale" Type="IvtLibraryModel.Scale" Multiplicity="0..1" />
     <End Role="Conference" Type="IvtLibraryModel.Conference" Multiplicity="*" />
@@ -1112,6 +1269,10 @@
   <Association Name="Book_File">
     <End Role="Book" Type="IvtLibraryModel.Book" Multiplicity="*" />
     <End Role="File" Type="IvtLibraryModel.File" Multiplicity="*" />
+  </Association>
+  <Association Name="Discipline_Author">
+    <End Role="Author" Type="IvtLibraryModel.Author" Multiplicity="*" />
+    <End Role="Discipline" Type="IvtLibraryModel.Discipline" Multiplicity="*" />
   </Association>
   <Association Name="File_Article">
     <End Role="Article" Type="IvtLibraryModel.Article" Multiplicity="*" />
@@ -1189,6 +1350,15 @@
           <ScalarProperty Name="publisher" ColumnName="publisher" />
           <ScalarProperty Name="volume" ColumnName="volume" />
           <ScalarProperty Name="bibliography" ColumnName="bibliography" />
+          <ScalarProperty Name="book_type_id" ColumnName="book_type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Book_Type">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Book_Type">
+        <MappingFragment StoreEntitySet="Book_Type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1208,6 +1378,15 @@
           <ScalarProperty Name="place" ColumnName="place" />
           <ScalarProperty Name="full_name" ColumnName="full_name" />
           <ScalarProperty Name="scale_id" ColumnName="scale_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discipline">
+      <EntityTypeMapping TypeName="IvtLibraryModel.Discipline">
+        <MappingFragment StoreEntitySet="Discipline">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="semester" ColumnName="semester" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1321,6 +1500,14 @@
         <ScalarProperty Name="id" ColumnName="file_id" />
       </EndProperty>
     </AssociationSetMapping>
+    <AssociationSetMapping Name="Discipline_Author" TypeName="IvtLibraryModel.Discipline_Author" StoreEntitySet="Discipline_Author">
+      <EndProperty Name="Author">
+        <ScalarProperty Name="id" ColumnName="author_id" />
+      </EndProperty>
+      <EndProperty Name="Discipline">
+        <ScalarProperty Name="id" ColumnName="discipline_id" />
+      </EndProperty>
+    </AssociationSetMapping>
     <AssociationSetMapping Name="File_Article" TypeName="IvtLibraryModel.File_Article" StoreEntitySet="File_Article">
       <EndProperty Name="Article">
         <ScalarProperty Name="id" ColumnName="article_id" />
@@ -1400,120 +1587,43 @@
 <edmx:Designer>
 <edmx:Connection><edmx:DesignerInfoPropertySet><edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></edmx:DesignerInfoPropertySet></edmx:Connection>
 <edmx:Options />
-<edmx:Diagrams>
-  <edmx:Diagram Name="IvtLibrary" ZoomLevel="71">
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Article" Width="1.5" PointX="5.25" PointY="3.75" Height="3.7109993489583322" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Author" Width="1.5" PointX="8" PointY="10.125" Height="2.5571907552083317" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Book" Width="1.5" PointX="9.125" PointY="4.125" Height="2.9417936197916656" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.City" Width="1.5" PointX="3" PointY="1.875" Height="1.5956835937499996" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Conference" Width="1.5" PointX="3" PointY="4.5" Height="2.3648893229166656" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Draft" Width="1.5" PointX="0.75" PointY="8" Height="1.7879850260416674" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.File" Width="1.5" PointX="13" PointY="0.625" Height="2.7494921874999996" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Hypothesis" Width="1.5" PointX="2.75" PointY="9" Height="1.7879850260416674" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Research" Width="1.5" PointX="14.25" PointY="4.125" Height="3.1340950520833317" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Scale" Width="1.5" PointX="0.75" PointY="4.875" Height="1.5956835937499996" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Theme" Width="1.5" PointX="11.75" PointY="7.375" Height="2.3648893229166745" IsExpanded="true" />
-    <edmx:EntityTypeShape EntityType="IvtLibraryModel.Type" Width="1.5" PointX="9.75" PointY="0.75" Height="1.7879850260416745" IsExpanded="true" />
-    <edmx:AssociationConnector Association="IvtLibraryModel.fk_city" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="4.5" PointY="2.672841796875" />
-      <edmx:ConnectorPoint PointX="5.79687425" PointY="2.672841796875" />
-      <edmx:ConnectorPoint PointX="5.79687425" PointY="3.75" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.fk_conference" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="4.5" PointY="5.6824446614583328" />
-      <edmx:ConnectorPoint PointX="5.25" PointY="5.6824446614583328" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.fk_scale" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="2.25" PointY="5.672841796875" />
-      <edmx:ConnectorPoint PointX="3" PointY="5.672841796875" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.fk_type" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="11.25" PointY="1.6439925130208373" />
-      <edmx:ConnectorPoint PointX="13" PointY="1.6439925130208373" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Article_Article" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="5.7819230769230767" PointY="7.4609993489583317" />
-      <edmx:ConnectorPoint PointX="5.7819230769230767" PointY="7.7109993489583317" />
-      <edmx:ConnectorPoint PointX="6.2284615384615378" PointY="7.7109993489583317" />
-      <edmx:ConnectorPoint PointX="6.2284615384615378" PointY="7.4609993489583317" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Article_Book" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="6.75" PointY="5.2618076610828659" />
-      <edmx:ConnectorPoint PointX="8.7916666666666661" PointY="5.261807661082865" />
-          <edmx:ConnectorPoint PointX="8.9583333333333339" PointY="5.2618076610828659" />
-          <edmx:ConnectorPoint PointX="9.125" PointY="5.2618076610828659" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Author_Article" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="5.4847090384615385" PointY="7.4609993489583317" />
-      <edmx:ConnectorPoint PointX="5.4847090384615385" PointY="11.403595377604166" />
-      <edmx:ConnectorPoint PointX="8" PointY="11.403595377604166" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Author_Book" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="9.3125" PointY="10.125" />
-      <edmx:ConnectorPoint PointX="9.3125" PointY="7.2590950520833326" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Book_File" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="9.40625" PointY="4.125" />
-      <edmx:ConnectorPoint PointX="9.40625" PointY="3.2028857074554358" />
-      <edmx:ConnectorPoint PointX="13" PointY="3.2028857074554358" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.File_Article" ManuallyRouted="true">
-      <edmx:ConnectorPoint PointX="6.4062525" PointY="3.75" />
-      <edmx:ConnectorPoint PointX="6.4062525" PointY="2.6982610664996272" />
-      <edmx:ConnectorPoint PointX="13" PointY="2.6982610664996272" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Research_Article" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="6.75" PointY="6.4707785050205988" />
-      <edmx:ConnectorPoint PointX="8.875" PointY="6.4707785050205988" />
-      <edmx:ConnectorPoint PointX="8.875" PointY="3.875" />
-      <edmx:ConnectorPoint PointX="9.3229166666666661" PointY="3.8749999999999996" />
-      <edmx:ConnectorPoint PointX="9.4895833333333339" PointY="3.875" />
-      <edmx:ConnectorPoint PointX="14.593748" PointY="3.875" />
-      <edmx:ConnectorPoint PointX="14.593748" PointY="4.125" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Research_Author" ManuallyRouted="true">
-      <edmx:ConnectorPoint PointX="9.5" PointY="11.51719663010423" />
-      <edmx:ConnectorPoint PointX="14.863082931337367" PointY="11.51719663010423" />
-      <edmx:ConnectorPoint PointX="14.863082931337367" PointY="7.2590950520833317" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Research_Book" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="10.625" PointY="5.6920475260416659" />
-      <edmx:ConnectorPoint PointX="12.010414166666665" PointY="5.692047526041665" />
-          <edmx:ConnectorPoint PointX="12.177080833333333" PointY="5.6920475260416659" />
-          <edmx:ConnectorPoint PointX="14.25" PointY="5.6920475260416659" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Research_File" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="13.75" PointY="3.566793619791667" />
-      <edmx:ConnectorPoint PointX="13.75" PointY="3.75" />
-      <edmx:ConnectorPoint PointX="15" PointY="3.75" />
-          <edmx:ConnectorPoint PointX="15" PointY="4.125" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Research_Theme" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="14.25" PointY="6.5068237890625" />
-      <edmx:ConnectorPoint PointX="12.5" PointY="6.5068237890625" />
-          <edmx:ConnectorPoint PointX="12.5" PointY="7.375" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Article" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="6.75" PointY="7.610941437456578" />
-      <edmx:ConnectorPoint PointX="9.2291666666666661" PointY="7.6109414374565771" />
-      <edmx:ConnectorPoint PointX="9.3958333333333339" PointY="7.610941437456578" />
-      <edmx:ConnectorPoint PointX="11.75" PointY="7.610941437456578" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Author" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="9.5" PointY="10.953862439540654" />
-      <edmx:ConnectorPoint PointX="12.5" PointY="10.953862439540654" />
-      <edmx:ConnectorPoint PointX="12.5" PointY="9.7398893229166745" />
-    </edmx:AssociationConnector>
-    <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Book" ManuallyRouted="false">
-      <edmx:ConnectorPoint PointX="10.625" PointY="6.2431578072846072" />
-      <edmx:ConnectorPoint PointX="12.0937475" PointY="6.2431578072846072" />
-      <edmx:ConnectorPoint PointX="12.0937475" PointY="7.375" />
-    </edmx:AssociationConnector>
-        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_author_supervisor_id">
-          <edmx:ConnectorPoint PointX="8.6249975" PointY="10.125" />
-          <edmx:ConnectorPoint PointX="8.6249975" PointY="7.9015204833079977" />
-          <edmx:ConnectorPoint PointX="6.75" PointY="7.9015204833079977" />
-        </edmx:AssociationConnector>
-  </edmx:Diagram>
+<edmx:Diagrams >
+      <edmx:Diagram DiagramId="3adfd2ca996746faad733103b468ab04" Name="Диаграмма1" ZoomLevel="97" >
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Article" Width="1.875" PointX="4.75" PointY="1.5" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Article_Article" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Author" Width="1.5" PointX="1.25" PointY="1.25" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_author_supervisor_id" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Author_Article" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Book" Width="1.5" PointX="8" PointY="0.5" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Article_Book" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Author_Book" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Book_Type" Width="1.5" PointX="8.375" PointY="5.375" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_book_book_type" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.City" Width="1.5" PointX="2.75" PointY="7.125" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_city" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Conference" Width="1.5" PointX="5.375" PointY="7.625" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_conference" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Discipline" Width="1.5" PointX="0.5" PointY="6.125" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Discipline_Author" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Draft" Width="1.5" PointX="8.5" PointY="8.5" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.File" Width="1.5" PointX="2.375" PointY="9.25" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Book_File" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.File_Article" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Hypothesis" Width="1.5" PointX="6.375" PointY="13.625" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Research" Width="1.5" PointX="4" PointY="13.25" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Article" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Author" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Book" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_File" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Scale" Width="1.5" PointX="5.75" PointY="10.375" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_conference_scale" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Theme" Width="1.5" PointX="9.25" PointY="11.125" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Theme" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Article" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Author" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Book" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Type" Width="1.5" PointX="0.5" PointY="8.125" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_type" />
+      </edmx:Diagram>
     </edmx:Diagrams>
 </edmx:Designer></edmx:Edmx>

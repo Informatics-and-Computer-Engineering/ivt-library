@@ -22,6 +22,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_author_supervisor_id", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Author), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_city", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.City), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_conference", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Conference), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_book_book_type", "Book_Type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Book_Type), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_conference_scale", "Scale", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Scale), "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Conference), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_type", "Type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Type), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Article1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article))]
@@ -29,6 +30,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Book", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Book_File", "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File))]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "Discipline_Author", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Discipline", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Discipline))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "File_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Research_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Research", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Research))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Research_Author", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Research", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Research))]
@@ -140,6 +142,22 @@ namespace IvtLibrary
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
+        public ObjectSet<Book_Type> Book_Type
+        {
+            get
+            {
+                if ((_Book_Type == null))
+                {
+                    _Book_Type = base.CreateObjectSet<Book_Type>("Book_Type");
+                }
+                return _Book_Type;
+            }
+        }
+        private ObjectSet<Book_Type> _Book_Type;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
         public ObjectSet<City> City
         {
             get
@@ -168,6 +186,22 @@ namespace IvtLibrary
             }
         }
         private ObjectSet<Conference> _Conference;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Discipline> Discipline
+        {
+            get
+            {
+                if ((_Discipline == null))
+                {
+                    _Discipline = base.CreateObjectSet<Discipline>("Discipline");
+                }
+                return _Discipline;
+            }
+        }
+        private ObjectSet<Discipline> _Discipline;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -310,6 +344,14 @@ namespace IvtLibrary
         }
     
         /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Book_Type. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToBook_Type(Book_Type book_Type)
+        {
+            base.AddObject("Book_Type", book_Type);
+        }
+    
+        /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet City. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
         public void AddToCity(City city)
@@ -323,6 +365,14 @@ namespace IvtLibrary
         public void AddToConference(Conference conference)
         {
             base.AddObject("Conference", conference);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Discipline. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToDiscipline(Discipline discipline)
+        {
+            base.AddObject("Discipline", discipline);
         }
     
         /// <summary>
@@ -1139,6 +1189,28 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Discipline_Author", "Discipline")]
+        public EntityCollection<Discipline> Discipline
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Discipline>("IvtLibraryModel.Discipline_Author", "Discipline");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Discipline>("IvtLibraryModel.Discipline_Author", "Discipline", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Research_Author", "Research")]
         public EntityCollection<Research> Research
         {
@@ -1196,11 +1268,13 @@ namespace IvtLibrary
         /// </summary>
         /// <param name="id">Исходное значение свойства id.</param>
         /// <param name="name">Исходное значение свойства name.</param>
-        public static Book CreateBook(global::System.Int32 id, global::System.String name)
+        /// <param name="book_type_id">Исходное значение свойства book_type_id.</param>
+        public static Book CreateBook(global::System.Int32 id, global::System.String name, global::System.Int32 book_type_id)
         {
             Book book = new Book();
             book.id = id;
             book.name = name;
+            book.book_type_id = book_type_id;
             return book;
         }
 
@@ -1354,10 +1428,72 @@ namespace IvtLibrary
         private global::System.String _bibliography;
         partial void OnbibliographyChanging(global::System.String value);
         partial void OnbibliographyChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 book_type_id
+        {
+            get
+            {
+                return _book_type_id;
+            }
+            set
+            {
+                Onbook_type_idChanging(value);
+                ReportPropertyChanging("book_type_id");
+                _book_type_id = StructuralObject.SetValidValue(value, "book_type_id");
+                ReportPropertyChanged("book_type_id");
+                Onbook_type_idChanged();
+            }
+        }
+        private global::System.Int32 _book_type_id;
+        partial void Onbook_type_idChanging(global::System.Int32 value);
+        partial void Onbook_type_idChanged();
 
         #endregion
 
         #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_book_book_type", "Book_Type")]
+        public Book_Type Book_Type
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book_Type>("IvtLibraryModel.fk_book_book_type", "Book_Type").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book_Type>("IvtLibraryModel.fk_book_book_type", "Book_Type").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Book_Type> Book_TypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book_Type>("IvtLibraryModel.fk_book_book_type", "Book_Type");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Book_Type>("IvtLibraryModel.fk_book_book_type", "Book_Type", value);
+                }
+            }
+        }
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1465,6 +1601,114 @@ namespace IvtLibrary
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Theme>("IvtLibraryModel.Theme_Book", "Theme", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="IvtLibraryModel", Name="Book_Type")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Book_Type : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Book_Type.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства id.</param>
+        /// <param name="name">Исходное значение свойства name.</param>
+        public static Book_Type CreateBook_Type(global::System.Int32 id, global::System.String name)
+        {
+            Book_Type book_Type = new Book_Type();
+            book_Type.id = id;
+            book_Type.name = name;
+            return book_Type;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false, "name");
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_book_book_type", "Book")]
+        public EntityCollection<Book> Book
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Book>("IvtLibraryModel.fk_book_book_type", "Book");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Book>("IvtLibraryModel.fk_book_book_type", "Book", value);
                 }
             }
         }
@@ -1793,6 +2037,140 @@ namespace IvtLibrary
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Scale>("IvtLibraryModel.fk_conference_scale", "Scale", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="IvtLibraryModel", Name="Discipline")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Discipline : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Discipline.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства id.</param>
+        /// <param name="name">Исходное значение свойства name.</param>
+        /// <param name="semester">Исходное значение свойства semester.</param>
+        public static Discipline CreateDiscipline(global::System.Int32 id, global::System.String name, global::System.Int32 semester)
+        {
+            Discipline discipline = new Discipline();
+            discipline.id = id;
+            discipline.name = name;
+            discipline.semester = semester;
+            return discipline;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false, "name");
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 semester
+        {
+            get
+            {
+                return _semester;
+            }
+            set
+            {
+                OnsemesterChanging(value);
+                ReportPropertyChanging("semester");
+                _semester = StructuralObject.SetValidValue(value, "semester");
+                ReportPropertyChanged("semester");
+                OnsemesterChanged();
+            }
+        }
+        private global::System.Int32 _semester;
+        partial void OnsemesterChanging(global::System.Int32 value);
+        partial void OnsemesterChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Discipline_Author", "Author")]
+        public EntityCollection<Author> Author
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Author>("IvtLibraryModel.Discipline_Author", "Author");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Author>("IvtLibraryModel.Discipline_Author", "Author", value);
                 }
             }
         }
