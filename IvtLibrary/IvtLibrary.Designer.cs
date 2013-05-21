@@ -27,8 +27,10 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_type", "Type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Type), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Article1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Book", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book))]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Keyword", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Keyword))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Book", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book))]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Keyword", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Keyword))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Book_File", "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Discipline_Author", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Discipline", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Discipline))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "File_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File))]
@@ -254,6 +256,22 @@ namespace IvtLibrary
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
+        public ObjectSet<Keyword> Keyword
+        {
+            get
+            {
+                if ((_Keyword == null))
+                {
+                    _Keyword = base.CreateObjectSet<Keyword>("Keyword");
+                }
+                return _Keyword;
+            }
+        }
+        private ObjectSet<Keyword> _Keyword;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
         public ObjectSet<Research> Research
         {
             get
@@ -397,6 +415,14 @@ namespace IvtLibrary
         public void AddToHypothesis(Hypothesis hypothesis)
         {
             base.AddObject("Hypothesis", hypothesis);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Keyword. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToKeyword(Keyword keyword)
+        {
+            base.AddObject("Keyword", keyword);
         }
     
         /// <summary>
@@ -901,6 +927,28 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Article_Keyword", "Keyword")]
+        public EntityCollection<Keyword> Keyword
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Keyword>("IvtLibraryModel.Article_Keyword", "Keyword");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Keyword>("IvtLibraryModel.Article_Keyword", "Keyword", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Author_Article", "Author")]
         public EntityCollection<Author> Author
         {
@@ -1179,6 +1227,28 @@ namespace IvtLibrary
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Book>("IvtLibraryModel.Author_Book", "Book", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Author_Keyword", "Keyword")]
+        public EntityCollection<Keyword> Keyword
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Keyword>("IvtLibraryModel.Author_Keyword", "Keyword");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Keyword>("IvtLibraryModel.Author_Keyword", "Keyword", value);
                 }
             }
         }
@@ -2728,6 +2798,136 @@ namespace IvtLibrary
         private global::System.String _explanation;
         partial void OnexplanationChanging(global::System.String value);
         partial void OnexplanationChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="IvtLibraryModel", Name="Keyword")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Keyword : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Keyword.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства id.</param>
+        /// <param name="name">Исходное значение свойства name.</param>
+        public static Keyword CreateKeyword(global::System.Int32 id, global::System.String name)
+        {
+            Keyword keyword = new Keyword();
+            keyword.id = id;
+            keyword.name = name;
+            return keyword;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false, "name");
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Article_Keyword", "Article")]
+        public EntityCollection<Article> Article
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Article>("IvtLibraryModel.Article_Keyword", "Article");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Article>("IvtLibraryModel.Article_Keyword", "Article", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Author_Keyword", "Author")]
+        public EntityCollection<Author> Author
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Author>("IvtLibraryModel.Author_Keyword", "Author");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Author>("IvtLibraryModel.Author_Keyword", "Author", value);
+                }
+            }
+        }
 
         #endregion
 
