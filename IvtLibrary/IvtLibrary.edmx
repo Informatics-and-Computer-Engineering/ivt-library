@@ -4,38 +4,38 @@
 <edmx:StorageModels>
 <Schema Namespace="IvtLibraryModel.Store" Alias="Self" Provider="npgsql" ProviderManifestToken="9.2.2" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="IvtLibraryModelStoreContainer">
-    <EntitySet Name="Article" EntityType="IvtLibraryModel.Store.Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Article_Article" EntityType="IvtLibraryModel.Store.Article_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Article_Book" EntityType="IvtLibraryModel.Store.Article_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Article_Keyword" EntityType="IvtLibraryModel.Store.Article_Keyword" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Author" EntityType="IvtLibraryModel.Store.Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Author_Article" EntityType="IvtLibraryModel.Store.Author_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Author_Book" EntityType="IvtLibraryModel.Store.Author_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Author_Keyword" EntityType="IvtLibraryModel.Store.Author_Keyword" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Book" EntityType="IvtLibraryModel.Store.Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Book_File" EntityType="IvtLibraryModel.Store.Book_File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Book_Type" EntityType="IvtLibraryModel.Store.Book_Type" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="City" EntityType="IvtLibraryModel.Store.City" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Conference" EntityType="IvtLibraryModel.Store.Conference" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Discipline" EntityType="IvtLibraryModel.Store.Discipline" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Discipline_Author" EntityType="IvtLibraryModel.Store.Discipline_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Draft" EntityType="IvtLibraryModel.Store.Draft" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="File" EntityType="IvtLibraryModel.Store.File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="File_Article" EntityType="IvtLibraryModel.Store.File_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Hypothesis" EntityType="IvtLibraryModel.Store.Hypothesis" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Keyword" EntityType="IvtLibraryModel.Store.Keyword" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Research" EntityType="IvtLibraryModel.Store.Research" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Research_Article" EntityType="IvtLibraryModel.Store.Research_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Research_Author" EntityType="IvtLibraryModel.Store.Research_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Research_Book" EntityType="IvtLibraryModel.Store.Research_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Research_File" EntityType="IvtLibraryModel.Store.Research_File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Research_Theme" EntityType="IvtLibraryModel.Store.Research_Theme" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Scale" EntityType="IvtLibraryModel.Store.Scale" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Theme" EntityType="IvtLibraryModel.Store.Theme" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Theme_Article" EntityType="IvtLibraryModel.Store.Theme_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Theme_Author" EntityType="IvtLibraryModel.Store.Theme_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Theme_Book" EntityType="IvtLibraryModel.Store.Theme_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="Type" EntityType="IvtLibraryModel.Store.Type" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Article" EntityType="IvtLibraryModel.Store.Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Article_Article" EntityType="IvtLibraryModel.Store.Article_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Article_Book" EntityType="IvtLibraryModel.Store.Article_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Article_Keyword" EntityType="IvtLibraryModel.Store.Article_Keyword" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Author" EntityType="IvtLibraryModel.Store.Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Author_Article" EntityType="IvtLibraryModel.Store.Author_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Author_Book" EntityType="IvtLibraryModel.Store.Author_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Author_Keyword" EntityType="IvtLibraryModel.Store.Author_Keyword" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Book" EntityType="IvtLibraryModel.Store.Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="BookType" EntityType="IvtLibraryModel.Store.BookType" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="City" EntityType="IvtLibraryModel.Store.City" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Conference" EntityType="IvtLibraryModel.Store.Conference" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Discipline" EntityType="IvtLibraryModel.Store.Discipline" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Discipline_Author" EntityType="IvtLibraryModel.Store.Discipline_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Draft" EntityType="IvtLibraryModel.Store.Draft" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="File" EntityType="IvtLibraryModel.Store.File" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="FileArticle" EntityType="IvtLibraryModel.Store.FileArticle" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="FileBook" EntityType="IvtLibraryModel.Store.FileBook" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="FileResearch" EntityType="IvtLibraryModel.Store.FileResearch" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Hypothesis" EntityType="IvtLibraryModel.Store.Hypothesis" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Keyword" EntityType="IvtLibraryModel.Store.Keyword" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Research" EntityType="IvtLibraryModel.Store.Research" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Research_Article" EntityType="IvtLibraryModel.Store.Research_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Research_Author" EntityType="IvtLibraryModel.Store.Research_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Research_Book" EntityType="IvtLibraryModel.Store.Research_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Research_Theme" EntityType="IvtLibraryModel.Store.Research_Theme" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Scale" EntityType="IvtLibraryModel.Store.Scale" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Theme" EntityType="IvtLibraryModel.Store.Theme" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Theme_Article" EntityType="IvtLibraryModel.Store.Theme_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Theme_Author" EntityType="IvtLibraryModel.Store.Theme_Author" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Theme_Book" EntityType="IvtLibraryModel.Store.Theme_Book" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
+    <EntitySet Name="Type" EntityType="IvtLibraryModel.Store.Type" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
     <AssociationSet Name="fk_aricle_keyword_article" Association="IvtLibraryModel.Store.fk_aricle_keyword_article">
       <End Role="Article" EntitySet="Article" />
       <End Role="Article_Keyword" EntitySet="Article_Keyword" />
@@ -89,16 +89,8 @@
       <End Role="Author_Keyword" EntitySet="Author_Keyword" />
     </AssociationSet>
     <AssociationSet Name="fk_book_book_type" Association="IvtLibraryModel.Store.fk_book_book_type">
-      <End Role="Book_Type" EntitySet="Book_Type" />
+      <End Role="BookType" EntitySet="BookType" />
       <End Role="Book" EntitySet="Book" />
-    </AssociationSet>
-    <AssociationSet Name="fk_book_file_book" Association="IvtLibraryModel.Store.fk_book_file_book">
-      <End Role="Book" EntitySet="Book" />
-      <End Role="Book_File" EntitySet="Book_File" />
-    </AssociationSet>
-    <AssociationSet Name="fk_book_file_file" Association="IvtLibraryModel.Store.fk_book_file_file">
-      <End Role="File" EntitySet="File" />
-      <End Role="Book_File" EntitySet="Book_File" />
     </AssociationSet>
     <AssociationSet Name="fk_conference_scale" Association="IvtLibraryModel.Store.fk_conference_scale">
       <End Role="Scale" EntitySet="Scale" />
@@ -114,11 +106,27 @@
     </AssociationSet>
     <AssociationSet Name="fk_file_article_article" Association="IvtLibraryModel.Store.fk_file_article_article">
       <End Role="Article" EntitySet="Article" />
-      <End Role="File_Article" EntitySet="File_Article" />
+      <End Role="FileArticle" EntitySet="FileArticle" />
     </AssociationSet>
-    <AssociationSet Name="fk_file_article_file" Association="IvtLibraryModel.Store.fk_file_article_file">
-      <End Role="File" EntitySet="File" />
-      <End Role="File_Article" EntitySet="File_Article" />
+    <AssociationSet Name="fk_file_article_type" Association="IvtLibraryModel.Store.fk_file_article_type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="FileArticle" EntitySet="FileArticle" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_book_book" Association="IvtLibraryModel.Store.fk_file_book_book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="FileBook" EntitySet="FileBook" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_book_type" Association="IvtLibraryModel.Store.fk_file_book_type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="FileBook" EntitySet="FileBook" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_research_research" Association="IvtLibraryModel.Store.fk_file_research_research">
+      <End Role="Research" EntitySet="Research" />
+      <End Role="FileResearch" EntitySet="FileResearch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_research_type" Association="IvtLibraryModel.Store.fk_file_research_type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="FileResearch" EntitySet="FileResearch" />
     </AssociationSet>
     <AssociationSet Name="fk_file_type" Association="IvtLibraryModel.Store.fk_file_type">
       <End Role="Type" EntitySet="Type" />
@@ -155,14 +163,6 @@
     <AssociationSet Name="fk_research_book_research" Association="IvtLibraryModel.Store.fk_research_book_research">
       <End Role="Research" EntitySet="Research" />
       <End Role="Research_Book" EntitySet="Research_Book" />
-    </AssociationSet>
-    <AssociationSet Name="fk_research_file_file" Association="IvtLibraryModel.Store.fk_research_file_file">
-      <End Role="File" EntitySet="File" />
-      <End Role="Research_File" EntitySet="Research_File" />
-    </AssociationSet>
-    <AssociationSet Name="fk_research_file_research" Association="IvtLibraryModel.Store.fk_research_file_research">
-      <End Role="Research" EntitySet="Research" />
-      <End Role="Research_File" EntitySet="Research_File" />
     </AssociationSet>
     <AssociationSet Name="fk_research_theme_research" Association="IvtLibraryModel.Store.fk_research_theme_research">
       <End Role="Research" EntitySet="Research" />
@@ -201,7 +201,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="city_id" Type="int4" />
     <Property Name="conference_id" Type="int4" Nullable="false" />
@@ -240,7 +240,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="first_name" Type="varchar" MaxLength="60" />
     <Property Name="middle_name" Type="varchar" MaxLength="60" />
     <Property Name="last_name" Type="varchar" Nullable="false" MaxLength="60" />
@@ -273,7 +273,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="year" Type="int4" />
     <Property Name="publisher" Type="varchar" MaxLength="255" />
@@ -281,33 +281,25 @@
     <Property Name="bibliography" Type="varchar" MaxLength="255" />
     <Property Name="book_type_id" Type="int4" Nullable="false" />
   </EntityType>
-  <EntityType Name="Book_File">
-    <Key>
-      <PropertyRef Name="book_id" />
-      <PropertyRef Name="file_id" />
-    </Key>
-    <Property Name="book_id" Type="int4" Nullable="false" />
-    <Property Name="file_id" Type="int4" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Book_Type">
+  <EntityType Name="BookType">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="City">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="Conference">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="place" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="full_name" Type="varchar" MaxLength="255" />
@@ -317,7 +309,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="semester" Type="int4" Nullable="false" />
   </EntityType>
@@ -333,7 +325,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int8" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int8" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="title" Type="varchar" MaxLength="255" />
     <Property Name="content" Type="text" Nullable="false" />
     <Property Name="creation_date" Type="timestamptz" Nullable="false" />
@@ -342,26 +334,54 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="content_type" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="data" Type="bytea" Nullable="false" />
     <Property Name="type_id" Type="int4" />
     <Property Name="version" Type="int4" Nullable="false" />
   </EntityType>
-  <EntityType Name="File_Article">
+  <EntityType Name="FileArticle">
     <Key>
-      <PropertyRef Name="file_id" />
-      <PropertyRef Name="article_id" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="file_id" Type="int4" Nullable="false" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="content_type" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="data" Type="bytea" Nullable="false" />
+    <Property Name="type_id" Type="int4" />
+    <Property Name="version" Type="int4" Nullable="false" />
     <Property Name="article_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FileBook">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="content_type" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="data" Type="bytea" Nullable="false" />
+    <Property Name="type_id" Type="int4" />
+    <Property Name="version" Type="int4" Nullable="false" />
+    <Property Name="book_id" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FileResearch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="content_type" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="data" Type="bytea" Nullable="false" />
+    <Property Name="type_id" Type="int4" />
+    <Property Name="version" Type="int4" Nullable="false" />
+    <Property Name="research_id" Type="int4" Nullable="false" />
   </EntityType>
   <EntityType Name="Hypothesis">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int8" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int8" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" MaxLength="255" />
     <Property Name="content" Type="text" Nullable="false" />
     <Property Name="explanation" Type="text" />
@@ -370,14 +390,14 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="Research">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="description" Type="varchar" MaxLength="255" />
     <Property Name="goal" Type="text" />
@@ -408,14 +428,6 @@
     <Property Name="research_id" Type="int4" Nullable="false" />
     <Property Name="book_id" Type="int4" Nullable="false" />
   </EntityType>
-  <EntityType Name="Research_File">
-    <Key>
-      <PropertyRef Name="research_id" />
-      <PropertyRef Name="file_id" />
-    </Key>
-    <Property Name="research_id" Type="int4" Nullable="false" />
-    <Property Name="file_id" Type="int4" Nullable="false" />
-  </EntityType>
   <EntityType Name="Research_Theme">
     <Key>
       <PropertyRef Name="research_id" />
@@ -428,14 +440,14 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="Theme">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="description" Type="varchar" MaxLength="255" />
   </EntityType>
@@ -467,11 +479,10 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int4" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="int4" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="description" Type="varchar" MaxLength="512" />
   </EntityType>
-  
   <Association Name="fk_aricle_keyword_article">
     <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -639,42 +650,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_book_book_type">
-    <End Role="Book_Type" Type="IvtLibraryModel.Store.Book_Type" Multiplicity="1" />
+    <End Role="BookType" Type="IvtLibraryModel.Store.BookType" Multiplicity="1" />
     <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Book_Type">
+      <Principal Role="BookType">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Book">
         <PropertyRef Name="book_type_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_book_file_book">
-    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Book_File" Type="IvtLibraryModel.Store.Book_File" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Book">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Book_File">
-        <PropertyRef Name="book_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_book_file_file">
-    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Book_File" Type="IvtLibraryModel.Store.Book_File" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="File">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Book_File">
-        <PropertyRef Name="file_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -720,27 +703,77 @@
     <End Role="Article" Type="IvtLibraryModel.Store.Article" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="File_Article" Type="IvtLibraryModel.Store.File_Article" Multiplicity="*" />
+    <End Role="FileArticle" Type="IvtLibraryModel.Store.FileArticle" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Article">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="File_Article">
+      <Dependent Role="FileArticle">
         <PropertyRef Name="article_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_file_article_file">
-    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="File_Article" Type="IvtLibraryModel.Store.File_Article" Multiplicity="*" />
+  <Association Name="fk_file_article_type">
+    <End Role="Type" Type="IvtLibraryModel.Store.Type" Multiplicity="0..1" />
+    <End Role="FileArticle" Type="IvtLibraryModel.Store.FileArticle" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="File">
+      <Principal Role="Type">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="File_Article">
-        <PropertyRef Name="file_id" />
+      <Dependent Role="FileArticle">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_book_book">
+    <End Role="Book" Type="IvtLibraryModel.Store.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FileBook" Type="IvtLibraryModel.Store.FileBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileBook">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_book_type">
+    <End Role="Type" Type="IvtLibraryModel.Store.Type" Multiplicity="0..1" />
+    <End Role="FileBook" Type="IvtLibraryModel.Store.FileBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileBook">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_research_research">
+    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FileResearch" Type="IvtLibraryModel.Store.FileResearch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Research">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileResearch">
+        <PropertyRef Name="research_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_research_type">
+    <End Role="Type" Type="IvtLibraryModel.Store.Type" Multiplicity="0..1" />
+    <End Role="FileResearch" Type="IvtLibraryModel.Store.FileResearch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileResearch">
+        <PropertyRef Name="type_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -862,32 +895,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_research_file_file">
-    <End Role="File" Type="IvtLibraryModel.Store.File" Multiplicity="1" />
-    <End Role="Research_File" Type="IvtLibraryModel.Store.Research_File" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="File">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Research_File">
-        <PropertyRef Name="file_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_research_file_research">
-    <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Research_File" Type="IvtLibraryModel.Store.Research_File" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Research">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Research_File">
-        <PropertyRef Name="research_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_research_theme_research">
     <End Role="Research" Type="IvtLibraryModel.Store.Research" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -992,6 +999,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="seq_next_value" ReturnType="int8" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="public">
+    <Parameter Name="seq_name" Type="text" Mode="In" />
+  </Function>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6005: Функция "trigger_article_conference_date_validation" имеет возвращаемый тип данных "trigger", который в настоящее время не поддерживается для целевой версии платформы .NET Framework. Функция исключена.
 
@@ -999,17 +1009,20 @@
 </Schema>
 </edmx:StorageModels>
 <edmx:ConceptualModels>
-<Schema Namespace="IvtLibraryModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="IvtLibraryEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <Schema Namespace="IvtLibraryModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+    <EntityContainer Name="IvtLibraryEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
     <EntitySet Name="Article" EntityType="IvtLibraryModel.Article" />
     <EntitySet Name="Author" EntityType="IvtLibraryModel.Author" />
     <EntitySet Name="Book" EntityType="IvtLibraryModel.Book" />
-    <EntitySet Name="Book_Type" EntityType="IvtLibraryModel.Book_Type" />
+    <EntitySet Name="BookType" EntityType="IvtLibraryModel.BookType" />
     <EntitySet Name="City" EntityType="IvtLibraryModel.City" />
     <EntitySet Name="Conference" EntityType="IvtLibraryModel.Conference" />
     <EntitySet Name="Discipline" EntityType="IvtLibraryModel.Discipline" />
     <EntitySet Name="Draft" EntityType="IvtLibraryModel.Draft" />
     <EntitySet Name="File" EntityType="IvtLibraryModel.File" />
+    <EntitySet Name="FileArticle" EntityType="IvtLibraryModel.FileArticle" />
+    <EntitySet Name="FileBook" EntityType="IvtLibraryModel.FileBook" />
+    <EntitySet Name="FileResearch" EntityType="IvtLibraryModel.FileResearch" />
     <EntitySet Name="Hypothesis" EntityType="IvtLibraryModel.Hypothesis" />
     <EntitySet Name="Keyword" EntityType="IvtLibraryModel.Keyword" />
     <EntitySet Name="Research" EntityType="IvtLibraryModel.Research" />
@@ -1028,9 +1041,17 @@
       <End Role="Conference" EntitySet="Conference" />
       <End Role="Article" EntitySet="Article" />
     </AssociationSet>
+    <AssociationSet Name="fk_file_article_article" Association="IvtLibraryModel.fk_file_article_article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="FileArticle" EntitySet="FileArticle" />
+    </AssociationSet>
     <AssociationSet Name="fk_book_book_type" Association="IvtLibraryModel.fk_book_book_type">
-      <End Role="Book_Type" EntitySet="Book_Type" />
+      <End Role="BookType" EntitySet="BookType" />
       <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_book_book" Association="IvtLibraryModel.fk_file_book_book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="FileBook" EntitySet="FileBook" />
     </AssociationSet>
     <AssociationSet Name="fk_conference_scale" Association="IvtLibraryModel.fk_conference_scale">
       <End Role="Scale" EntitySet="Scale" />
@@ -1039,6 +1060,22 @@
     <AssociationSet Name="fk_file_type" Association="IvtLibraryModel.fk_file_type">
       <End Role="Type" EntitySet="Type" />
       <End Role="File" EntitySet="File" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_article_type" Association="IvtLibraryModel.fk_file_article_type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="FileArticle" EntitySet="FileArticle" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_book_type" Association="IvtLibraryModel.fk_file_book_type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="FileBook" EntitySet="FileBook" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_research_research" Association="IvtLibraryModel.fk_file_research_research">
+      <End Role="Research" EntitySet="Research" />
+      <End Role="FileResearch" EntitySet="FileResearch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_file_research_type" Association="IvtLibraryModel.fk_file_research_type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="FileResearch" EntitySet="FileResearch" />
     </AssociationSet>
     <AssociationSet Name="Article_Article" Association="IvtLibraryModel.Article_Article">
       <End Role="Article" EntitySet="Article" />
@@ -1064,17 +1101,9 @@
       <End Role="Author" EntitySet="Author" />
       <End Role="Keyword" EntitySet="Keyword" />
     </AssociationSet>
-    <AssociationSet Name="Book_File" Association="IvtLibraryModel.Book_File">
-      <End Role="Book" EntitySet="Book" />
-      <End Role="File" EntitySet="File" />
-    </AssociationSet>
     <AssociationSet Name="Discipline_Author" Association="IvtLibraryModel.Discipline_Author">
       <End Role="Author" EntitySet="Author" />
       <End Role="Discipline" EntitySet="Discipline" />
-    </AssociationSet>
-    <AssociationSet Name="File_Article" Association="IvtLibraryModel.File_Article">
-      <End Role="Article" EntitySet="Article" />
-      <End Role="File" EntitySet="File" />
     </AssociationSet>
     <AssociationSet Name="Research_Article" Association="IvtLibraryModel.Research_Article">
       <End Role="Article" EntitySet="Article" />
@@ -1086,10 +1115,6 @@
     </AssociationSet>
     <AssociationSet Name="Research_Book" Association="IvtLibraryModel.Research_Book">
       <End Role="Book" EntitySet="Book" />
-      <End Role="Research" EntitySet="Research" />
-    </AssociationSet>
-    <AssociationSet Name="Research_File" Association="IvtLibraryModel.Research_File">
-      <End Role="File" EntitySet="File" />
       <End Role="Research" EntitySet="Research" />
     </AssociationSet>
     <AssociationSet Name="Research_Theme" Association="IvtLibraryModel.Research_Theme">
@@ -1113,7 +1138,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"  />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="city_id" Type="Int32" />
     <Property Name="conference_id" Type="Int32" Nullable="false" />
@@ -1126,12 +1151,12 @@
     <NavigationProperty Name="Supervizor" Relationship="IvtLibraryModel.fk_article_author_supervisor_id" FromRole="Article" ToRole="Author" />
     <NavigationProperty Name="City" Relationship="IvtLibraryModel.fk_article_city" FromRole="Article" ToRole="City" />
     <NavigationProperty Name="Conference" Relationship="IvtLibraryModel.fk_article_conference" FromRole="Article" ToRole="Conference" />
+    <NavigationProperty Name="FileArticle" Relationship="IvtLibraryModel.fk_file_article_article" FromRole="Article" ToRole="FileArticle" />
     <NavigationProperty Name="Article1" Relationship="IvtLibraryModel.Article_Article" FromRole="Article" ToRole="Article1" />
     <NavigationProperty Name="Article2" Relationship="IvtLibraryModel.Article_Article" FromRole="Article1" ToRole="Article" />
     <NavigationProperty Name="Book" Relationship="IvtLibraryModel.Article_Book" FromRole="Article" ToRole="Book" />
     <NavigationProperty Name="Keyword" Relationship="IvtLibraryModel.Article_Keyword" FromRole="Article" ToRole="Keyword" />
     <NavigationProperty Name="Author" Relationship="IvtLibraryModel.Author_Article" FromRole="Article" ToRole="Author" />
-    <NavigationProperty Name="File" Relationship="IvtLibraryModel.File_Article" FromRole="Article" ToRole="File" />
     <NavigationProperty Name="Research" Relationship="IvtLibraryModel.Research_Article" FromRole="Article" ToRole="Research" />
     <NavigationProperty Name="Theme" Relationship="IvtLibraryModel.Theme_Article" FromRole="Article" ToRole="Theme" />
   </EntityType>
@@ -1162,26 +1187,26 @@
     <Property Name="volume" Type="Int32" />
     <Property Name="bibliography" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="book_type_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Book_Type" Relationship="IvtLibraryModel.fk_book_book_type" FromRole="Book" ToRole="Book_Type" />
+    <NavigationProperty Name="BookType" Relationship="IvtLibraryModel.fk_book_book_type" FromRole="Book" ToRole="BookType" />
+    <NavigationProperty Name="FileBook" Relationship="IvtLibraryModel.fk_file_book_book" FromRole="Book" ToRole="FileBook" />
     <NavigationProperty Name="Article" Relationship="IvtLibraryModel.Article_Book" FromRole="Book" ToRole="Article" />
     <NavigationProperty Name="Author" Relationship="IvtLibraryModel.Author_Book" FromRole="Book" ToRole="Author" />
-    <NavigationProperty Name="File" Relationship="IvtLibraryModel.Book_File" FromRole="Book" ToRole="File" />
     <NavigationProperty Name="Research" Relationship="IvtLibraryModel.Research_Book" FromRole="Book" ToRole="Research" />
     <NavigationProperty Name="Theme" Relationship="IvtLibraryModel.Theme_Book" FromRole="Book" ToRole="Theme" />
   </EntityType>
-  <EntityType Name="Book_Type">
+  <EntityType Name="BookType">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Book" Relationship="IvtLibraryModel.fk_book_book_type" FromRole="Book_Type" ToRole="Book" />
+    <NavigationProperty Name="Book" Relationship="IvtLibraryModel.fk_book_book_type" FromRole="BookType" ToRole="Book" />
   </EntityType>
   <EntityType Name="City">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Article" Relationship="IvtLibraryModel.fk_article_city" FromRole="City" ToRole="Article" />
   </EntityType>
@@ -1189,7 +1214,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="place" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="full_name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
@@ -1201,7 +1226,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="semester" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Author" Relationship="IvtLibraryModel.Discipline_Author" FromRole="Discipline" ToRole="Author" />
@@ -1210,7 +1235,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="title" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="creation_date" Type="DateTimeOffset" Nullable="false" Precision="7" />
@@ -1219,22 +1244,61 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="content_type" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="data" Type="Binary" Nullable="false" MaxLength="2147483647" FixedLength="false" />
     <Property Name="type_id" Type="Int32" />
     <Property Name="version" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Type" Relationship="IvtLibraryModel.fk_file_type" FromRole="File" ToRole="Type" />
-    <NavigationProperty Name="Book" Relationship="IvtLibraryModel.Book_File" FromRole="File" ToRole="Book" />
-    <NavigationProperty Name="Article" Relationship="IvtLibraryModel.File_Article" FromRole="File" ToRole="Article" />
-    <NavigationProperty Name="Research" Relationship="IvtLibraryModel.Research_File" FromRole="File" ToRole="Research" />
+  </EntityType>
+  <EntityType Name="FileArticle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="content_type" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="data" Type="Binary" Nullable="false" MaxLength="2147483647" FixedLength="false" />
+    <Property Name="type_id" Type="Int32" />
+    <Property Name="version" Type="Int32" Nullable="false" />
+    <Property Name="article_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Article" Relationship="IvtLibraryModel.fk_file_article_article" FromRole="FileArticle" ToRole="Article" />
+    <NavigationProperty Name="Type" Relationship="IvtLibraryModel.fk_file_article_type" FromRole="FileArticle" ToRole="Type" />
+  </EntityType>
+  <EntityType Name="FileBook">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="content_type" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="data" Type="Binary" Nullable="false" MaxLength="2147483647" FixedLength="false" />
+    <Property Name="type_id" Type="Int32" />
+    <Property Name="version" Type="Int32" Nullable="false" />
+    <Property Name="book_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="IvtLibraryModel.fk_file_book_book" FromRole="FileBook" ToRole="Book" />
+    <NavigationProperty Name="Type" Relationship="IvtLibraryModel.fk_file_book_type" FromRole="FileBook" ToRole="Type" />
+  </EntityType>
+  <EntityType Name="FileResearch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="content_type" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="data" Type="Binary" Nullable="false" MaxLength="2147483647" FixedLength="false" />
+    <Property Name="type_id" Type="Int32" />
+    <Property Name="version" Type="Int32" Nullable="false" />
+    <Property Name="research_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Research" Relationship="IvtLibraryModel.fk_file_research_research" FromRole="FileResearch" ToRole="Research" />
+    <NavigationProperty Name="Type" Relationship="IvtLibraryModel.fk_file_research_type" FromRole="FileResearch" ToRole="Type" />
   </EntityType>
   <EntityType Name="Hypothesis">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="explanation" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -1243,7 +1307,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity"  xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Article" Relationship="IvtLibraryModel.Article_Keyword" FromRole="Keyword" ToRole="Article" />
     <NavigationProperty Name="Author" Relationship="IvtLibraryModel.Author_Keyword" FromRole="Keyword" ToRole="Author" />
@@ -1252,23 +1316,23 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="goal" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="tasks" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="progress" Type="Int16" />
+    <NavigationProperty Name="FileResearch" Relationship="IvtLibraryModel.fk_file_research_research" FromRole="Research" ToRole="FileResearch" />
     <NavigationProperty Name="Article" Relationship="IvtLibraryModel.Research_Article" FromRole="Research" ToRole="Article" />
     <NavigationProperty Name="Author" Relationship="IvtLibraryModel.Research_Author" FromRole="Research" ToRole="Author" />
     <NavigationProperty Name="Book" Relationship="IvtLibraryModel.Research_Book" FromRole="Research" ToRole="Book" />
-    <NavigationProperty Name="File" Relationship="IvtLibraryModel.Research_File" FromRole="Research" ToRole="File" />
     <NavigationProperty Name="Theme" Relationship="IvtLibraryModel.Research_Theme" FromRole="Research" ToRole="Theme" />
   </EntityType>
   <EntityType Name="Scale">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Conference" Relationship="IvtLibraryModel.fk_conference_scale" FromRole="Scale" ToRole="Conference" />
   </EntityType>
@@ -1276,7 +1340,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Research" Relationship="IvtLibraryModel.Research_Theme" FromRole="Theme" ToRole="Research" />
@@ -1288,10 +1352,13 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
     <Property Name="name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <Property Name="description" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="File" Relationship="IvtLibraryModel.fk_file_type" FromRole="Type" ToRole="File" />
+    <NavigationProperty Name="FileArticle" Relationship="IvtLibraryModel.fk_file_article_type" FromRole="Type" ToRole="FileArticle" />
+    <NavigationProperty Name="FileBook" Relationship="IvtLibraryModel.fk_file_book_type" FromRole="Type" ToRole="FileBook" />
+    <NavigationProperty Name="FileResearch" Relationship="IvtLibraryModel.fk_file_research_type" FromRole="Type" ToRole="FileResearch" />
   </EntityType>
   <Association Name="fk_article_author_supervisor_id">
     <End Role="Author" Type="IvtLibraryModel.Author" Multiplicity="0..1" />
@@ -1329,15 +1396,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_file_article_article">
+    <End Role="Article" Type="IvtLibraryModel.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FileArticle" Type="IvtLibraryModel.FileArticle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileArticle">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_book_book_type">
-    <End Role="Book_Type" Type="IvtLibraryModel.Book_Type" Multiplicity="1" />
+    <End Role="BookType" Type="IvtLibraryModel.BookType" Multiplicity="1" />
     <End Role="Book" Type="IvtLibraryModel.Book" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Book_Type">
+      <Principal Role="BookType">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Book">
         <PropertyRef Name="book_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_book_book">
+    <End Role="Book" Type="IvtLibraryModel.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FileBook" Type="IvtLibraryModel.FileBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileBook">
+        <PropertyRef Name="book_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1361,6 +1456,56 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="File">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_article_type">
+    <End Role="Type" Type="IvtLibraryModel.Type" Multiplicity="0..1" />
+    <End Role="FileArticle" Type="IvtLibraryModel.FileArticle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileArticle">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_book_type">
+    <End Role="Type" Type="IvtLibraryModel.Type" Multiplicity="0..1" />
+    <End Role="FileBook" Type="IvtLibraryModel.FileBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileBook">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_research_research">
+    <End Role="Research" Type="IvtLibraryModel.Research" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FileResearch" Type="IvtLibraryModel.FileResearch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Research">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileResearch">
+        <PropertyRef Name="research_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_file_research_type">
+    <End Role="Type" Type="IvtLibraryModel.Type" Multiplicity="0..1" />
+    <End Role="FileResearch" Type="IvtLibraryModel.FileResearch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileResearch">
         <PropertyRef Name="type_id" />
       </Dependent>
     </ReferentialConstraint>
@@ -1389,17 +1534,9 @@
     <End Role="Author" Type="IvtLibraryModel.Author" Multiplicity="*" />
     <End Role="Keyword" Type="IvtLibraryModel.Keyword" Multiplicity="*" />
   </Association>
-  <Association Name="Book_File">
-    <End Role="Book" Type="IvtLibraryModel.Book" Multiplicity="*" />
-    <End Role="File" Type="IvtLibraryModel.File" Multiplicity="*" />
-  </Association>
   <Association Name="Discipline_Author">
     <End Role="Author" Type="IvtLibraryModel.Author" Multiplicity="*" />
     <End Role="Discipline" Type="IvtLibraryModel.Discipline" Multiplicity="*" />
-  </Association>
-  <Association Name="File_Article">
-    <End Role="Article" Type="IvtLibraryModel.Article" Multiplicity="*" />
-    <End Role="File" Type="IvtLibraryModel.File" Multiplicity="*" />
   </Association>
   <Association Name="Research_Article">
     <End Role="Article" Type="IvtLibraryModel.Article" Multiplicity="*" />
@@ -1411,10 +1548,6 @@
   </Association>
   <Association Name="Research_Book">
     <End Role="Book" Type="IvtLibraryModel.Book" Multiplicity="*" />
-    <End Role="Research" Type="IvtLibraryModel.Research" Multiplicity="*" />
-  </Association>
-  <Association Name="Research_File">
-    <End Role="File" Type="IvtLibraryModel.File" Multiplicity="*" />
     <End Role="Research" Type="IvtLibraryModel.Research" Multiplicity="*" />
   </Association>
   <Association Name="Research_Theme">
@@ -1436,7 +1569,7 @@
 </Schema>
 </edmx:ConceptualModels>
 <edmx:Mappings>
-<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="IvtLibraryModelStoreContainer" CdmEntityContainer="IvtLibraryEntities">
     <EntitySetMapping Name="Article">
       <EntityTypeMapping TypeName="IvtLibraryModel.Article">
@@ -1477,9 +1610,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Book_Type">
-      <EntityTypeMapping TypeName="IvtLibraryModel.Book_Type">
-        <MappingFragment StoreEntitySet="Book_Type">
+    <EntitySetMapping Name="BookType">
+      <EntityTypeMapping TypeName="IvtLibraryModel.BookType">
+        <MappingFragment StoreEntitySet="BookType">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
@@ -1532,6 +1665,45 @@
           <ScalarProperty Name="data" ColumnName="data" />
           <ScalarProperty Name="type_id" ColumnName="type_id" />
           <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileArticle">
+      <EntityTypeMapping TypeName="IvtLibraryModel.FileArticle">
+        <MappingFragment StoreEntitySet="FileArticle">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="content_type" ColumnName="content_type" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="article_id" ColumnName="article_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileBook">
+      <EntityTypeMapping TypeName="IvtLibraryModel.FileBook">
+        <MappingFragment StoreEntitySet="FileBook">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="content_type" ColumnName="content_type" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileResearch">
+      <EntityTypeMapping TypeName="IvtLibraryModel.FileResearch">
+        <MappingFragment StoreEntitySet="FileResearch">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="content_type" ColumnName="content_type" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="research_id" ColumnName="research_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1639,28 +1811,12 @@
         <ScalarProperty Name="id" ColumnName="keyword_id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="Book_File" TypeName="IvtLibraryModel.Book_File" StoreEntitySet="Book_File">
-      <EndProperty Name="Book">
-        <ScalarProperty Name="id" ColumnName="book_id" />
-      </EndProperty>
-      <EndProperty Name="File">
-        <ScalarProperty Name="id" ColumnName="file_id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="Discipline_Author" TypeName="IvtLibraryModel.Discipline_Author" StoreEntitySet="Discipline_Author">
       <EndProperty Name="Author">
         <ScalarProperty Name="id" ColumnName="author_id" />
       </EndProperty>
       <EndProperty Name="Discipline">
         <ScalarProperty Name="id" ColumnName="discipline_id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="File_Article" TypeName="IvtLibraryModel.File_Article" StoreEntitySet="File_Article">
-      <EndProperty Name="Article">
-        <ScalarProperty Name="id" ColumnName="article_id" />
-      </EndProperty>
-      <EndProperty Name="File">
-        <ScalarProperty Name="id" ColumnName="file_id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="Research_Article" TypeName="IvtLibraryModel.Research_Article" StoreEntitySet="Research_Article">
@@ -1682,14 +1838,6 @@
     <AssociationSetMapping Name="Research_Book" TypeName="IvtLibraryModel.Research_Book" StoreEntitySet="Research_Book">
       <EndProperty Name="Book">
         <ScalarProperty Name="id" ColumnName="book_id" />
-      </EndProperty>
-      <EndProperty Name="Research">
-        <ScalarProperty Name="id" ColumnName="research_id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="Research_File" TypeName="IvtLibraryModel.Research_File" StoreEntitySet="Research_File">
-      <EndProperty Name="File">
-        <ScalarProperty Name="id" ColumnName="file_id" />
       </EndProperty>
       <EndProperty Name="Research">
         <ScalarProperty Name="id" ColumnName="research_id" />
@@ -1732,48 +1880,58 @@
 </edmx:Mappings>
 </edmx:Runtime>
 <edmx:Designer>
-<edmx:Connection><edmx:DesignerInfoPropertySet><edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></edmx:DesignerInfoPropertySet></edmx:Connection>
+  <edmx:Connection>
+    <edmx:DesignerInfoPropertySet>
+      <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+    </edmx:DesignerInfoPropertySet>
+  </edmx:Connection>
 <edmx:Options />
 <edmx:Diagrams >
-      <edmx:Diagram DiagramId="3adfd2ca996746faad733103b468ab04" Name="Диаграмма1" ZoomLevel="73" >
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Article" Width="1.875" PointX="4.75" PointY="1.5" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Article_Article" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Author" Width="1.5" PointX="1.25" PointY="1.25" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_author_supervisor_id" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Author_Article" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Book" Width="1.5" PointX="8" PointY="0.5" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Article_Book" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Author_Book" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Book_Type" Width="1.5" PointX="8.375" PointY="5.375" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.fk_book_book_type" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.City" Width="1.5" PointX="2.75" PointY="7.125" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_city" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Conference" Width="1.5" PointX="5.375" PointY="7.625" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_conference" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Discipline" Width="1.5" PointX="0.5" PointY="6.125" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Discipline_Author" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Draft" Width="1.5" PointX="8.5" PointY="8.5" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.File" Width="1.5" PointX="2.375" PointY="9.25" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Book_File" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.File_Article" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Hypothesis" Width="1.5" PointX="6.375" PointY="13.625" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Research" Width="1.5" PointX="4" PointY="13.25" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Article" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Author" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Book" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Research_File" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Scale" Width="1.5" PointX="5.75" PointY="10.375" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.fk_conference_scale" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Theme" Width="1.5" PointX="9.25" PointY="11.125" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Theme" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Article" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Author" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Book" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Type" Width="1.5" PointX="0.5" PointY="8.125" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_type" />
-        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Keyword" Width="1.5" PointX="2.75" PointY="4.875" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Article_Keyword" />
-        <edmx:AssociationConnector Association="IvtLibraryModel.Author_Keyword" />
+      <edmx:Diagram DiagramId="48b7a60d26b8443f9e7ad1442298c461" Name="Диаграмма1" ZoomLevel="65">
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Article" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Author" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Book" Width="1.5" PointX="12.75" PointY="9.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.BookType" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.City" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Conference" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Discipline" Width="1.5" PointX="9.75" PointY="10.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Draft" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.File" Width="1.5" PointX="10.5" PointY="1.25" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.FileArticle" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.FileBook" Width="1.5" PointX="15" PointY="10" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.FileResearch" Width="1.5" PointX="17.5" PointY="9.75" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Hypothesis" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Keyword" Width="1.5" PointX="7.25" PointY="15.375" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Research" Width="1.5" PointX="20" PointY="2.25" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Scale" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Theme" Width="1.5" PointX="23.25" PointY="10.25" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="IvtLibraryModel.Type" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_author_supervisor_id" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_city" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_article_conference" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_article_article" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_book_book_type" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_book_book" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_conference_scale" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_type" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_article_type" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_book_type" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_research_research" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.fk_file_research_type" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Article_Article" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Article_Book" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Article_Keyword" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Author_Article" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Author_Book" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Author_Keyword" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Discipline_Author" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Article" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Author" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Book" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Research_Theme" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Article" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Author" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="IvtLibraryModel.Theme_Book" ManuallyRouted="false" />
       </edmx:Diagram>
     </edmx:Diagrams>
 </edmx:Designer></edmx:Edmx>

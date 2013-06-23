@@ -22,22 +22,25 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_author_supervisor_id", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Author), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_city", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.City), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_article_conference", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Conference), "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), true)]
-[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_book_book_type", "Book_Type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Book_Type), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_article_article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Article), "FileArticle", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.FileArticle), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_book_book_type", "BookType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.BookType), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_book_book", "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Book), "FileBook", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.FileBook), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_conference_scale", "Scale", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Scale), "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Conference), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_type", "Type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Type), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_article_type", "Type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Type), "FileArticle", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.FileArticle), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_book_type", "Type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Type), "FileBook", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.FileBook), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_research_research", "Research", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IvtLibrary.Research), "FileResearch", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.FileResearch), true)]
+[assembly: EdmRelationshipAttribute("IvtLibraryModel", "fk_file_research_type", "Type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IvtLibrary.Type), "FileResearch", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.FileResearch), true)]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Article1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Book", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Article_Keyword", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Keyword))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Book", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Author_Keyword", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Keyword))]
-[assembly: EdmRelationshipAttribute("IvtLibraryModel", "Book_File", "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Discipline_Author", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Discipline", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Discipline))]
-[assembly: EdmRelationshipAttribute("IvtLibraryModel", "File_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Research_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Research", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Research))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Research_Author", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Research", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Research))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Research_Book", "Book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Book), "Research", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Research))]
-[assembly: EdmRelationshipAttribute("IvtLibraryModel", "Research_File", "File", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.File), "Research", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Research))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Research_Theme", "Research", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Research), "Theme", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Theme))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Theme_Article", "Article", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Article), "Theme", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Theme))]
 [assembly: EdmRelationshipAttribute("IvtLibraryModel", "Theme_Author", "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Author), "Theme", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IvtLibrary.Theme))]
@@ -144,18 +147,18 @@ namespace IvtLibrary
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Book_Type> Book_Type
+        public ObjectSet<BookType> BookType
         {
             get
             {
-                if ((_Book_Type == null))
+                if ((_BookType == null))
                 {
-                    _Book_Type = base.CreateObjectSet<Book_Type>("Book_Type");
+                    _BookType = base.CreateObjectSet<BookType>("BookType");
                 }
-                return _Book_Type;
+                return _BookType;
             }
         }
-        private ObjectSet<Book_Type> _Book_Type;
+        private ObjectSet<BookType> _BookType;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -236,6 +239,54 @@ namespace IvtLibrary
             }
         }
         private ObjectSet<File> _File;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<FileArticle> FileArticle
+        {
+            get
+            {
+                if ((_FileArticle == null))
+                {
+                    _FileArticle = base.CreateObjectSet<FileArticle>("FileArticle");
+                }
+                return _FileArticle;
+            }
+        }
+        private ObjectSet<FileArticle> _FileArticle;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<FileBook> FileBook
+        {
+            get
+            {
+                if ((_FileBook == null))
+                {
+                    _FileBook = base.CreateObjectSet<FileBook>("FileBook");
+                }
+                return _FileBook;
+            }
+        }
+        private ObjectSet<FileBook> _FileBook;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<FileResearch> FileResearch
+        {
+            get
+            {
+                if ((_FileResearch == null))
+                {
+                    _FileResearch = base.CreateObjectSet<FileResearch>("FileResearch");
+                }
+                return _FileResearch;
+            }
+        }
+        private ObjectSet<FileResearch> _FileResearch;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -362,11 +413,11 @@ namespace IvtLibrary
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Book_Type. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet BookType. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToBook_Type(Book_Type book_Type)
+        public void AddToBookType(BookType bookType)
         {
-            base.AddObject("Book_Type", book_Type);
+            base.AddObject("BookType", bookType);
         }
     
         /// <summary>
@@ -407,6 +458,30 @@ namespace IvtLibrary
         public void AddToFile(File file)
         {
             base.AddObject("File", file);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet FileArticle. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToFileArticle(FileArticle fileArticle)
+        {
+            base.AddObject("FileArticle", fileArticle);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet FileBook. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToFileBook(FileBook fileBook)
+        {
+            base.AddObject("FileBook", fileBook);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet FileResearch. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToFileResearch(FileResearch fileResearch)
+        {
+            base.AddObject("FileResearch", fileResearch);
         }
     
         /// <summary>
@@ -861,6 +936,28 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_article_article", "FileArticle")]
+        public EntityCollection<FileArticle> FileArticle
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FileArticle>("IvtLibraryModel.fk_file_article_article", "FileArticle");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FileArticle>("IvtLibraryModel.fk_file_article_article", "FileArticle", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Article_Article", "Article1")]
         public EntityCollection<Article> Article1
         {
@@ -961,28 +1058,6 @@ namespace IvtLibrary
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Author>("IvtLibraryModel.Author_Article", "Author", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "File_Article", "File")]
-        public EntityCollection<File> File
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("IvtLibraryModel.File_Article", "File");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("IvtLibraryModel.File_Article", "File", value);
                 }
             }
         }
@@ -1533,16 +1608,16 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_book_book_type", "Book_Type")]
-        public Book_Type Book_Type
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_book_book_type", "BookType")]
+        public BookType BookType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book_Type>("IvtLibraryModel.fk_book_book_type", "Book_Type").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BookType>("IvtLibraryModel.fk_book_book_type", "BookType").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book_Type>("IvtLibraryModel.fk_book_book_type", "Book_Type").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BookType>("IvtLibraryModel.fk_book_book_type", "BookType").Value = value;
             }
         }
         /// <summary>
@@ -1550,17 +1625,39 @@ namespace IvtLibrary
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Book_Type> Book_TypeReference
+        public EntityReference<BookType> BookTypeReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book_Type>("IvtLibraryModel.fk_book_book_type", "Book_Type");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BookType>("IvtLibraryModel.fk_book_book_type", "BookType");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Book_Type>("IvtLibraryModel.fk_book_book_type", "Book_Type", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BookType>("IvtLibraryModel.fk_book_book_type", "BookType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_book_book", "FileBook")]
+        public EntityCollection<FileBook> FileBook
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FileBook>("IvtLibraryModel.fk_file_book_book", "FileBook");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FileBook>("IvtLibraryModel.fk_file_book_book", "FileBook", value);
                 }
             }
         }
@@ -1605,28 +1702,6 @@ namespace IvtLibrary
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Author>("IvtLibraryModel.Author_Book", "Author", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Book_File", "File")]
-        public EntityCollection<File> File
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("IvtLibraryModel.Book_File", "File");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("IvtLibraryModel.Book_File", "File", value);
                 }
             }
         }
@@ -1682,24 +1757,24 @@ namespace IvtLibrary
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="IvtLibraryModel", Name="Book_Type")]
+    [EdmEntityTypeAttribute(NamespaceName="IvtLibraryModel", Name="BookType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Book_Type : EntityObject
+    public partial class BookType : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта Book_Type.
+        /// Создание нового объекта BookType.
         /// </summary>
         /// <param name="id">Исходное значение свойства id.</param>
         /// <param name="name">Исходное значение свойства name.</param>
-        public static Book_Type CreateBook_Type(global::System.Int32 id, global::System.String name)
+        public static BookType CreateBookType(global::System.Int32 id, global::System.String name)
         {
-            Book_Type book_Type = new Book_Type();
-            book_Type.id = id;
-            book_Type.name = name;
-            return book_Type;
+            BookType bookType = new BookType();
+            bookType.id = id;
+            bookType.name = name;
+            return bookType;
         }
 
         #endregion
@@ -2602,6 +2677,220 @@ namespace IvtLibrary
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="IvtLibraryModel", Name="FileArticle")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FileArticle : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта FileArticle.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства id.</param>
+        /// <param name="name">Исходное значение свойства name.</param>
+        /// <param name="content_type">Исходное значение свойства content_type.</param>
+        /// <param name="data">Исходное значение свойства data.</param>
+        /// <param name="version">Исходное значение свойства version.</param>
+        /// <param name="article_id">Исходное значение свойства article_id.</param>
+        public static FileArticle CreateFileArticle(global::System.Int32 id, global::System.String name, global::System.String content_type, global::System.Byte[] data, global::System.Int32 version, global::System.Int32 article_id)
+        {
+            FileArticle fileArticle = new FileArticle();
+            fileArticle.id = id;
+            fileArticle.name = name;
+            fileArticle.content_type = content_type;
+            fileArticle.data = data;
+            fileArticle.version = version;
+            fileArticle.article_id = article_id;
+            return fileArticle;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false, "name");
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String content_type
+        {
+            get
+            {
+                return _content_type;
+            }
+            set
+            {
+                Oncontent_typeChanging(value);
+                ReportPropertyChanging("content_type");
+                _content_type = StructuralObject.SetValidValue(value, false, "content_type");
+                ReportPropertyChanged("content_type");
+                Oncontent_typeChanged();
+            }
+        }
+        private global::System.String _content_type;
+        partial void Oncontent_typeChanging(global::System.String value);
+        partial void Oncontent_typeChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] data
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_data);
+            }
+            set
+            {
+                OndataChanging(value);
+                ReportPropertyChanging("data");
+                _data = StructuralObject.SetValidValue(value, false, "data");
+                ReportPropertyChanged("data");
+                OndataChanged();
+            }
+        }
+        private global::System.Byte[] _data;
+        partial void OndataChanging(global::System.Byte[] value);
+        partial void OndataChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> type_id
+        {
+            get
+            {
+                return _type_id;
+            }
+            set
+            {
+                Ontype_idChanging(value);
+                ReportPropertyChanging("type_id");
+                _type_id = StructuralObject.SetValidValue(value, "type_id");
+                ReportPropertyChanged("type_id");
+                Ontype_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _type_id;
+        partial void Ontype_idChanging(Nullable<global::System.Int32> value);
+        partial void Ontype_idChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value, "version");
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private global::System.Int32 _version;
+        partial void OnversionChanging(global::System.Int32 value);
+        partial void OnversionChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 article_id
+        {
+            get
+            {
+                return _article_id;
+            }
+            set
+            {
+                Onarticle_idChanging(value);
+                ReportPropertyChanging("article_id");
+                _article_id = StructuralObject.SetValidValue(value, "article_id");
+                ReportPropertyChanged("article_id");
+                Onarticle_idChanged();
+            }
+        }
+        private global::System.Int32 _article_id;
+        partial void Onarticle_idChanging(global::System.Int32 value);
+        partial void Onarticle_idChanged();
+
+        #endregion
+
+        #region Свойства навигации
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -2609,18 +2898,34 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Book_File", "Book")]
-        public EntityCollection<Book> Book
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_article_article", "Article")]
+        public Article Article
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Book>("IvtLibraryModel.Book_File", "Book");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Article>("IvtLibraryModel.fk_file_article_article", "Article").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Article>("IvtLibraryModel.fk_file_article_article", "Article").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Article> ArticleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Article>("IvtLibraryModel.fk_file_article_article", "Article");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Book>("IvtLibraryModel.Book_File", "Book", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Article>("IvtLibraryModel.fk_file_article_article", "Article", value);
                 }
             }
         }
@@ -2631,18 +2936,286 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "File_Article", "Article")]
-        public EntityCollection<Article> Article
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_article_type", "Type")]
+        public Type Type
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Article>("IvtLibraryModel.File_Article", "Article");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_article_type", "Type").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_article_type", "Type").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Type> TypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_article_type", "Type");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Article>("IvtLibraryModel.File_Article", "Article", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Type>("IvtLibraryModel.fk_file_article_type", "Type", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="IvtLibraryModel", Name="FileBook")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FileBook : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта FileBook.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства id.</param>
+        /// <param name="name">Исходное значение свойства name.</param>
+        /// <param name="content_type">Исходное значение свойства content_type.</param>
+        /// <param name="data">Исходное значение свойства data.</param>
+        /// <param name="version">Исходное значение свойства version.</param>
+        /// <param name="book_id">Исходное значение свойства book_id.</param>
+        public static FileBook CreateFileBook(global::System.Int32 id, global::System.String name, global::System.String content_type, global::System.Byte[] data, global::System.Int32 version, global::System.Int32 book_id)
+        {
+            FileBook fileBook = new FileBook();
+            fileBook.id = id;
+            fileBook.name = name;
+            fileBook.content_type = content_type;
+            fileBook.data = data;
+            fileBook.version = version;
+            fileBook.book_id = book_id;
+            return fileBook;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false, "name");
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String content_type
+        {
+            get
+            {
+                return _content_type;
+            }
+            set
+            {
+                Oncontent_typeChanging(value);
+                ReportPropertyChanging("content_type");
+                _content_type = StructuralObject.SetValidValue(value, false, "content_type");
+                ReportPropertyChanged("content_type");
+                Oncontent_typeChanged();
+            }
+        }
+        private global::System.String _content_type;
+        partial void Oncontent_typeChanging(global::System.String value);
+        partial void Oncontent_typeChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] data
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_data);
+            }
+            set
+            {
+                OndataChanging(value);
+                ReportPropertyChanging("data");
+                _data = StructuralObject.SetValidValue(value, false, "data");
+                ReportPropertyChanged("data");
+                OndataChanged();
+            }
+        }
+        private global::System.Byte[] _data;
+        partial void OndataChanging(global::System.Byte[] value);
+        partial void OndataChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> type_id
+        {
+            get
+            {
+                return _type_id;
+            }
+            set
+            {
+                Ontype_idChanging(value);
+                ReportPropertyChanging("type_id");
+                _type_id = StructuralObject.SetValidValue(value, "type_id");
+                ReportPropertyChanged("type_id");
+                Ontype_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _type_id;
+        partial void Ontype_idChanging(Nullable<global::System.Int32> value);
+        partial void Ontype_idChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value, "version");
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private global::System.Int32 _version;
+        partial void OnversionChanging(global::System.Int32 value);
+        partial void OnversionChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 book_id
+        {
+            get
+            {
+                return _book_id;
+            }
+            set
+            {
+                Onbook_idChanging(value);
+                ReportPropertyChanging("book_id");
+                _book_id = StructuralObject.SetValidValue(value, "book_id");
+                ReportPropertyChanged("book_id");
+                Onbook_idChanged();
+            }
+        }
+        private global::System.Int32 _book_id;
+        partial void Onbook_idChanging(global::System.Int32 value);
+        partial void Onbook_idChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_book_book", "Book")]
+        public Book Book
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("IvtLibraryModel.fk_file_book_book", "Book").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("IvtLibraryModel.fk_file_book_book", "Book").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Book> BookReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("IvtLibraryModel.fk_file_book_book", "Book");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Book>("IvtLibraryModel.fk_file_book_book", "Book", value);
                 }
             }
         }
@@ -2653,18 +3226,324 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Research_File", "Research")]
-        public EntityCollection<Research> Research
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_book_type", "Type")]
+        public Type Type
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Research>("IvtLibraryModel.Research_File", "Research");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_book_type", "Type").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_book_type", "Type").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Type> TypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_book_type", "Type");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Research>("IvtLibraryModel.Research_File", "Research", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Type>("IvtLibraryModel.fk_file_book_type", "Type", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="IvtLibraryModel", Name="FileResearch")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FileResearch : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта FileResearch.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства id.</param>
+        /// <param name="name">Исходное значение свойства name.</param>
+        /// <param name="content_type">Исходное значение свойства content_type.</param>
+        /// <param name="data">Исходное значение свойства data.</param>
+        /// <param name="version">Исходное значение свойства version.</param>
+        /// <param name="research_id">Исходное значение свойства research_id.</param>
+        public static FileResearch CreateFileResearch(global::System.Int32 id, global::System.String name, global::System.String content_type, global::System.Byte[] data, global::System.Int32 version, global::System.Int32 research_id)
+        {
+            FileResearch fileResearch = new FileResearch();
+            fileResearch.id = id;
+            fileResearch.name = name;
+            fileResearch.content_type = content_type;
+            fileResearch.data = data;
+            fileResearch.version = version;
+            fileResearch.research_id = research_id;
+            return fileResearch;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false, "name");
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String content_type
+        {
+            get
+            {
+                return _content_type;
+            }
+            set
+            {
+                Oncontent_typeChanging(value);
+                ReportPropertyChanging("content_type");
+                _content_type = StructuralObject.SetValidValue(value, false, "content_type");
+                ReportPropertyChanged("content_type");
+                Oncontent_typeChanged();
+            }
+        }
+        private global::System.String _content_type;
+        partial void Oncontent_typeChanging(global::System.String value);
+        partial void Oncontent_typeChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] data
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_data);
+            }
+            set
+            {
+                OndataChanging(value);
+                ReportPropertyChanging("data");
+                _data = StructuralObject.SetValidValue(value, false, "data");
+                ReportPropertyChanged("data");
+                OndataChanged();
+            }
+        }
+        private global::System.Byte[] _data;
+        partial void OndataChanging(global::System.Byte[] value);
+        partial void OndataChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> type_id
+        {
+            get
+            {
+                return _type_id;
+            }
+            set
+            {
+                Ontype_idChanging(value);
+                ReportPropertyChanging("type_id");
+                _type_id = StructuralObject.SetValidValue(value, "type_id");
+                ReportPropertyChanged("type_id");
+                Ontype_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _type_id;
+        partial void Ontype_idChanging(Nullable<global::System.Int32> value);
+        partial void Ontype_idChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value, "version");
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private global::System.Int32 _version;
+        partial void OnversionChanging(global::System.Int32 value);
+        partial void OnversionChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 research_id
+        {
+            get
+            {
+                return _research_id;
+            }
+            set
+            {
+                Onresearch_idChanging(value);
+                ReportPropertyChanging("research_id");
+                _research_id = StructuralObject.SetValidValue(value, "research_id");
+                ReportPropertyChanged("research_id");
+                Onresearch_idChanged();
+            }
+        }
+        private global::System.Int32 _research_id;
+        partial void Onresearch_idChanging(global::System.Int32 value);
+        partial void Onresearch_idChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_research_research", "Research")]
+        public Research Research
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Research>("IvtLibraryModel.fk_file_research_research", "Research").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Research>("IvtLibraryModel.fk_file_research_research", "Research").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Research> ResearchReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Research>("IvtLibraryModel.fk_file_research_research", "Research");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Research>("IvtLibraryModel.fk_file_research_research", "Research", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_research_type", "Type")]
+        public Type Type
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_research_type", "Type").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_research_type", "Type").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Type> TypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Type>("IvtLibraryModel.fk_file_research_type", "Type");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Type>("IvtLibraryModel.fk_file_research_type", "Type", value);
                 }
             }
         }
@@ -3117,6 +3996,28 @@ namespace IvtLibrary
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_research_research", "FileResearch")]
+        public EntityCollection<FileResearch> FileResearch
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FileResearch>("IvtLibraryModel.fk_file_research_research", "FileResearch");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FileResearch>("IvtLibraryModel.fk_file_research_research", "FileResearch", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Research_Article", "Article")]
         public EntityCollection<Article> Article
         {
@@ -3173,28 +4074,6 @@ namespace IvtLibrary
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Book>("IvtLibraryModel.Research_Book", "Book", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "Research_File", "File")]
-        public EntityCollection<File> File
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("IvtLibraryModel.Research_File", "File");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("IvtLibraryModel.Research_File", "File", value);
                 }
             }
         }
@@ -3655,6 +4534,72 @@ namespace IvtLibrary
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("IvtLibraryModel.fk_file_type", "File", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_article_type", "FileArticle")]
+        public EntityCollection<FileArticle> FileArticle
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FileArticle>("IvtLibraryModel.fk_file_article_type", "FileArticle");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FileArticle>("IvtLibraryModel.fk_file_article_type", "FileArticle", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_book_type", "FileBook")]
+        public EntityCollection<FileBook> FileBook
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FileBook>("IvtLibraryModel.fk_file_book_type", "FileBook");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FileBook>("IvtLibraryModel.fk_file_book_type", "FileBook", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("IvtLibraryModel", "fk_file_research_type", "FileResearch")]
+        public EntityCollection<FileResearch> FileResearch
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FileResearch>("IvtLibraryModel.fk_file_research_type", "FileResearch");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FileResearch>("IvtLibraryModel.fk_file_research_type", "FileResearch", value);
                 }
             }
         }

@@ -55,7 +55,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                File file = new File();
+                FileBook file = new FileBook();
                 file.type_id = db.Type.Single(t => t.name == "Книга").id;
                 file.name = fileName;
                 var fileElement = Request.Files[0];
@@ -64,9 +64,10 @@ namespace IvtLibrary.Controllers
                 byte[] fileData = new byte[stream.Length];
                 stream.Read(fileData, 0, (int)stream.Length);
                 file.data = fileData;
-                db.File.AddObject(file);
+                file.book_id = book.id;
+                db.FileBook.AddObject(file);
                 db.Book.AddObject(book);
-                book.File.Add(file);
+                book.FileBook.Add(file);
                 SetBookAuthors(book.Author, authorIds);
                 SetBookThemes(book.Theme, themeIds);
                 db.SaveChanges();

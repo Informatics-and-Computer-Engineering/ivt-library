@@ -64,18 +64,19 @@ namespace IvtLibrary.Controllers
 
                 for(int i =0; i < fileName.Length;i++)
                 {
-                    File file = new File();
+                    FileArticle file = new FileArticle();
                     file.type_id = typeId[i];
                     file.name = fileName[i];
                     file.version = version[i];
                     var fileElement = Request.Files[i];
                     file.content_type = fileElement.ContentType;
+                    file.article_id = article.id;
                     Stream stream = fileElement.InputStream;
                     byte[] fileData = new byte[stream.Length];
                     stream.Read(fileData, 0, (int)stream.Length);
                     file.data = fileData;
-                    db.File.AddObject(file);
-                    article.File.Add(file);
+                    db.FileArticle.AddObject(file);
+                    article.FileArticle.Add(file);
                 }
                 
                 SetArticleAuthors(article.Author, authorIds);
