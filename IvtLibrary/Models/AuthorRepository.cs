@@ -5,10 +5,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Globalization;
-using System.Web.Security;
 
 namespace IvtLibrary.Models
 { 
@@ -67,15 +63,7 @@ namespace IvtLibrary.Models
         public List<SelectListItem> FillAuthorsCheckBoxList(IEnumerable<Author> authors)
         {
             // получаем список тем, привязанных к автору, если он есть
-            HashSet<int> authorIds;
-            if (authors != null)
-            {
-                authorIds = new HashSet<int>(authors.Select(c => c.id));
-            }
-            else
-            {
-                authorIds = new HashSet<int>();
-            }
+            HashSet<int> authorIds = authors != null ? new HashSet<int>(authors.Select(c => c.id)) : new HashSet<int>();
             var allAuthors = db.Author;
             var authorsCheckBoxList = new List<SelectListItem>();
             foreach (var author in allAuthors)

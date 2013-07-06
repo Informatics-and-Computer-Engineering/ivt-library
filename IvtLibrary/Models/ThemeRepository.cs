@@ -52,15 +52,7 @@ namespace IvtLibrary.Models
         public List<SelectListItem> FillThemesCheckBoxList(IEnumerable<Theme> themes)
         {
             // получаем список тем, привязанных к автору, если он есть
-            HashSet<int> themeIds;
-            if (themes != null)
-            {
-                themeIds = new HashSet<int>(themes.Select(c => c.id));
-            }
-            else
-            {
-                themeIds = new HashSet<int>();
-            }
+            HashSet<int> themeIds = themes != null ? new HashSet<int>(themes.Select(c => c.id)) : new HashSet<int>();
             var allThemes = db.Theme;
             var themesCheckBoxList = new List<SelectListItem>();
             foreach (var theme in allThemes)

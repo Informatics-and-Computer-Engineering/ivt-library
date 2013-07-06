@@ -32,9 +32,9 @@
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.ActionLink("Редактирование", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Подробности", "Details", new { id=item.id }) |
-            @Html.ActionLink("Удаление", "Delete", new { id=item.id })
+            @Html.ActionLink("Редактирование", "Edit", new { item.id }) |
+            @Html.ActionLink("Подробности", "Details", new { item.id }) |
+            @Html.ActionLink("Удаление", "Delete", new { item.id })
         </td>
     </tr>
 }

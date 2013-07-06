@@ -10,13 +10,13 @@ namespace IvtLibrary.Helpers
     {
         public static MvcHtmlString CheckBoxList(this HtmlHelper htmlHelper, string name, IEnumerable<SelectListItem> listInfo)
         {
-            return htmlHelper.CheckBoxList(name, listInfo, ((IDictionary<string, object>) null));
+            return htmlHelper.CheckBoxList(name, listInfo, null);
         }
 
         public static MvcHtmlString CheckBoxList(this HtmlHelper htmlHelper, string name, IEnumerable<SelectListItem> listInfo,
                                           object htmlAttributes)
         {
-            return htmlHelper.CheckBoxList(name, listInfo, ((IDictionary<string, object>)new RouteValueDictionary(htmlAttributes)));
+            return htmlHelper.CheckBoxList(name, listInfo, new RouteValueDictionary(htmlAttributes));
         }
 
         public static MvcHtmlString CheckBoxList(this HtmlHelper htmlHelper, string name, IEnumerable<SelectListItem> listInfo,
@@ -36,7 +36,7 @@ namespace IvtLibrary.Helpers
                 {
                     builder.MergeAttribute("checked", "checked");
                 }
-                builder.MergeAttributes<string, object>(htmlAttributes);
+                builder.MergeAttributes(htmlAttributes);
                 builder.MergeAttribute("type", "checkbox");
                 builder.MergeAttribute("value", info.Value);
                 builder.MergeAttribute("name", name);

@@ -64,10 +64,7 @@ namespace IvtLibrary.Controllers
 
                 for(int i =0; i < fileName.Length;i++)
                 {
-                    FileArticle file = new FileArticle();
-                    file.type_id = typeId[i];
-                    file.name = fileName[i];
-                    file.version = version[i];
+                    FileArticle file = new FileArticle {type_id = typeId[i], name = fileName[i], version = version[i]};
                     var fileElement = Request.Files[i];
                     file.content_type = fileElement.ContentType;
                     file.article_id = article.id;

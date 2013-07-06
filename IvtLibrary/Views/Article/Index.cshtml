@@ -1,5 +1,4 @@
-﻿@using IvtLibrary.Helpers
-@using System.Web.Mvc.Html
+﻿@using System.Web.Mvc.Html
 @model IEnumerable<IvtLibrary.Article>
 
 @{
@@ -45,9 +44,9 @@
         <td>@Html.DisplayFor(modelItem => item.conference_start_date)</td>
         <td>@Html.DisplayFor(modelItem => item.conference_end_date)</td>
         <td>@Html.DisplayFor(modelItem => item.publication_date)</td>
-        <td>@Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
+        <td>@Html.ActionLink("Редактировать", "Edit", new { item.id }) |
+            @Html.ActionLink("Подробное описание", "Details", new { item.id }) |
+            @Html.ActionLink("Удалить", "Delete", new { item.id })
         </td>
 
     </tr>

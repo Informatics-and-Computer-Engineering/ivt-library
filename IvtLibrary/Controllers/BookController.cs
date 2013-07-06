@@ -55,9 +55,7 @@ namespace IvtLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                FileBook file = new FileBook();
-                file.type_id = db.Type.Single(t => t.name == "Книга").id;
-                file.name = fileName;
+                FileBook file = new FileBook {type_id = db.Type.Single(t => t.name == "Книга").id, name = fileName};
                 var fileElement = Request.Files[0];
                 file.content_type = fileElement.ContentType;
                 Stream stream = fileElement.InputStream;

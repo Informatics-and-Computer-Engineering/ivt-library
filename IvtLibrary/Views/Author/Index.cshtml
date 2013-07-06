@@ -34,9 +34,9 @@
             <td>@Html.DisplayFor(modelItem => item.first_name)</td>
             <td>@Html.DisplayFor(modelItem => item.middle_name)</td>
             <td>
-                @Html.ActionLink("Изменить", "Edit", new { id=item.id }) |
-                @Html.ActionLink("Подробное описание", "Details", new { id=item.id }) |
-                @Html.ActionLink("Удалить", "Delete", new { id=item.id })
+                @Html.ActionLink("Изменить", "Edit", new { item.id }) |
+                @Html.ActionLink("Подробное описание", "Details", new { item.id }) |
+                @Html.ActionLink("Удалить", "Delete", new { item.id })
             </td>
         </tr>
     }
