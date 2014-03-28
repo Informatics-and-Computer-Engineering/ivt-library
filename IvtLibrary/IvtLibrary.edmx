@@ -1,8 +1,7 @@
-﻿<!---->
-<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
 <edmx:Runtime>
 <edmx:StorageModels>
-<Schema Namespace="IvtLibraryModel.Store" Alias="Self" Provider="npgsql" ProviderManifestToken="9.2.2" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="IvtLibraryModel.Store" Alias="Self" Provider="Npgsql" ProviderManifestToken="9.2.2" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="IvtLibraryModelStoreContainer">
     <EntitySet Name="Article" EntityType="IvtLibraryModel.Store.Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
     <EntitySet Name="Article_Article" EntityType="IvtLibraryModel.Store.Article_Article" store:Type="Tables" Schema="public" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"/>
