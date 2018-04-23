@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Library.Models
 {
-    public partial class libraryContext : DbContext
+    public partial class LibraryContext : DbContext
     {
         public virtual DbSet<Article> Article { get; set; }
         public virtual DbSet<ArticleArticle> ArticleArticle { get; set; }
