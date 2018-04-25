@@ -14,6 +14,6 @@ namespace Library.Models
         public int ArticleId { get; set; }
 
         public Article Article { get; set; }
-        public Type Type { get; set; }
+        public FileType Type { get; set; }
     }
 }

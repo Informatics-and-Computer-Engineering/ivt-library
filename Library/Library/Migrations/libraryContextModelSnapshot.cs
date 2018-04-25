@@ -664,6 +664,34 @@ namespace Library.Migrations
                     b.HasAnnotation("Npgsql:Comment", "Файлы исследований. Таблица наследована  от общей таблицы файлов.");
                 });
 
+            modelBuilder.Entity("Library.Models.FileType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasDefaultValueSql("nextval('\"Type_id_seq\"'::regclass)")
+                        .HasAnnotation("Npgsql:Comment", "Уникальный внутренний идентификатор.");
+
+                    b.Property<string>("Description")
+                        .HasColumnName("description")
+                        .HasAnnotation("Npgsql:Comment", "Описание типа.");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnName("name")
+                        .HasAnnotation("Npgsql:Comment", "Название типа.");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasName("uk_type");
+
+                    b.ToTable("file_type");
+
+                    b.HasAnnotation("Npgsql:Comment", "Тип содержимого тех или иных элементов.");
+                });
+
             modelBuilder.Entity("Library.Models.Hypothesis", b =>
                 {
                     b.Property<long>("Id")
@@ -935,34 +963,6 @@ namespace Library.Migrations
                     b.HasAnnotation("Npgsql:Comment", "Таблица, связывающая книги и темы.");
                 });
 
-            modelBuilder.Entity("Library.Models.Type", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
-                        .HasDefaultValueSql("nextval('\"Type_id_seq\"'::regclass)")
-                        .HasAnnotation("Npgsql:Comment", "Уникальный внутренний идентификатор.");
-
-                    b.Property<string>("Description")
-                        .HasColumnName("description")
-                        .HasAnnotation("Npgsql:Comment", "Описание типа.");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnName("name")
-                        .HasAnnotation("Npgsql:Comment", "Название типа.");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique()
-                        .HasName("uk_type");
-
-                    b.ToTable("type");
-
-                    b.HasAnnotation("Npgsql:Comment", "Тип содержимого тех или иных элементов.");
-                });
-
             modelBuilder.Entity("Library.Models.Article", b =>
                 {
                     b.HasOne("Library.Models.City", "City")
@@ -1097,7 +1097,7 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.File", b =>
                 {
-                    b.HasOne("Library.Models.Type", "Type")
+                    b.HasOne("Library.Models.FileType", "Type")
                         .WithMany("File")
                         .HasForeignKey("TypeId")
                         .HasConstraintName("fk_file_type");
@@ -1111,7 +1111,7 @@ namespace Library.Migrations
                         .HasConstraintName("fk_file_article_article")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Library.Models.Type", "Type")
+                    b.HasOne("Library.Models.FileType", "Type")
                         .WithMany("FileArticle")
                         .HasForeignKey("TypeId")
                         .HasConstraintName("fk_file_article_type");
@@ -1125,7 +1125,7 @@ namespace Library.Migrations
                         .HasConstraintName("fk_file_book_book")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Library.Models.Type", "Type")
+                    b.HasOne("Library.Models.FileType", "Type")
                         .WithMany("FileBook")
                         .HasForeignKey("TypeId")
                         .HasConstraintName("fk_file_book_type");
@@ -1139,7 +1139,7 @@ namespace Library.Migrations
                         .HasConstraintName("fk_file_research_research")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Library.Models.Type", "Type")
+                    b.HasOne("Library.Models.FileType", "Type")
                         .WithMany("FileResearch")
                         .HasForeignKey("TypeId")
                         .HasConstraintName("fk_file_research_type");

@@ -12,6 +12,6 @@ namespace Library.Models
         public int? TypeId { get; set; }
         public int Version { get; set; }
 
-        public Type Type { get; set; }
+        public FileType Type { get; set; }
     }
 }

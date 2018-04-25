@@ -37,7 +37,7 @@ namespace Library.Models
         public virtual DbSet<ThemeArticle> ThemeArticle { get; set; }
         public virtual DbSet<ThemeAuthor> ThemeAuthor { get; set; }
         public virtual DbSet<ThemeBook> ThemeBook { get; set; }
-        public virtual DbSet<Type> Type { get; set; }
+        public virtual DbSet<FileType> FileType { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -1059,9 +1059,9 @@ namespace Library.Models
                     .HasConstraintName("fk_theme_book_theme");
             });
 
-            modelBuilder.Entity<Type>(entity =>
+            modelBuilder.Entity<FileType>(entity =>
             {
-                entity.ToTable("type");
+                entity.ToTable("file_type");
 
                 entity.ForNpgsqlHasComment("Тип содержимого тех или иных элементов.");
 

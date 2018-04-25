@@ -14,6 +14,6 @@ namespace Library.Models
         public int ResearchId { get; set; }
 
         public Research Research { get; set; }
-        public Type Type { get; set; }
+        public FileType Type { get; set; }
     }
 }

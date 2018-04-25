@@ -14,6 +14,6 @@ namespace Library.Models
         public int BookId { get; set; }
 
         public Book Book { get; set; }
-        public Type Type { get; set; }
+        public FileType Type { get; set; }
     }
 }
