@@ -1,10 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Library.Models
 {
-    public partial class LibraryContext : DbContext
+    public class LibraryContext : DbContext
     {
         public virtual DbSet<Article> Article { get; set; }
         public virtual DbSet<ArticleArticle> ArticleArticle { get; set; }
@@ -39,14 +37,9 @@ namespace Library.Models
         public virtual DbSet<ThemeBook> ThemeBook { get; set; }
         public virtual DbSet<FileType> FileType { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql(@"Host=localhost;Database=library;Username=postgres;Password=password");
-            }
-        }
+        public LibraryContext(DbContextOptions options) : base(options) { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

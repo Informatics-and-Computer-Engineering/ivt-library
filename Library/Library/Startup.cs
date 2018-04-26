@@ -28,7 +28,8 @@ namespace Library
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            var connectionString = Configuration.GetConnectionString("LibraryContext");
+            services.AddEntityFrameworkNpgsql().AddDbContext<LibraryContext>(options => options.UseNpgsql(connectionString));
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
