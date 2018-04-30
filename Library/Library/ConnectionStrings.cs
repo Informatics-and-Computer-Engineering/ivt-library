@@ -7,6 +7,7 @@ namespace Library
 {
     public class ConnectionStrings
     {
+        public string DefaultContext { get; set; }
         public string LibraryContext { get; set; }
     }
 }

@@ -20,33 +20,33 @@ namespace Library
             //Configuration = configuration;
         }
 
+        private void GenerateDefaultConnectionString()
+        {
+            if (!File.Exists("./connectionstrings.json"))
+            {
+                var defaultConnectionString = new ConnectionStrings();
+                defaultConnectionString.DefaultContext = "Server=(localdb)\\mssqllocaldb;Database=aspnet-Library-D666C126-6325-4153-9837-F96FEE19D584;Trusted_Connection=True;MultipleActiveResultSets=true";
+                defaultConnectionString.LibraryContext = "Host=localhost;Database=library;Username=postgres;Password=your_password";
+                File.WriteAllText("./connectionstrings.json", JsonConvert.SerializeObject(defaultConnectionString));
+            }
+        }
+
         //public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
-            void GenerateDefaultConnectionString()
-            {
-                if (!File.Exists("./connectionstrings.json"))
-                {
-                    var defaultConnectionString = new ConnectionStrings();
-                    defaultConnectionString.LibraryContext = "Host=localhost;Database=library;Username=postgres;Password=your_password";
-                    File.WriteAllText("./connectionstrings.json", JsonConvert.SerializeObject(defaultConnectionString));
-                    
-                }
-            }
-
             GenerateDefaultConnectionString();
 
-            //services.AddDbContext<ApplicationDbContext>(options =>
-              //options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=aspnet-Library-D666C126-6325-4153-9837-F96FEE19D584;Trusted_Connection=True;MultipleActiveResultSets=true"));
-
             var json = System.IO.File.ReadAllText("./connectionstrings.json");
-            var connectionString = JsonConvert.DeserializeObject<ConnectionStrings>(json).LibraryContext;
+            var connectionStrings = JsonConvert.DeserializeObject<ConnectionStrings>(json);
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionStrings.DefaultContext));
 
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<LibraryContext>(options => options.UseNpgsql(connectionString));
+                .AddDbContext<LibraryContext>(options => options.UseNpgsql(connectionStrings.LibraryContext));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
