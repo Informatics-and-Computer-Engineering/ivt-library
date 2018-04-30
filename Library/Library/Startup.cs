@@ -7,7 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Library.Data;
 using Library.Models;
 using Library.Services;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using File = System.IO.File;
 
 namespace Library
 {
@@ -24,11 +26,24 @@ namespace Library
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=aspnet-Library-D666C126-6325-4153-9837-F96FEE19D584;Trusted_Connection=True;MultipleActiveResultSets=true"));
+            void GenerateDefaultConnectionString()
+            {
+                if (!File.Exists("./connectionstrings.json"))
+                {
+                    var defaultConnectionString = new ConnectionStrings();
+                    defaultConnectionString.LibraryContext = "Host=localhost;Database=library;Username=postgres;Password=your_password";
+                    File.WriteAllText("./connectionstrings.json", JsonConvert.SerializeObject(defaultConnectionString));
+                    
+                }
+            }
+
+            GenerateDefaultConnectionString();
+
+            //services.AddDbContext<ApplicationDbContext>(options =>
+              //options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=aspnet-Library-D666C126-6325-4153-9837-F96FEE19D584;Trusted_Connection=True;MultipleActiveResultSets=true"));
 
             var json = System.IO.File.ReadAllText("./connectionstrings.json");
-            var connectionString = JObject.Parse(json).GetValue("LibraryContext").ToString();
+            var connectionString = JsonConvert.DeserializeObject<ConnectionStrings>(json).LibraryContext;
 
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<LibraryContext>(options => options.UseNpgsql(connectionString));
