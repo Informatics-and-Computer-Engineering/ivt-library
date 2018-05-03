@@ -14,8 +14,8 @@ namespace Library.Models
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
         public string Description { get; set; }
+        public string Name { get; set; }
 
         public ICollection<ResearchTheme> ResearchTheme { get; set; }
         public ICollection<ThemeArticle> ThemeArticle { get; set; }

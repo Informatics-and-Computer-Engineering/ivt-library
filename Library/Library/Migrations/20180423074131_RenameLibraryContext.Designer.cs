@@ -10,7 +10,7 @@ using System;
 
 namespace Library.Migrations
 {
-    [DbContext(typeof(LibraryContext))]
+    [DbContext(typeof(Models.LibraryContext))]
     [Migration("20180423074131_RenameLibraryContext")]
     partial class RenameLibraryContext
     {

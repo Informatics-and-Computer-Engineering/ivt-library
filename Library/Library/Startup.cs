@@ -25,8 +25,7 @@ namespace Library
             if (!File.Exists("./connectionstrings.json"))
             {
                 var defaultConnectionString = new ConnectionStrings();
-                defaultConnectionString.DefaultContext = "Server=(localdb)\\mssqllocaldb;Database=aspnet-Library-D666C126-6325-4153-9837-F96FEE19D584;Trusted_Connection=True;MultipleActiveResultSets=true";
-                defaultConnectionString.LibraryContext = "Host=localhost;Database=library;Username=postgres;Password=your_password";
+                defaultConnectionString.LibraryConnection = "Host=localhost;Database=library;Username=postgres;Password=your_password";
                 File.WriteAllText("./connectionstrings.json", JsonConvert.SerializeObject(defaultConnectionString));
             }
         }
@@ -42,16 +41,15 @@ namespace Library
             var json = System.IO.File.ReadAllText("./connectionstrings.json");
             var connectionStrings = JsonConvert.DeserializeObject<ConnectionStrings>(json);
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionStrings.DefaultContext));
+            services.AddDbContext<LibraryContext>(options =>
+                options.UseNpgsql(connectionStrings.LibraryConnection));
 
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<LibraryContext>(options => options.UseNpgsql(connectionStrings.LibraryContext));
+                .AddDbContext<LibraryContext>(options => options.UseNpgsql(connectionStrings.LibraryConnection));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddEntityFrameworkStores<LibraryContext>()
                 .AddDefaultTokenProviders();
-
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 

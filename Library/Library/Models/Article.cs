@@ -18,19 +18,19 @@ namespace Library.Models
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int? CityId { get; set; }
-        public int ConferenceId { get; set; }
-        public int? Year { get; set; }
         public string Bibliography { get; set; }
-        public int? SupervisorId { get; set; }
-        public DateTime? ConferenceStartDate { get; set; }
+        public int? CityId { get; set; }
         public DateTime? ConferenceEndDate { get; set; }
-        public DateTime? PublicationDate { get; set; }
-        public int? Pages { get; set; }
-        public int? Page { get; set; }
-        public int? Volume { get; set; }
+        public int ConferenceId { get; set; }
         public int? ConferenceNumber { get; set; }
+        public DateTime? ConferenceStartDate { get; set; }
+        public string Name { get; set; }
+        public int? Page { get; set; }
+        public int? Pages { get; set; }
+        public DateTime? PublicationDate { get; set; }
+        public int? SupervisorId { get; set; }
+        public int? Volume { get; set; }
+        public int? Year { get; set; }
 
         public City City { get; set; }
         public Conference Conference { get; set; }

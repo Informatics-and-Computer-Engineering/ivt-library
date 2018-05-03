@@ -10,7 +10,7 @@ using System;
 
 namespace Library.Migrations
 {
-    [DbContext(typeof(LibraryContext))]
+    [DbContext(typeof(Models.LibraryContext))]
     [Migration("20180425073442_TypetoFileTypeInDB")]
     partial class TypetoFileTypeInDB
     {

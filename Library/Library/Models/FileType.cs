@@ -12,10 +12,10 @@ namespace Library.Models
             FileBook = new HashSet<FileBook>();
             FileResearch = new HashSet<FileResearch>();
         }
-        
+
         public int Id { get; set; }
-        public string Name { get; set; }
         public string Description { get; set; }
+        public string Name { get; set; }
 
         public ICollection<File> File { get; set; }
         public ICollection<FileArticle> FileArticle { get; set; }

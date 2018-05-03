@@ -18,8 +18,8 @@ namespace Library.Models
 
         public int Id { get; set; }
         public string FirstName { get; set; }
-        public string MiddleName { get; set; }
         public string LastName { get; set; }
+        public string MiddleName { get; set; }
 
         public ICollection<Article> Article { get; set; }
         public ICollection<AuthorArticle> AuthorArticle { get; set; }

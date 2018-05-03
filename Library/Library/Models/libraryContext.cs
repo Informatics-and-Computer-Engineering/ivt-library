@@ -1,13 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Library.Models
 {
-    public class LibraryContext : DbContext
+    public partial class LibraryContext : IdentityDbContext<ApplicationUser, ApplicationRole, int>
     {
         public virtual DbSet<Article> Article { get; set; }
         public virtual DbSet<ArticleArticle> ArticleArticle { get; set; }
         public virtual DbSet<ArticleBook> ArticleBook { get; set; }
         public virtual DbSet<ArticleKeyword> ArticleKeyword { get; set; }
+        public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
+        public virtual DbSet<ApplicationRole> ApplicationRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
+        public virtual DbSet<ApplicationUser> AspNetUsers { get; set; }
+        public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<AuthorArticle> AuthorArticle { get; set; }
         public virtual DbSet<AuthorBook> AuthorBook { get; set; }
@@ -23,6 +33,7 @@ namespace Library.Models
         public virtual DbSet<FileArticle> FileArticle { get; set; }
         public virtual DbSet<FileBook> FileBook { get; set; }
         public virtual DbSet<FileResearch> FileResearch { get; set; }
+        public virtual DbSet<FileType> FileType { get; set; }
         public virtual DbSet<Hypothesis> Hypothesis { get; set; }
         public virtual DbSet<Keyword> Keyword { get; set; }
         public virtual DbSet<Research> Research { get; set; }
@@ -35,19 +46,28 @@ namespace Library.Models
         public virtual DbSet<ThemeArticle> ThemeArticle { get; set; }
         public virtual DbSet<ThemeAuthor> ThemeAuthor { get; set; }
         public virtual DbSet<ThemeBook> ThemeBook { get; set; }
-        public virtual DbSet<FileType> FileType { get; set; }
 
-        public LibraryContext(DbContextOptions options) : base(options) { }
+        public LibraryContext(DbContextOptions<LibraryContext> options)
+                : base(options)
+        {
+        }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Article>(entity =>
             {
                 entity.ToTable("article");
 
                 entity.ForNpgsqlHasComment("Статьи и публикации.");
+
+                entity.HasIndex(e => e.CityId);
+
+                entity.HasIndex(e => e.ConferenceId);
 
                 entity.HasIndex(e => e.SupervisorId)
                     .HasName("fki_article_author_supervisor_id");
@@ -142,6 +162,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Ссылки статей на другие статьи в списке литературы.");
 
+                entity.HasIndex(e => e.ReferencedArticleId);
+
                 entity.Property(e => e.HostArticleId)
                     .HasColumnName("host_article_id")
                     .ForNpgsqlHasComment("Статья, которая ссылается на другую.");
@@ -169,6 +191,8 @@ namespace Library.Models
                 entity.ToTable("article_book");
 
                 entity.ForNpgsqlHasComment("Таблица книг, используемых в списках литературы статей.");
+
+                entity.HasIndex(e => e.BookId);
 
                 entity.Property(e => e.ArticleId)
                     .HasColumnName("article_id")
@@ -198,6 +222,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Промежуточная таблица связывающая статьи и ключевые слова.");
 
+                entity.HasIndex(e => e.KeywordId);
+
                 entity.Property(e => e.ArticleId)
                     .HasColumnName("article_id")
                     .ForNpgsqlHasComment("id статьи.");
@@ -216,6 +242,65 @@ namespace Library.Models
                     .HasForeignKey(d => d.KeywordId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_article_keyword_keyword");
+            });
+
+            modelBuilder.Entity<AspNetRoleClaims>(entity =>
+            {
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.AspNetRoleClaims)
+                    .HasForeignKey(d => d.RoleId);
+            });
+
+            modelBuilder.Entity<ApplicationRole>(entity =>
+            {
+                entity.HasIndex(e => e.NormalizedName)
+                    .HasName("RoleNameIndex");
+            });
+
+            modelBuilder.Entity<AspNetUserClaims>(entity =>
+            {
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AspNetUserClaims)
+                    .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<AspNetUserLogins>(entity =>
+            {
+                entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AspNetUserLogins)
+                    .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<AspNetUserRoles>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.RoleId });
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.AspNetUserRoles)
+                    .HasForeignKey(d => d.RoleId);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AspNetUserRoles)
+                    .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<ApplicationUser>(entity =>
+            {
+                entity.HasIndex(e => e.NormalizedEmail)
+                    .HasName("EmailIndex");
+
+                entity.HasIndex(e => e.NormalizedUserName)
+                    .HasName("UserNameIndex")
+                    .IsUnique();
+            });
+
+            modelBuilder.Entity<AspNetUserTokens>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
+
+                entity.Property(e => e.UserId).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<Author>(entity =>
@@ -251,6 +336,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Таблица, связывающая статьи и их авторов.");
 
+                entity.HasIndex(e => e.ArticleId);
+
                 entity.Property(e => e.AuthorId)
                     .HasColumnName("author_id")
                     .ForNpgsqlHasComment("id автора.");
@@ -278,6 +365,8 @@ namespace Library.Models
                 entity.ToTable("author_book");
 
                 entity.ForNpgsqlHasComment("Таблица, связывающая авторов и их книги.");
+
+                entity.HasIndex(e => e.BookId);
 
                 entity.Property(e => e.AuthorId)
                     .HasColumnName("author_id")
@@ -307,6 +396,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Промежуточная таблица, связывающая авторов и ключевые слова.");
 
+                entity.HasIndex(e => e.KeywordId);
+
                 entity.Property(e => e.AuthorId)
                     .HasColumnName("author_id")
                     .ForNpgsqlHasComment("id автора.");
@@ -332,6 +423,8 @@ namespace Library.Models
                 entity.ToTable("book");
 
                 entity.ForNpgsqlHasComment("Книги.");
+
+                entity.HasIndex(e => e.BookTypeId);
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
@@ -488,6 +581,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Промежуточная таблица связывающая преподавателей и предметы.");
 
+                entity.HasIndex(e => e.AuthorId);
+
                 entity.Property(e => e.DisciplineId)
                     .HasColumnName("discipline_id")
                     .ForNpgsqlHasComment("id дисциплины.");
@@ -582,6 +677,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Файлы статей. Таблица наследована от общей таблицы файлов.");
 
+                entity.HasIndex(e => e.ArticleId);
+
                 entity.HasIndex(e => new { e.TypeId, e.ArticleId })
                     .HasName("ix_file_article_type_article");
 
@@ -634,6 +731,8 @@ namespace Library.Models
                 entity.ToTable("file_book");
 
                 entity.ForNpgsqlHasComment("Файлы книиг. Таблица наследована  от общей таблицы файлов.");
+
+                entity.HasIndex(e => e.BookId);
 
                 entity.HasIndex(e => new { e.TypeId, e.BookId })
                     .HasName("ix_file_book_type_book");
@@ -688,6 +787,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Файлы исследований. Таблица наследована  от общей таблицы файлов.");
 
+                entity.HasIndex(e => e.ResearchId);
+
                 entity.HasIndex(e => new { e.TypeId, e.ResearchId })
                     .HasName("ix_file_research_type_research");
 
@@ -733,6 +834,31 @@ namespace Library.Models
                     .WithMany(p => p.FileResearch)
                     .HasForeignKey(d => d.TypeId)
                     .HasConstraintName("fk_file_research_type");
+            });
+
+            modelBuilder.Entity<FileType>(entity =>
+            {
+                entity.ToTable("file_type");
+
+                entity.ForNpgsqlHasComment("Тип содержимого тех или иных элементов.");
+
+                entity.HasIndex(e => e.Name)
+                    .HasName("uk_type")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('\"Type_id_seq\"'::regclass)")
+                    .ForNpgsqlHasComment("Уникальный внутренний идентификатор.");
+
+                entity.Property(e => e.Description)
+                    .HasColumnName("description")
+                    .ForNpgsqlHasComment("Описание типа.");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .ForNpgsqlHasComment("Название типа.");
             });
 
             modelBuilder.Entity<Hypothesis>(entity =>
@@ -816,6 +942,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Таблица связывающая статьи и используемые в них исследования.");
 
+                entity.HasIndex(e => e.ArticleId);
+
                 entity.Property(e => e.ResearchId)
                     .HasColumnName("research_id")
                     .ForNpgsqlHasComment("id исследования.");
@@ -844,6 +972,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Таблица, связывающая автора и их исследования.");
 
+                entity.HasIndex(e => e.ResearchId);
+
                 entity.Property(e => e.AuthorId)
                     .HasColumnName("author_id")
                     .ForNpgsqlHasComment("id автора.");
@@ -870,6 +1000,8 @@ namespace Library.Models
                 entity.ToTable("research_book");
 
                 entity.ForNpgsqlHasComment("Таблица, связывающая исследования и книги.");
+
+                entity.HasIndex(e => e.BookId);
 
                 entity.Property(e => e.ResearchId)
                     .HasColumnName("research_id")
@@ -898,6 +1030,8 @@ namespace Library.Models
                 entity.ToTable("research_theme");
 
                 entity.ForNpgsqlHasComment("Таблица, связывающая исследования и их тематику.");
+
+                entity.HasIndex(e => e.ThemeId);
 
                 entity.Property(e => e.ResearchId)
                     .HasColumnName("research_id")
@@ -973,6 +1107,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Таблица тем той или иной статьи.");
 
+                entity.HasIndex(e => e.ArticleId);
+
                 entity.Property(e => e.ThemeId)
                     .HasColumnName("theme_id")
                     .ForNpgsqlHasComment("id темы.");
@@ -1032,6 +1168,8 @@ namespace Library.Models
 
                 entity.ForNpgsqlHasComment("Таблица, связывающая книги и темы.");
 
+                entity.HasIndex(e => e.BookId);
+
                 entity.Property(e => e.ThemeId)
                     .HasColumnName("theme_id")
                     .ForNpgsqlHasComment("id темы.");
@@ -1050,31 +1188,6 @@ namespace Library.Models
                     .HasForeignKey(d => d.ThemeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_theme_book_theme");
-            });
-
-            modelBuilder.Entity<FileType>(entity =>
-            {
-                entity.ToTable("file_type");
-
-                entity.ForNpgsqlHasComment("Тип содержимого тех или иных элементов.");
-
-                entity.HasIndex(e => e.Name)
-                    .HasName("uk_type")
-                    .IsUnique();
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasDefaultValueSql("nextval('\"Type_id_seq\"'::regclass)")
-                    .ForNpgsqlHasComment("Уникальный внутренний идентификатор.");
-
-                entity.Property(e => e.Description)
-                    .HasColumnName("description")
-                    .ForNpgsqlHasComment("Описание типа.");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasColumnName("name")
-                    .ForNpgsqlHasComment("Название типа.");
             });
 
             modelBuilder.HasSequence("Article_id_seq");

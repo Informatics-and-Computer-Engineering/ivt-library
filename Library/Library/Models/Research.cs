@@ -15,11 +15,11 @@ namespace Library.Models
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
         public string Description { get; set; }
         public string Goal { get; set; }
-        public string Tasks { get; set; }
+        public string Name { get; set; }
         public short? Progress { get; set; }
+        public string Tasks { get; set; }
 
         public ICollection<FileResearch> FileResearch { get; set; }
         public ICollection<ResearchArticle> ResearchArticle { get; set; }

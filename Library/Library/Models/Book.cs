@@ -15,12 +15,12 @@ namespace Library.Models
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int? Year { get; set; }
-        public string Publisher { get; set; }
-        public int? Volume { get; set; }
         public string Bibliography { get; set; }
         public int BookTypeId { get; set; }
+        public string Name { get; set; }
+        public string Publisher { get; set; }
+        public int? Volume { get; set; }
+        public int? Year { get; set; }
 
         public BookType BookType { get; set; }
         public ICollection<ArticleBook> ArticleBook { get; set; }

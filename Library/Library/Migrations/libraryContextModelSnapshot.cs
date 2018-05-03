@@ -10,7 +10,7 @@ using System;
 
 namespace Library.Migrations
 {
-    [DbContext(typeof(LibraryContext))]
+    [DbContext(typeof(Models.LibraryContext))]
     partial class libraryContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

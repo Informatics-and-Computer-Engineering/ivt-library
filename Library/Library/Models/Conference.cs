@@ -11,9 +11,9 @@ namespace Library.Models
         }
 
         public int Id { get; set; }
+        public string FullName { get; set; }
         public string Name { get; set; }
         public string Place { get; set; }
-        public string FullName { get; set; }
         public int? ScaleId { get; set; }
 
         public Scale Scale { get; set; }
